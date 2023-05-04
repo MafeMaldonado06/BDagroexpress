@@ -1,7 +1,7 @@
 package com.example.BDAgroexpress.Entidades;
 
 import jakarta.persistence.*;
-
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -32,8 +32,15 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String getOrden_Fecha_entrega;
 
-    @OneToMany(mappedBy = "ordenentrega", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set <Ord_Compra> ordencompra;
+
+
+    @ManyToOne( fetch = FetchType.LAZY, optional= false)
+    @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
+    private  Ord_Compra ord_compra;
+
+
+
+
 
     public Ord_Entrega(String orden_id, String orden_idCompra, int orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
         this.orden_id = orden_id;

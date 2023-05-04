@@ -13,9 +13,11 @@ public class Ord_Compra {
     @Column(nullable = false)
     private int OrdC_IdComp;
 
+    //Falta tabla de relacion
     @Column(unique = true, length = 20)
     private String OrdC_IdVenta;
 
+    //Falta tabla de relacion
     @Column(nullable = false)
     private int OrdC_IdProducto;
 
@@ -27,6 +29,11 @@ public class Ord_Compra {
 
     @Column(nullable = false)
     private int OrdC_Cantcoprada;
+
+    @OneToMany(mappedBy = "ordenId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Ord_Entrega> ord_entrega;
+
+
 
     public Ord_Compra(String ordC_Id, int ordC_IdComp, String ordC_IdVenta, int ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
         OrdC_Id = ordC_Id;
@@ -96,6 +103,16 @@ public class Ord_Compra {
     public void setOrdC_Cantcoprada(int ordC_Cantcoprada) {
         OrdC_Cantcoprada = ordC_Cantcoprada;
     }
+
+
+    public Set<Ord_Entrega> getOrd_entrega() {
+        return ord_entrega;
+    }
+
+    public void setOrd_entrega(Set<Ord_Entrega> ord_entrega) {
+        this.ord_entrega = ord_entrega;
+    }
+
 
     @Override
     public String toString() {
