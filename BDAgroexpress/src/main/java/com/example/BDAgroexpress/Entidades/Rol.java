@@ -48,4 +48,13 @@ public class Rol {
     public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+
+    @Override
+    public String toString() {
+        return "Rol{" +
+                "Rol_Id=" + Rol_Id +
+                ", Rol_Nombre='" + Rol_Nombre + '\'' +
+                ", usuarios=" + usuarios +
+                '}';
+    }
 }

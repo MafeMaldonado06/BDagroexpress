@@ -57,4 +57,15 @@ public class Factura {
     public void setFac_OrdC_Id(String fac_OrdC_Id) {
         Fac_OrdC_Id = fac_OrdC_Id;
     }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "Fac_Id='" + Fac_Id + '\'' +
+                ", Fac_Cantidad=" + Fac_Cantidad +
+                ", Fac_FechaVenta=" + Fac_FechaVenta +
+                ", Fac_Total=" + Fac_Total +
+                ", Fac_OrdC_Id='" + Fac_OrdC_Id + '\'' +
+                '}';
+    }
 }

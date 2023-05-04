@@ -136,4 +136,21 @@ public class Usuario {
     public void setUsu_Rol(int usu_Rol) {
         Usu_Rol = usu_Rol;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "Usu_Id=" + Usu_Id +
+                ", Usu_Nombre='" + Usu_Nombre + '\'' +
+                ", Usu_Apellidos='" + Usu_Apellidos + '\'' +
+                ", Usu_Correo='" + Usu_Correo + '\'' +
+                ", Usu_Celular='" + Usu_Celular + '\'' +
+                ", Usu_Telefono='" + Usu_Telefono + '\'' +
+                ", Usu_Departamento='" + Usu_Departamento + '\'' +
+                ", Usu_Ciudad='" + Usu_Ciudad + '\'' +
+                ", Usu_Direccion='" + Usu_Direccion + '\'' +
+                ", Usu_Contraseña='" + Usu_Contraseña + '\'' +
+                ", Usu_Rol=" + Usu_Rol +
+                '}';
+    }
 }
