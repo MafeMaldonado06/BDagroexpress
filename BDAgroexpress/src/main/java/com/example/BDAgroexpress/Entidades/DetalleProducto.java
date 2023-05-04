@@ -6,95 +6,112 @@ import java.util.Set;
 
 @Entity
 @Table(name = "detalleproducto")
-
 public class DetalleProducto {
 
     @Id
-    @Column(name = "Id", unique = true, length = 25)
-    private int Usu_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int Det_Referencia;
 
-    @Column(name = "Usuario", unique = true, length = 25)
-    private int Usu_usuario;
+    @Column(name = "Usu_Id", nullable = false)
+    private int Det_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Usu_Id")
+    @JsonIgnore
+    private Usuario Det_IdUsuario;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Producto",referencedColumnName = "Producto",nullable = false)
     @JsonIgnore
-    private String Usu_producto;
+    private DetalleProducto Det_producto;
+
     @Column(name = "Precio",nullable = false, length = 25)
-    private int Usu_precio;
+    private int Det_precio;
+
     @Column(name = "Cantidad",nullable = false, length = 150)
-    private int Usu_cantidad;
+    private int Det_cantidad;
 
+    @OneToMany(mappedBy = "Ord_Compra", fetch = FetchType.LAZY)
+    private Set<Ord_Compra> ord_compras;
 
-    public DetalleProducto(int id, int usuario, String producto, int cantidad, int precio) {
-        this.Usu_id = id;
-        this.Usu_usuario = usuario;
-        this.Usu_producto = producto;
-        this.Usu_cantidad = cantidad;
-        this.Usu_precio = precio;
+    public DetalleProducto(int det_Referencia, int det_id, Usuario det_IdUsuario, DetalleProducto det_producto, int det_precio, int det_cantidad, Set<Ord_Compra> ord_compras) {
+        Det_Referencia = det_Referencia;
+        Det_id = det_id;
+        Det_IdUsuario = det_IdUsuario;
+        Det_producto = det_producto;
+        Det_precio = det_precio;
+        Det_cantidad = det_cantidad;
     }
 
     public DetalleProducto() {
-
-}
-    public int getId() {
-        return Usu_id;
     }
 
-    public void setId(int id) {
-        this.Usu_id = id;
+    public int getDet_Referencia() {
+        return Det_Referencia;
     }
 
-    public int getUsuario() {
-        return Usu_usuario;
+    public void setDet_Referencia(int det_Referencia) {
+        Det_Referencia = det_Referencia;
     }
 
-    public void setUsuario(int usuario) {
-        this.Usu_usuario = usuario;
+    public int getDet_id() {
+        return Det_id;
     }
 
-    public String getProducto() {
-        return Usu_producto;
+    public void setDet_id(int det_id) {
+        Det_id = det_id;
     }
 
-    public void setProducto(String producto) {
-        this.Usu_producto = producto;
+    public Usuario getDet_IdUsuario() {
+        return Det_IdUsuario;
     }
 
-    public int getPrecio() {
-        return Usu_precio;
+    public void setDet_IdUsuario(Usuario det_IdUsuario) {
+        Det_IdUsuario = det_IdUsuario;
     }
 
-    public void setPrecio(int precio) {
-        this.Usu_precio = precio;
+    public DetalleProducto getDet_producto() {
+        return Det_producto;
     }
 
-    public int getCantidad() {
-        return Usu_cantidad;
+    public void setDet_producto(DetalleProducto det_producto) {
+        Det_producto = det_producto;
     }
 
-    public void setCantidad(int cantidad) {
-        this.Usu_cantidad = cantidad;
+    public int getDet_precio() {
+        return Det_precio;
     }
 
-
-    public Set<listaProductos> getListaproductos() {
-        return getListaproductos();
+    public void setDet_precio(int det_precio) {
+        Det_precio = det_precio;
     }
 
-    public void setListaproductos(Set<listaProductos> listaproductos) {
-        this.setListaproductos(listaproductos);
+    public int getDet_cantidad() {
+        return Det_cantidad;
     }
 
+    public void setDet_cantidad(int det_cantidad) {
+        Det_cantidad = det_cantidad;
+    }
+
+    public Set<Ord_Compra> getOrd_compras() {
+        return ord_compras;
+    }
+
+    public void setOrd_compras(Set<Ord_Compra> ord_compras) {
+        this.ord_compras = ord_compras;
+    }
 
     @Override
     public String toString() {
         return "DetalleProducto{" +
-                "id=" + Usu_id +
-                ", usuario=" + Usu_usuario +
-                ", producto='" + Usu_producto + '\'' +
-                ", cantidad=" + Usu_cantidad +
-                ", precio=" + Usu_precio +
+                "Det_Referencia=" + Det_Referencia +
+                ", Det_id=" + Det_id +
+                ", Det_IdUsuario=" + Det_IdUsuario +
+                ", Det_producto=" + Det_producto +
+                ", Det_precio=" + Det_precio +
+                ", Det_cantidad=" + Det_cantidad +
+                ", ord_compras=" + ord_compras +
                 '}';
     }
 }

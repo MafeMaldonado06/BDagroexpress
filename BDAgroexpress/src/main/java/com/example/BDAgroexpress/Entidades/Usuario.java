@@ -3,6 +3,8 @@ package com.example.BDAgroexpress.Entidades;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -30,9 +32,18 @@ public class Usuario {
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Rol_Id", referencedColumnName = "Rol_Id", nullable = false)
     @JsonIgnore
-    private int Usu_Rol;
+    private Rol Usu_Rol;
 
-    public Usuario(Integer usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, int usu_Rol) {
+    @OneToMany(mappedBy = "Ord_Entrega", fetch = FetchType.LAZY)
+    private Set<Ord_Entrega> ord_entregas;
+
+    @OneToOne(mappedBy = "Ord_Compra", fetch = FetchType.LAZY)
+    private Set<Ord_Compra> ord_compras;
+
+    @OneToMany(mappedBy = "DetalleProducto", fetch = FetchType.LAZY)
+    private Set<DetalleProducto> detalleProductos;
+
+    public Usuario(Integer usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, Rol usu_Rol) {
         Usu_Id = usu_Id;
         Usu_Nombre = usu_Nombre;
         Usu_Apellidos = usu_Apellidos;
@@ -129,12 +140,36 @@ public class Usuario {
         Usu_Contraseña = usu_Contraseña;
     }
 
-    public int getUsu_Rol() {
+    public Rol getUsu_Rol() {
         return Usu_Rol;
     }
 
-    public void setUsu_Rol(int usu_Rol) {
+    public void setUsu_Rol(Rol usu_Rol) {
         Usu_Rol = usu_Rol;
+    }
+
+    public Set<Ord_Entrega> getOrd_entregas() {
+        return ord_entregas;
+    }
+
+    public void setOrd_entregas(Set<Ord_Entrega> ord_entregas) {
+        this.ord_entregas = ord_entregas;
+    }
+
+    public Set<Ord_Compra> getOrd_compras() {
+        return ord_compras;
+    }
+
+    public void setOrd_compras(Set<Ord_Compra> ord_compras) {
+        this.ord_compras = ord_compras;
+    }
+
+    public Set<DetalleProducto> getDetalleProductos() {
+        return detalleProductos;
+    }
+
+    public void setDetalleProductos(Set<DetalleProducto> detalleProductos) {
+        this.detalleProductos = detalleProductos;
     }
 
     @Override

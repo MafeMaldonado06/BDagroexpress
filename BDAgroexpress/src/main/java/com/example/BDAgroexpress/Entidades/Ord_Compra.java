@@ -1,4 +1,5 @@
 package com.example.BDAgroexpress.Entidades;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -9,17 +10,19 @@ public class Ord_Compra {
     @Id
     @Column(unique = true, length = 20)
     private String OrdC_Id;
-
-    @Column(nullable = false)
-    private int OrdC_IdComp;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    private Usuario OrdC_IdComp;
 
     //Falta tabla de relacion
     @Column(unique = true, length = 20)
     private String OrdC_IdVenta;
 
     //Falta tabla de relacion
-    @Column(nullable = false)
-    private int OrdC_IdProducto;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(referencedColumnName = "Det_Referencia" ,nullable = false)
+    @JsonIgnore
+    private DetalleProducto OrdC_IdProducto;
 
     @Column(unique = true, length = 20)
     private String OrdC_Fecha;
@@ -30,12 +33,13 @@ public class Ord_Compra {
     @Column(nullable = false)
     private int OrdC_Cantcoprada;
 
-    @OneToMany(mappedBy = "ordenId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ordenId", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entrega;
 
+    @OneToOne(mappedBy = "Ordc_Id",fetch = FetchType.LAZY)
+    private  Set<Factura>facturas;
 
-
-    public Ord_Compra(String ordC_Id, int ordC_IdComp, String ordC_IdVenta, int ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
+    public Ord_Compra(String ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
         OrdC_Id = ordC_Id;
         OrdC_IdComp = ordC_IdComp;
         OrdC_IdVenta = ordC_IdVenta;
@@ -56,11 +60,11 @@ public class Ord_Compra {
         OrdC_Id = ordC_Id;
     }
 
-    public int getOrdC_IdComp() {
+    public Usuario getOrdC_IdComp() {
         return OrdC_IdComp;
     }
 
-    public void setOrdC_IdComp(int ordC_IdComp) {
+    public void setOrdC_IdComp(Usuario ordC_IdComp) {
         OrdC_IdComp = ordC_IdComp;
     }
 
@@ -72,11 +76,11 @@ public class Ord_Compra {
         OrdC_IdVenta = ordC_IdVenta;
     }
 
-    public int getOrdC_IdProducto() {
+    public DetalleProducto getOrdC_IdProducto() {
         return OrdC_IdProducto;
     }
 
-    public void setOrdC_IdProducto(int ordC_IdProducto) {
+    public void setOrdC_IdProducto(DetalleProducto ordC_IdProducto) {
         OrdC_IdProducto = ordC_IdProducto;
     }
 
@@ -113,6 +117,13 @@ public class Ord_Compra {
         this.ord_entrega = ord_entrega;
     }
 
+    public Set<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(Set<Factura> facturas) {
+        this.facturas = facturas;
+    }
 
     @Override
     public String toString() {

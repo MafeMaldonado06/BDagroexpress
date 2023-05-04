@@ -1,5 +1,6 @@
 package com.example.BDAgroexpress.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Set;
@@ -14,8 +15,10 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String orden_idCompra;
 
-    @Column(nullable = false)
-    private int orden_idTrasportador;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Usu_Id",nullable = false)
+    @JsonIgnore
+    private Usuario orden_idTrasportador;
 
     @Column(nullable = false)
     private int orden_Cantidad;
@@ -42,7 +45,7 @@ public class Ord_Entrega {
 
 
 
-    public Ord_Entrega(String orden_id, String orden_idCompra, int orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
+    public Ord_Entrega(String orden_id, String orden_idCompra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
         this.orden_id = orden_id;
         this.orden_idCompra = orden_idCompra;
         this.orden_idTrasportador = orden_idTrasportador;
@@ -72,11 +75,11 @@ public class Ord_Entrega {
         this.orden_idCompra = orden_idCompra;
     }
 
-    public int getOrden_idTrasportador() {
+    public Usuario getOrden_idTrasportador() {
         return orden_idTrasportador;
     }
 
-    public void setOrden_idTrasportador(int orden_idTrasportador) {
+    public void setOrden_idTrasportador(Usuario orden_idTrasportador) {
         this.orden_idTrasportador = orden_idTrasportador;
     }
 
