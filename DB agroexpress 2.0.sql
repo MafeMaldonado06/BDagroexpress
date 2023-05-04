@@ -51,7 +51,6 @@ create table factura(
     Fac_Total_Precio double not null,
     Fac_IdCamp bigint not null,
     Fac_IdProducto int not null,
-    foreign key (Fac_IdCamp) references Usuario(Usu_Id),
     foreign key (Fac_IdProducto) references Detalle_Producto(Det_Id)
 );
 

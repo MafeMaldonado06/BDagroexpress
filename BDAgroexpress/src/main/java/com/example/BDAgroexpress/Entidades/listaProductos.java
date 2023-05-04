@@ -3,61 +3,59 @@ import jakarta.persistence.*;
 
 import java.util.Set;
 
-
 @Entity
 @Table(name = "listaproductos")
-public class listaProductos {
+public class ListaProductos {
 
     @Id
-    @Column(name = "Id",unique = true, length = 25)
-    private int Usu_id;
+    @Column(name = "LisP_Id",unique = true)
+    private int LisP_id;
 
-    @Column(name = "Nombre",nullable = false, length = 25)
-    private String Usu_nombre;
+    @Column(name = "LisP_Nombre",nullable = false, length = 25)
+    private String LisP_nombre;
 
-    @OneToOne(mappedBy = "detalleproducto",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<listaProductos> listaproductos;
+    @OneToMany(mappedBy = "Det_producto", fetch = FetchType.LAZY)
+    private Set<DetalleProducto> detalleProductos;
 
 
-
-    public listaProductos(int id, String nombre) {
-        this.Usu_id = id;
-        this.Usu_nombre = nombre;
+    public ListaProductos(int id, String nombre) {
+        this.LisP_id = id;
+        this.LisP_nombre = nombre;
     }
 
-    public listaProductos(){
+    public ListaProductos(){
 
     }
 
-    public int getId() {
-        return Usu_id;
+    public int getLisP_id() {
+        return LisP_id;
     }
 
-    public void setId(int id) {
-        this.Usu_id = id;
+    public void setLisP_id(int lisP_id) {
+        LisP_id = lisP_id;
     }
 
-    public String getNombre() {
-        return Usu_nombre;
+    public String getLisP_nombre() {
+        return LisP_nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.Usu_nombre = nombre;
+    public void setLisP_nombre(String lisP_nombre) {
+        LisP_nombre = lisP_nombre;
     }
 
-    public Set<listaProductos> getListaproductos() {
-        return listaproductos;
+    public Set<DetalleProducto> getDetalleProductos() {
+        return detalleProductos;
     }
 
-    public void setListaproductos(Set<listaProductos> listaproductos) {
-        this.listaproductos = listaproductos;
+    public void setDetalleProductos(Set<DetalleProducto> detalleProductos) {
+        this.detalleProductos = detalleProductos;
     }
 
     @Override
     public String toString() {
-        return "listaProductos{" +
-                "id=" + Usu_id +
-                ", nombre='" + Usu_nombre + '\'' +
+        return "ListaProductos{" +
+                "LisP_id=" + LisP_id +
+                ", LisP_nombre='" + LisP_nombre + '\'' +
                 '}';
     }
 }
