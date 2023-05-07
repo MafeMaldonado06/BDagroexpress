@@ -30,17 +30,17 @@ public class Usuario {
     @Column(name = "Password", nullable = false, length = 10)
     private String Usu_Contraseña;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Rol_Id", referencedColumnName = "Rol_Id", nullable = false)
+    @JoinColumn(referencedColumnName = "Rol_Id", nullable = false)
     @JsonIgnore
     private Rol Usu_Rol;
 
-    @OneToMany(mappedBy = "Ord_Entrega", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Orden_IdTrasportador", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entregas;
 
-    @OneToOne(mappedBy = "Ord_Compra", fetch = FetchType.LAZY)
-    private Set<Ord_Compra> ord_compras;
+    @OneToOne(mappedBy = "OrdC_IdComp", fetch = FetchType.LAZY)
+    private Ord_Compra Ord_Comprador;
 
-    @OneToMany(mappedBy = "DetalleProducto", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
     public Usuario(Integer usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, Rol usu_Rol) {
@@ -156,12 +156,12 @@ public class Usuario {
         this.ord_entregas = ord_entregas;
     }
 
-    public Set<Ord_Compra> getOrd_compras() {
-        return ord_compras;
+    public Ord_Compra getOrd_compras() {
+        return Ord_Comprador;
     }
 
-    public void setOrd_compras(Set<Ord_Compra> ord_compras) {
-        this.ord_compras = ord_compras;
+    public void setOrd_compras(Ord_Compra ord_compras) {
+        this.Ord_Comprador = ord_compras;
     }
 
     public Set<DetalleProducto> getDetalleProductos() {

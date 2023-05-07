@@ -12,29 +12,29 @@ public class DetalleProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Det_Referencia;
 
-    @Column(name = "Usu_Id", nullable = false)
+    @Column(nullable = false)
     private int Det_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Usu_Id")
+    @JoinColumn(referencedColumnName = "Documento", nullable = false)
     @JsonIgnore
     private Usuario Det_IdUsuario;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Producto",referencedColumnName = "Producto",nullable = false)
+    @JoinColumn(referencedColumnName = "LisP_Id",nullable = false)
     @JsonIgnore
-    private DetalleProducto Det_producto;
+    private ListaProductos Det_producto;
 
-    @Column(name = "Precio",nullable = false, length = 25)
+    @Column(nullable = false, length = 25)
     private int Det_precio;
 
-    @Column(name = "Cantidad",nullable = false, length = 150)
+    @Column(nullable = false, length = 150)
     private int Det_cantidad;
 
-    @OneToMany(mappedBy = "Ord_Compra", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
     private Set<Ord_Compra> ord_compras;
 
-    public DetalleProducto(int det_Referencia, int det_id, Usuario det_IdUsuario, DetalleProducto det_producto, int det_precio, int det_cantidad, Set<Ord_Compra> ord_compras) {
+    public DetalleProducto(int det_Referencia, int det_id, Usuario det_IdUsuario, ListaProductos det_producto, int det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
         Det_id = det_id;
         Det_IdUsuario = det_IdUsuario;
@@ -70,11 +70,11 @@ public class DetalleProducto {
         Det_IdUsuario = det_IdUsuario;
     }
 
-    public DetalleProducto getDet_producto() {
+    public ListaProductos getDet_producto() {
         return Det_producto;
     }
 
-    public void setDet_producto(DetalleProducto det_producto) {
+    public void setDet_producto(ListaProductos det_producto) {
         Det_producto = det_producto;
     }
 

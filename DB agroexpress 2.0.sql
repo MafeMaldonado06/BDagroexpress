@@ -44,25 +44,12 @@ create table Detalle_Producto(
     foreign key (Det_IdProducto) references Lista_Producto(LisP_Id)
 );
 
-create table factura(
-	Fac_Id varchar(20) primary key not null,
-    Fac_Cantidad int,
-    Fac_FechaVenta date,
-    Fac_Total_Precio double not null,
-    Fac_IdCamp bigint not null,
-    Fac_IdProducto int not null,
-    foreign key (Fac_IdCamp) references Usuario(Usu_Id),
-    foreign key (Fac_IdProducto) references Detalle_Producto(Det_Id)
-);
-
 create table OrdenCompra(
 	OrdC_Id varchar(20) primary key not null,
     OrdC_IdComp bigint not null,
-    OrdC_IdVenta varchar(20) not null,
     OrdC_IdProducto int not null,
     OrdC_Fecha varchar(30),
     OrdC_Total_pagar int not null,
-    foreign key (OrdC_IdVenta) references factura(Fac_Id),
     foreign key (OrdC_IdComp) references Usuario(Usu_Id),
     foreign key (OrdC_IdProducto) references Detalle_Producto(Det_Id)
 );
@@ -78,4 +65,13 @@ create table OrdenEntrega(
     OrdE_Fecha_entrega varchar(30),
     foreign key (OrdE_IdCompra) references OrdenCompra(OrdC_Id),
     foreign key (OrdE_IdTransportador) references Usuario(Usu_Id)
+);
+
+create table factura(
+	Fac_Id varchar(20) primary key not null,
+    Fac_Cantidad int,
+    Fac_FechaVenta date,
+    Fac_Total_Precio double not null,
+    Fac_OrdCId varchar(20) not null,
+    foreign key (Fac_OrdCId) references OrdenCompra(OrdC_Id)
 );

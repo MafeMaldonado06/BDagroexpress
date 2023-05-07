@@ -1,21 +1,21 @@
 package com.example.BDAgroexpress.Entidades;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-
 import java.util.Set;
+
 @Entity
-@Table(name = "Ordencomra")
+@Table(name = "OrdenCompra")
 public class Ord_Compra {
 
     @Id
-    @Column(unique = true, length = 20)
-    private String OrdC_Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int OrdC_Id;
+
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    @JoinColumn(referencedColumnName = "Documento",nullable = false)
     private Usuario OrdC_IdComp;
 
-    //Falta tabla de relacion
-    @Column(unique = true, length = 20)
+    @Column(length = 20)
     private String OrdC_IdVenta;
 
     //Falta tabla de relacion
@@ -33,13 +33,13 @@ public class Ord_Compra {
     @Column(nullable = false)
     private int OrdC_Cantcoprada;
 
-    @OneToMany(mappedBy = "ordenId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Ord_Compra", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entrega;
 
-    @OneToOne(mappedBy = "Ordc_Id",fetch = FetchType.LAZY)
-    private  Set<Factura>facturas;
+    @OneToOne(mappedBy = "Fac_OrdC_Id")
+    private Factura facturas;
 
-    public Ord_Compra(String ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
+    public Ord_Compra(int ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
         OrdC_Id = ordC_Id;
         OrdC_IdComp = ordC_IdComp;
         OrdC_IdVenta = ordC_IdVenta;
@@ -52,11 +52,11 @@ public class Ord_Compra {
     public Ord_Compra() {
     }
 
-    public String getOrdC_Id() {
+    public int getOrdC_Id() {
         return OrdC_Id;
     }
 
-    public void setOrdC_Id(String ordC_Id) {
+    public void setOrdC_Id(int ordC_Id) {
         OrdC_Id = ordC_Id;
     }
 
@@ -117,11 +117,11 @@ public class Ord_Compra {
         this.ord_entrega = ord_entrega;
     }
 
-    public Set<Factura> getFacturas() {
+    public Factura getFacturas() {
         return facturas;
     }
 
-    public void setFacturas(Set<Factura> facturas) {
+    public void setFacturas(Factura facturas) {
         this.facturas = facturas;
     }
 
