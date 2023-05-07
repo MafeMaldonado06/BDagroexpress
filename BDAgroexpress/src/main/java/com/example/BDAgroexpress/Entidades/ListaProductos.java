@@ -3,16 +3,11 @@ import jakarta.persistence.*;
 
 import java.util.Set;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d229bc2329954342a257098603c9e16268fd428
 @Entity
 @Table(name = "listaproductos")
 public class ListaProductos {
 
     @Id
-<<<<<<< HEAD
     @Column(name = "LisP_Id",unique = true)
     private int LisP_id;
 
@@ -22,11 +17,6 @@ public class ListaProductos {
     @OneToMany(mappedBy = "Det_producto", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
-
-    public ListaProductos(int id, String nombre) {
-        this.LisP_id = id;
-        this.LisP_nombre = nombre;
-=======
     @Column(name = "Id",unique = true, length = 25)
     private int Usu_id;
 
@@ -41,14 +31,12 @@ public class ListaProductos {
     public ListaProductos(int id, String nombre) {
         this.Usu_id = id;
         this.Usu_nombre = nombre;
->>>>>>> 8d229bc2329954342a257098603c9e16268fd428
     }
 
     public ListaProductos(){
 
     }
 
-<<<<<<< HEAD
     public int getLisP_id() {
         return LisP_id;
     }
@@ -71,7 +59,7 @@ public class ListaProductos {
 
     public void setDetalleProductos(Set<DetalleProducto> detalleProductos) {
         this.detalleProductos = detalleProductos;
-=======
+    }
     public int getId() {
         return Usu_id;
     }
@@ -94,20 +82,13 @@ public class ListaProductos {
 
     public void setListaproductos(Set<ListaProductos> listaproductos) {
         this.listaproductos = listaproductos;
->>>>>>> 8d229bc2329954342a257098603c9e16268fd428
     }
 
     @Override
     public String toString() {
-<<<<<<< HEAD
-        return "ListaProductos{" +
-                "LisP_id=" + LisP_id +
-                ", LisP_nombre='" + LisP_nombre + '\'' +
-=======
         return "listaProductos{" +
                 "id=" + Usu_id +
                 ", nombre='" + Usu_nombre + '\'' +
->>>>>>> 8d229bc2329954342a257098603c9e16268fd428
                 '}';
     }
 }
