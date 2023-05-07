@@ -1,16 +1,15 @@
 package com.example.BDAgroexpress.Entidades;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.util.Date;
 
+import java.util.Date;
 @Entity
 @Table(name = "factura")
 public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Fac_Id;
+    private String Fac_Id;
     @Column(name = "Fac_Cantidad", nullable = false)
     private int Fac_Cantidad;
     @Column(name = "Fac_FechaVenta", nullable = false)
@@ -18,8 +17,7 @@ public class Factura {
     @Column(name = "Fac_TotalPagar", nullable = false)
     private Double Fac_Total;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "OrdC_Id",nullable = false)
-    @JsonIgnore
+    @JoinColumn(name = "Fac_OrdCId", referencedColumnName = "OrdC_Id",nullable = false)
     private Ord_Compra Fac_OrdC_Id;
 
     @PrePersist
@@ -27,7 +25,7 @@ public class Factura {
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(int fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
+    public Factura(String fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
         Fac_Id = fac_Id;
         Fac_Cantidad = fac_Cantidad;
         Fac_FechaVenta = fac_FechaVenta;
@@ -35,11 +33,11 @@ public class Factura {
         Fac_OrdC_Id = fac_OrdC_Id;
     }
 
-    public int getFac_Id() {
+    public String getFac_Id() {
         return Fac_Id;
     }
 
-    public void setFac_Id(int fac_Id) {
+    public void setFac_Id(String fac_Id) {
         Fac_Id = fac_Id;
     }
 

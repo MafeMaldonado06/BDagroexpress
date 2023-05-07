@@ -2,9 +2,11 @@ package com.example.BDAgroexpress.Entidades;
 import jakarta.persistence.*;
 
 import java.util.Set;
+
+
 @Entity
 @Table(name = "listaproductos")
-public class ListaProductos {
+public class listaProductos {
 
     @Id
     @Column(name = "Id",unique = true, length = 25)
@@ -14,16 +16,16 @@ public class ListaProductos {
     private String Usu_nombre;
 
     @OneToOne(mappedBy = "detalleproducto",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ListaProductos> listaproductos;
+    private Set<listaProductos> listaproductos;
 
 
 
-    public ListaProductos(int id, String nombre) {
+    public listaProductos(int id, String nombre) {
         this.Usu_id = id;
         this.Usu_nombre = nombre;
     }
 
-    public ListaProductos(){
+    public listaProductos(){
 
     }
 
@@ -43,11 +45,11 @@ public class ListaProductos {
         this.Usu_nombre = nombre;
     }
 
-    public Set<ListaProductos> getListaproductos() {
+    public Set<listaProductos> getListaproductos() {
         return listaproductos;
     }
 
-    public void setListaproductos(Set<ListaProductos> listaproductos) {
+    public void setListaproductos(Set<listaProductos> listaproductos) {
         this.listaproductos = listaproductos;
     }
 

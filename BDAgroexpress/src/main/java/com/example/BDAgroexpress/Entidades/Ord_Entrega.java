@@ -16,9 +16,9 @@ public class Ord_Entrega {
     private String orden_idCompra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Documento",nullable = false)
+    @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Usu_Id",nullable = false)
     @JsonIgnore
-    private Usuario Orden_IdTrasportador;
+    private Usuario orden_idTrasportador;
 
     @Column(nullable = false)
     private int orden_Cantidad;
@@ -35,21 +35,25 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String getOrden_Fecha_entrega;
 
+
+
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
-    @JoinColumn(referencedColumnName = "OrdC_Id", nullable = false)
-    private  Ord_Compra Ord_Compra;
+    @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
+    private  Ord_Compra ord_compra;
 
 
-    public Ord_Entrega(String orden_id, String orden_idCompra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega, com.example.BDAgroexpress.Entidades.Ord_Compra ord_Compra) {
+
+
+
+    public Ord_Entrega(String orden_id, String orden_idCompra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
         this.orden_id = orden_id;
         this.orden_idCompra = orden_idCompra;
-        this.Orden_IdTrasportador = orden_idTrasportador;
+        this.orden_idTrasportador = orden_idTrasportador;
         this.orden_Cantidad = orden_Cantidad;
         this.orden_Fecha = orden_Fecha;
         this.orden_Total_pagar = orden_Total_pagar;
         this.orden_Fecha_despacho = orden_Fecha_despacho;
         this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
-        Ord_Compra = ord_Compra;
     }
 
     public Ord_Entrega() {
@@ -72,11 +76,11 @@ public class Ord_Entrega {
     }
 
     public Usuario getOrden_idTrasportador() {
-        return Orden_IdTrasportador;
+        return orden_idTrasportador;
     }
 
     public void setOrden_idTrasportador(Usuario orden_idTrasportador) {
-        this.Orden_IdTrasportador = orden_idTrasportador;
+        this.orden_idTrasportador = orden_idTrasportador;
     }
 
     public int getOrden_Cantidad() {
@@ -119,26 +123,17 @@ public class Ord_Entrega {
         this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
     }
 
-    public com.example.BDAgroexpress.Entidades.Ord_Compra getOrd_Compra() {
-        return Ord_Compra;
-    }
-
-    public void setOrd_Compra(com.example.BDAgroexpress.Entidades.Ord_Compra ord_Compra) {
-        Ord_Compra = ord_Compra;
-    }
-
     @Override
     public String toString() {
         return "Ord_Entrega{" +
                 "orden_id='" + orden_id + '\'' +
                 ", orden_idCompra='" + orden_idCompra + '\'' +
-                ", orden_idTrasportador=" + Orden_IdTrasportador +
+                ", orden_idTrasportador=" + orden_idTrasportador +
                 ", orden_Cantidad=" + orden_Cantidad +
                 ", orden_Fecha='" + orden_Fecha + '\'' +
                 ", orden_Total_pagar=" + orden_Total_pagar +
                 ", orden_Fecha_despacho='" + orden_Fecha_despacho + '\'' +
                 ", getOrden_Fecha_entrega='" + getOrden_Fecha_entrega + '\'' +
-                ", Ord_Compra=" + Ord_Compra +
                 '}';
     }
 }
