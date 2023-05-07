@@ -4,6 +4,7 @@ import com.example.BDAgroexpress.Entidades.DetalleProducto;
 import com.example.BDAgroexpress.Interfaz.DetalleProducto_Repositorio;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,8 +26,12 @@ public class Servicios_Detalle_Producto {
         return  (ArrayList<DetalleProducto>) repositorio.findAll();
     }
 
-    public ArrayList<DetalleProducto> listarProductosCampesino(Integer Id){
-        String consulta = "Select d.Det_IdUsuario.Usu_Nombre, d.Det_producto. from DetalleProducto d where d."
+    public List<DetalleProducto> listarProductosCampesino(Integer Id){
+        String consulta = "Select d.Det_IdUsuario.Usu_Nombre, d.Det_producto.LisP_Nombre from DetalleProducto d where d.Det_IdUsuario = " + Id;
+
+        Query query = em.createQuery(consulta);
+
+        return query.getResultList();
     }
 
 }
