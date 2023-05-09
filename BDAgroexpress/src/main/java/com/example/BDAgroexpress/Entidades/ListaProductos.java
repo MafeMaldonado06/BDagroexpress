@@ -17,24 +17,9 @@ public class ListaProductos {
     @OneToMany(mappedBy = "Det_producto", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
-    @Column(name = "Id",unique = true, length = 25)
-    private int Usu_id;
-
-    @Column(name = "Nombre",nullable = false, length = 25)
-    private String Usu_nombre;
-
-    @OneToOne(mappedBy = "detalleproducto",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<ListaProductos> listaproductos;
-
-
-
-    public ListaProductos(int id, String nombre) {
-        this.Usu_id = id;
-        this.Usu_nombre = nombre;
-    }
-
-    public ListaProductos(){
-
+    public ListaProductos(int lisP_id, String lisP_nombre) {
+        LisP_id = lisP_id;
+        LisP_nombre = lisP_nombre;
     }
 
     public int getLisP_id() {
@@ -60,35 +45,12 @@ public class ListaProductos {
     public void setDetalleProductos(Set<DetalleProducto> detalleProductos) {
         this.detalleProductos = detalleProductos;
     }
-    public int getId() {
-        return Usu_id;
-    }
-
-    public void setId(int id) {
-        this.Usu_id = id;
-    }
-
-    public String getNombre() {
-        return Usu_nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.Usu_nombre = nombre;
-    }
-
-    public Set<ListaProductos> getListaproductos() {
-        return listaproductos;
-    }
-
-    public void setListaproductos(Set<ListaProductos> listaproductos) {
-        this.listaproductos = listaproductos;
-    }
 
     @Override
     public String toString() {
-        return "listaProductos{" +
-                "id=" + Usu_id +
-                ", nombre='" + Usu_nombre + '\'' +
+        return "ListaProductos{" +
+                "LisP_id=" + LisP_id +
+                ", LisP_nombre='" + LisP_nombre + '\'' +
                 '}';
     }
 }
