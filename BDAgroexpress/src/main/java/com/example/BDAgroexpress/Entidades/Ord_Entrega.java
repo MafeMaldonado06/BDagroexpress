@@ -16,7 +16,7 @@ public class Ord_Entrega {
     private String orden_idCompra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Usu_Id",nullable = false)
+    @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Documento",nullable = false)
     @JsonIgnore
     private Usuario orden_idTrasportador;
 
@@ -34,8 +34,6 @@ public class Ord_Entrega {
 
     @Column(unique = true, length = 20)
     private String getOrden_Fecha_entrega;
-
-
 
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
     @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
