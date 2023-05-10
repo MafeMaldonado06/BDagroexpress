@@ -35,11 +35,12 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String getOrden_Fecha_entrega;
 
+    @Column(nullable = false, length = 20)
+    private String estado;
+
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
     @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
     private  Ord_Compra ord_compra;
-
-
 
 
 

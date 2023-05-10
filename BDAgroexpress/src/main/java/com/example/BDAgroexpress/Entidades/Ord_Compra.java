@@ -11,7 +11,7 @@ public class Ord_Compra {
     @Column(unique = true, length = 20)
     private String OrdC_Id;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    @JoinColumn(referencedColumnName = "Documento",nullable = false)
     private Usuario OrdC_IdComp;
 
     //Falta tabla de relacion
