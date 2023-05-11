@@ -15,7 +15,7 @@ public class Rol {
     private String Rol_Nombre;
 
     @OneToOne(mappedBy = "Usu_Rol", fetch = FetchType.LAZY)
-    private Usuario usuarios;
+    private Set<Usuario> usuarios;
 
     public Rol(int rol_Id, String rol_Nombre) {
         Rol_Id = rol_Id;
@@ -41,11 +41,11 @@ public class Rol {
         Rol_Nombre = rol_Nombre;
     }
 
-    public Usuario getUsuarios() {
+    public Set<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(Usuario usuarios) {
+    public void setUsuarios(Set<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 
@@ -54,7 +54,6 @@ public class Rol {
         return "Rol{" +
                 "Rol_Id=" + Rol_Id +
                 ", Rol_Nombre='" + Rol_Nombre + '\'' +
-                ", usuarios=" + usuarios +
                 '}';
     }
 }

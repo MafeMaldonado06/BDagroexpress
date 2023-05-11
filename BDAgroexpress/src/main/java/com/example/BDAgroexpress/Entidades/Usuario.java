@@ -10,7 +10,7 @@ import java.util.Set;
 public class Usuario {
     @Id
     @Column(name = "Documento", unique = true, nullable = false)
-    private Integer Usu_Id;
+    private String Usu_Id;
     @Column(name = "Nombres", nullable = false, length = 50)
     private String Usu_Nombre;
     @Column(name = "Apellidos", nullable = false, length = 50)
@@ -43,7 +43,7 @@ public class Usuario {
     @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
-    public Usuario(Integer usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, Rol usu_Rol) {
+    public Usuario(String usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, Rol usu_Rol) {
         Usu_Id = usu_Id;
         Usu_Nombre = usu_Nombre;
         Usu_Apellidos = usu_Apellidos;
@@ -60,11 +60,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Integer getUsu_Id() {
+    public String getUsu_Id() {
         return Usu_Id;
     }
 
-    public void setUsu_Id(Integer usu_Id) {
+    public void setUsu_Id(String usu_Id) {
         Usu_Id = usu_Id;
     }
 
