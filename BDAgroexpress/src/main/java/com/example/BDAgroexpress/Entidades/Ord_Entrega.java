@@ -12,9 +12,6 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String orden_id;
 
-    @Column(unique = true, length = 20)
-    private String orden_idCompra;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Documento",nullable = false)
     @JsonIgnore
@@ -33,29 +30,26 @@ public class Ord_Entrega {
     private String orden_Fecha_despacho;
 
     @Column(unique = true, length = 20)
-    private String getOrden_Fecha_entrega;
+    private String Orden_Fecha_entrega;
 
     @Column(nullable = false, length = 20)
     private String estado;
 
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
-    @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
+    @JoinColumn(name = "orden_idCompra" , referencedColumnName = "OrdC_Id", nullable = false)
     private  Ord_Compra ord_compra;
 
 
-
-    public Ord_Entrega(String orden_id, String orden_idCompra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
+    public Ord_Entrega(String orden_id, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega, String estado, Ord_Compra ord_compra) {
         this.orden_id = orden_id;
-        this.orden_idCompra = orden_idCompra;
         this.orden_idTrasportador = orden_idTrasportador;
         this.orden_Cantidad = orden_Cantidad;
         this.orden_Fecha = orden_Fecha;
         this.orden_Total_pagar = orden_Total_pagar;
         this.orden_Fecha_despacho = orden_Fecha_despacho;
-        this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
-    }
-
-    public Ord_Entrega() {
+        this.Orden_Fecha_entrega = getOrden_Fecha_entrega;
+        this.estado = estado;
+        this.ord_compra = ord_compra;
     }
 
     public String getOrden_id() {
@@ -64,14 +58,6 @@ public class Ord_Entrega {
 
     public void setOrden_id(String orden_id) {
         this.orden_id = orden_id;
-    }
-
-    public String getOrden_idCompra() {
-        return orden_idCompra;
-    }
-
-    public void setOrden_idCompra(String orden_idCompra) {
-        this.orden_idCompra = orden_idCompra;
     }
 
     public Usuario getOrden_idTrasportador() {
@@ -114,25 +100,42 @@ public class Ord_Entrega {
         this.orden_Fecha_despacho = orden_Fecha_despacho;
     }
 
-    public String getGetOrden_Fecha_entrega() {
-        return getOrden_Fecha_entrega;
+    public String getOrden_Fecha_entrega() {
+        return Orden_Fecha_entrega;
     }
 
-    public void setGetOrden_Fecha_entrega(String getOrden_Fecha_entrega) {
-        this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
+    public void setOrden_Fecha_entrega(String orden_Fecha_entrega) {
+        Orden_Fecha_entrega = orden_Fecha_entrega;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Ord_Compra getOrd_compra() {
+        return ord_compra;
+    }
+
+    public void setOrd_compra(Ord_Compra ord_compra) {
+        this.ord_compra = ord_compra;
     }
 
     @Override
     public String toString() {
         return "Ord_Entrega{" +
                 "orden_id='" + orden_id + '\'' +
-                ", orden_idCompra='" + orden_idCompra + '\'' +
                 ", orden_idTrasportador=" + orden_idTrasportador +
                 ", orden_Cantidad=" + orden_Cantidad +
                 ", orden_Fecha='" + orden_Fecha + '\'' +
                 ", orden_Total_pagar=" + orden_Total_pagar +
                 ", orden_Fecha_despacho='" + orden_Fecha_despacho + '\'' +
-                ", getOrden_Fecha_entrega='" + getOrden_Fecha_entrega + '\'' +
+                ", Orden_Fecha_entrega='" + Orden_Fecha_entrega + '\'' +
+                ", estado='" + estado + '\'' +
+                ", ord_compra=" + ord_compra +
                 '}';
     }
 }

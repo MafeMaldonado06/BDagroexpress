@@ -19,10 +19,6 @@ public class Controlador_DetalleProducto {
         this.servicio = servicio;
     }
 
-    @GetMapping("/ProductoCampesino/{Id}")
-    public List<DetalleProducto> listarProductoCampesino(@PathVariable Integer Id){
-        return servicio.listarProductosCampesino(Id);
-    }
 
 
 }

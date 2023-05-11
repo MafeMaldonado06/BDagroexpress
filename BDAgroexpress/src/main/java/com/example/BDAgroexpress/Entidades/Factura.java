@@ -9,7 +9,7 @@ public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Fac_Id;
+    private Integer Fac_Id;
     @Column(name = "Fac_Cantidad", nullable = false)
     private int Fac_Cantidad;
     @Column(name = "Fac_FechaVenta", nullable = false)
@@ -25,7 +25,7 @@ public class Factura {
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(String fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
+    public Factura(Integer fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
         Fac_Id = fac_Id;
         Fac_Cantidad = fac_Cantidad;
         Fac_FechaVenta = fac_FechaVenta;
@@ -33,11 +33,11 @@ public class Factura {
         Fac_OrdC_Id = fac_OrdC_Id;
     }
 
-    public String getFac_Id() {
+    public Integer getFac_Id() {
         return Fac_Id;
     }
 
-    public void setFac_Id(String fac_Id) {
+    public void setFac_Id(Integer fac_Id) {
         Fac_Id = fac_Id;
     }
 
