@@ -12,10 +12,6 @@ import java.util.List;
 
 @Service
 public class Servicios_Detalle_Producto {
-
-    @PersistenceContext
-    EntityManager em;
-
     DetalleProducto_Repositorio repositorio;
 
     public Servicios_Detalle_Producto(DetalleProducto_Repositorio repositorio) {
@@ -24,14 +20,6 @@ public class Servicios_Detalle_Producto {
 
     public ArrayList<DetalleProducto> listarDetalleProducto(){
         return  (ArrayList<DetalleProducto>) repositorio.findAll();
-    }
-
-    public List<DetalleProducto> listarProductosCampesino(Integer Id){
-        String consulta = "Select d.Det_IdUsuario.Usu_Nombre, d.Det_producto.LisP_Nombre from DetalleProducto d where d.Det_IdUsuario = " + Id;
-
-        Query query = em.createQuery(consulta);
-
-        return query.getResultList();
     }
 
 }

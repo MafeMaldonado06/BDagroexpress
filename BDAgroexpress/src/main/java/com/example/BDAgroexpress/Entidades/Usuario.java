@@ -34,7 +34,7 @@ public class Usuario {
     @JsonIgnore
     private Rol Usu_Rol;
 
-    @OneToMany(mappedBy = "Orden_IdTrasportador", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "orden_idTrasportador", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entregas;
 
     @OneToOne(mappedBy = "OrdC_IdComp", fetch = FetchType.LAZY)

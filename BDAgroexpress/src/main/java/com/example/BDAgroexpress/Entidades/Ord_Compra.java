@@ -33,11 +33,11 @@ public class Ord_Compra {
     @Column(nullable = false)
     private int OrdC_Cantcoprada;
 
-    @OneToMany(mappedBy = "ordenId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ord_compra", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entrega;
 
-    @OneToOne(mappedBy = "Ordc_Id",fetch = FetchType.LAZY)
-    private  Set<Factura>facturas;
+    @OneToOne(mappedBy = "Fac_OrdC_Id",fetch = FetchType.LAZY)
+    private Factura facturas;
 
     public Ord_Compra(String ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
         OrdC_Id = ordC_Id;
@@ -117,11 +117,11 @@ public class Ord_Compra {
         this.ord_entrega = ord_entrega;
     }
 
-    public Set<Factura> getFacturas() {
+    public Factura getFacturas() {
         return facturas;
     }
 
-    public void setFacturas(Set<Factura> facturas) {
+    public void setFacturas(Factura facturas) {
         this.facturas = facturas;
     }
 
