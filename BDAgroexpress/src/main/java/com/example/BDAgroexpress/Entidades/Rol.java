@@ -1,5 +1,6 @@
 package com.example.BDAgroexpress.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -11,10 +12,11 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Rol_Id;
-    @Column(name = "Rol_Nombre", length = 50)
+    @Column(length = 50)
     private String Rol_Nombre;
 
-    @OneToOne(mappedBy = "Usu_Rol", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Usu_Rol", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Usuario> usuarios;
 
     public Rol(int rol_Id, String rol_Nombre) {

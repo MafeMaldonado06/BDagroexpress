@@ -8,10 +8,10 @@ import java.util.Set;
 public class ListaProductos {
 
     @Id
-    @Column(name = "LisP_Id",unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int LisP_id;
 
-    @Column(name = "LisP_Nombre",nullable = false, length = 25)
+    @Column(nullable = false, length = 25)
     private String LisP_nombre;
 
     @OneToMany(mappedBy = "Det_producto", fetch = FetchType.LAZY)

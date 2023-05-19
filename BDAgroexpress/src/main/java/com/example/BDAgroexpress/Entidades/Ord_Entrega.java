@@ -6,134 +6,135 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "Ordenentrega")
+@Table(name = "ordenentrega")
 public class Ord_Entrega {
+
     @Id
     @Column(unique = true, length = 20)
-    private String orden_id;
-
-    @Column(unique = true, length = 20)
-    private String orden_idCompra;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "OrdE_IdTransportador", referencedColumnName = "Usu_Id",nullable = false)
-    @JsonIgnore
-    private Usuario orden_idTrasportador;
-
-    @Column(nullable = false)
-    private int orden_Cantidad;
-
-    @Column(unique = true, length = 20)
-    private String orden_Fecha;
-
-    @Column(nullable = false)
-    private int orden_Total_pagar;
-
-    @Column(unique = true, length = 20)
-    private String orden_Fecha_despacho;
-
-    @Column(unique = true, length = 20)
-    private String getOrden_Fecha_entrega;
-
-
+    private String OrdE_Id;
 
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
-    @JoinColumn(name = "orden_idCompra" , referencedColumnName = "ordenCom_id", nullable = false)
-    private  Ord_Compra ord_compra;
+    @JoinColumn(referencedColumnName = "OrdC_Id", nullable = false)
+    private  Ord_Compra OrdE_Compra;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    @JsonIgnore
+    private Usuario OrdE_IdTrasportador;
+
+    @Column(nullable = false)
+    private int OrdE_Cantidad;
+    @Column(unique = true, length = 20)
+    private String OrdE_Fecha;
+
+    @Column(nullable = false)
+    private int OrdE_TotalPagar;
+
+    @Column(unique = true, length = 20)
+    private String OrdE_FechaDespachoAproximada;
+
+    @Column(unique = true, length = 20)
+    private String Orden_FechaEntregaAproximada;
+    @Column(length = 15)
+    private String OrdE_Estado;
 
 
-
-
-
-    public Ord_Entrega(String orden_id, String orden_idCompra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_Fecha_despacho, String getOrden_Fecha_entrega) {
-        this.orden_id = orden_id;
-        this.orden_idCompra = orden_idCompra;
-        this.orden_idTrasportador = orden_idTrasportador;
-        this.orden_Cantidad = orden_Cantidad;
-        this.orden_Fecha = orden_Fecha;
-        this.orden_Total_pagar = orden_Total_pagar;
-        this.orden_Fecha_despacho = orden_Fecha_despacho;
-        this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
+    public Ord_Entrega(String orden_id, Ord_Compra ord_compra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
+        this.OrdE_Id = orden_id;
+        this.OrdE_Compra = ord_compra;
+        this.OrdE_IdTrasportador = orden_idTrasportador;
+        this.OrdE_Cantidad = orden_Cantidad;
+        this.OrdE_Fecha = orden_Fecha;
+        this.OrdE_TotalPagar = orden_Total_pagar;
+        this.OrdE_FechaDespachoAproximada = orden_FechaDespachoAproximada;
+        this.Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
+        this.OrdE_Estado = estado;
     }
 
-    public Ord_Entrega() {
+    public String getOrdE_id() {
+        return OrdE_Id;
     }
 
-    public String getOrden_id() {
-        return orden_id;
+    public void setOrdE_id(String ordE_id) {
+        OrdE_Id = ordE_id;
     }
 
-    public void setOrden_id(String orden_id) {
-        this.orden_id = orden_id;
+    public Ord_Compra getOrdE_Compra() {
+        return OrdE_Compra;
     }
 
-    public String getOrden_idCompra() {
-        return orden_idCompra;
+    public void setOrdE_Compra(Ord_Compra ordE_Compra) {
+        OrdE_Compra = ordE_Compra;
     }
 
-    public void setOrden_idCompra(String orden_idCompra) {
-        this.orden_idCompra = orden_idCompra;
+    public Usuario getOrdE_IdTrasportador() {
+        return OrdE_IdTrasportador;
     }
 
-    public Usuario getOrden_idTrasportador() {
-        return orden_idTrasportador;
+    public void setOrdE_IdTrasportador(Usuario ordE_IdTrasportador) {
+        OrdE_IdTrasportador = ordE_IdTrasportador;
     }
 
-    public void setOrden_idTrasportador(Usuario orden_idTrasportador) {
-        this.orden_idTrasportador = orden_idTrasportador;
+    public int getOrdE_Cantidad() {
+        return OrdE_Cantidad;
     }
 
-    public int getOrden_Cantidad() {
-        return orden_Cantidad;
+    public void setOrdE_Cantidad(int ordE_Cantidad) {
+        OrdE_Cantidad = ordE_Cantidad;
     }
 
-    public void setOrden_Cantidad(int orden_Cantidad) {
-        this.orden_Cantidad = orden_Cantidad;
+    public String getOrdE_Fecha() {
+        return OrdE_Fecha;
     }
 
-    public String getOrden_Fecha() {
-        return orden_Fecha;
+    public void setOrdE_Fecha(String ordE_Fecha) {
+        OrdE_Fecha = ordE_Fecha;
     }
 
-    public void setOrden_Fecha(String orden_Fecha) {
-        this.orden_Fecha = orden_Fecha;
+    public int getOrdE_TotalPagar() {
+        return OrdE_TotalPagar;
     }
 
-    public int getOrden_Total_pagar() {
-        return orden_Total_pagar;
+    public void setOrdE_TotalPagar(int ordE_TotalPagar) {
+        OrdE_TotalPagar = ordE_TotalPagar;
     }
 
-    public void setOrden_Total_pagar(int orden_Total_pagar) {
-        this.orden_Total_pagar = orden_Total_pagar;
+    public String getOrdE_FechaDespachoAproximada() {
+        return OrdE_FechaDespachoAproximada;
     }
 
-    public String getOrden_Fecha_despacho() {
-        return orden_Fecha_despacho;
+    public void setOrdE_FechaDespachoAproximada(String ordE_FechaDespachoAproximada) {
+        OrdE_FechaDespachoAproximada = ordE_FechaDespachoAproximada;
     }
 
-    public void setOrden_Fecha_despacho(String orden_Fecha_despacho) {
-        this.orden_Fecha_despacho = orden_Fecha_despacho;
+    public String getOrden_FechaEntregaAproximada() {
+        return Orden_FechaEntregaAproximada;
     }
 
-    public String getGetOrden_Fecha_entrega() {
-        return getOrden_Fecha_entrega;
+    public void setOrden_FechaEntregaAproximada(String orden_FechaEntregaAproximada) {
+        Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
     }
 
-    public void setGetOrden_Fecha_entrega(String getOrden_Fecha_entrega) {
-        this.getOrden_Fecha_entrega = getOrden_Fecha_entrega;
+    public String getOrdE_Estado() {
+        return OrdE_Estado;
+    }
+
+    public void setOrdE_Estado(String ordE_Estado) {
+        OrdE_Estado = ordE_Estado;
     }
 
     @Override
     public String toString() {
         return "Ord_Entrega{" +
-                "orden_id='" + orden_id + '\'' +
-                ", orden_idCompra='" + orden_idCompra + '\'' +
-                ", orden_idTrasportador=" + orden_idTrasportador +
-                ", orden_Cantidad=" + orden_Cantidad +
-                ", orden_Fecha='" + orden_Fecha + '\'' +
-                ", orden_Total_pagar=" + orden_Total_pagar +
-                ", orden_Fecha_despacho='" + orden_Fecha_despacho + '\'' +
-                ", getOrden_Fecha_entrega='" + getOrden_Fecha_entrega + '\'' +
+                "OrdE_id='" + OrdE_Id + '\'' +
+                ", OrdE_Compra=" + OrdE_Compra +
+                ", OrdE_IdTrasportador=" + OrdE_IdTrasportador +
+                ", OrdE_Cantidad=" + OrdE_Cantidad +
+                ", OrdE_Fecha='" + OrdE_Fecha + '\'' +
+                ", OrdE_TotalPagar=" + OrdE_TotalPagar +
+                ", OrdE_FechaDespachoAproximada='" + OrdE_FechaDespachoAproximada + '\'' +
+                ", Orden_FechaEntregaAproximada='" + Orden_FechaEntregaAproximada + '\'' +
+                ", OrdE_Estado='" + OrdE_Estado + '\'' +
                 '}';
     }
 }

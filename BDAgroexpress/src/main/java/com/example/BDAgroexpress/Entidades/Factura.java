@@ -9,15 +9,15 @@ public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Fac_Id;
-    @Column(name = "Fac_Cantidad", nullable = false)
+    private int Fac_Id;
+    @Column(nullable = false)
     private int Fac_Cantidad;
-    @Column(name = "Fac_FechaVenta", nullable = false)
+    @Column(nullable = false)
     private Date Fac_FechaVenta;
-    @Column(name = "Fac_TotalPagar", nullable = false)
+    @Column(nullable = false)
     private Double Fac_Total;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Fac_OrdCId", referencedColumnName = "OrdC_Id",nullable = false)
+    @JoinColumn(referencedColumnName = "OrdC_Id",nullable = false)
     private Ord_Compra Fac_OrdC_Id;
 
     @PrePersist
@@ -25,7 +25,7 @@ public class Factura {
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(Integer fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
+    public Factura(int fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
         Fac_Id = fac_Id;
         Fac_Cantidad = fac_Cantidad;
         Fac_FechaVenta = fac_FechaVenta;
@@ -33,11 +33,11 @@ public class Factura {
         Fac_OrdC_Id = fac_OrdC_Id;
     }
 
-    public Integer getFac_Id() {
+    public int getFac_Id() {
         return Fac_Id;
     }
 
-    public void setFac_Id(Integer fac_Id) {
+    public void setFac_Id(int fac_Id) {
         Fac_Id = fac_Id;
     }
 

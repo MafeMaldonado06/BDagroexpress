@@ -4,21 +4,17 @@ import jakarta.persistence.*;
 
 import java.util.Set;
 @Entity
-@Table(name = "Ordencomra")
+@Table(name = "ordencompra")
 public class Ord_Compra {
 
     @Id
-    @Column(unique = true, length = 20)
-    private String OrdC_Id;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Documento",nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int OrdC_Id;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
     private Usuario OrdC_IdComp;
-
-    //Falta tabla de relacion
     @Column(unique = true, length = 20)
     private String OrdC_IdVenta;
-
-    //Falta tabla de relacion
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Det_Referencia" ,nullable = false)
     @JsonIgnore
@@ -31,32 +27,32 @@ public class Ord_Compra {
     private int OrdC_Totalpagar;
 
     @Column(nullable = false)
-    private int OrdC_Cantcoprada;
+    private int OrdC_Cantcomprada;
 
-    @OneToMany(mappedBy = "ord_compra", fetch = FetchType.LAZY)
-    private Set<Ord_Entrega> ord_entrega;
+    @OneToMany(mappedBy = "OrdE_Compra", fetch = FetchType.LAZY)
+    private Set<Ord_Entrega> Entregas;
 
     @OneToOne(mappedBy = "Fac_OrdC_Id",fetch = FetchType.LAZY)
-    private Factura facturas;
+    private Factura Facturas;
 
-    public Ord_Compra(String ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
+    public Ord_Compra(int ordC_Id, Usuario ordC_IdComp, String ordC_IdVenta, DetalleProducto ordC_IdProducto, String ordC_Fecha, int ordC_Totalpagar, int ordC_Cantcoprada) {
         OrdC_Id = ordC_Id;
         OrdC_IdComp = ordC_IdComp;
         OrdC_IdVenta = ordC_IdVenta;
         OrdC_IdProducto = ordC_IdProducto;
         OrdC_Fecha = ordC_Fecha;
         OrdC_Totalpagar = ordC_Totalpagar;
-        OrdC_Cantcoprada = ordC_Cantcoprada;
+        OrdC_Cantcomprada = ordC_Cantcoprada;
     }
 
     public Ord_Compra() {
     }
 
-    public String getOrdC_Id() {
+    public int getOrdC_Id() {
         return OrdC_Id;
     }
 
-    public void setOrdC_Id(String ordC_Id) {
+    public void setOrdC_Id(int ordC_Id) {
         OrdC_Id = ordC_Id;
     }
 
@@ -101,28 +97,28 @@ public class Ord_Compra {
     }
 
     public int getOrdC_Cantcoprada() {
-        return OrdC_Cantcoprada;
+        return OrdC_Cantcomprada;
     }
 
     public void setOrdC_Cantcoprada(int ordC_Cantcoprada) {
-        OrdC_Cantcoprada = ordC_Cantcoprada;
+        OrdC_Cantcomprada = ordC_Cantcoprada;
     }
 
 
     public Set<Ord_Entrega> getOrd_entrega() {
-        return ord_entrega;
+        return Entregas;
     }
 
     public void setOrd_entrega(Set<Ord_Entrega> ord_entrega) {
-        this.ord_entrega = ord_entrega;
+        this.Entregas = ord_entrega;
     }
 
     public Factura getFacturas() {
-        return facturas;
+        return Facturas;
     }
 
     public void setFacturas(Factura facturas) {
-        this.facturas = facturas;
+        this.Facturas = facturas;
     }
 
     @Override
@@ -134,7 +130,7 @@ public class Ord_Compra {
                 ", OrdC_IdProducto=" + OrdC_IdProducto +
                 ", OrdC_Fecha='" + OrdC_Fecha + '\'' +
                 ", OrdC_Totalpagar=" + OrdC_Totalpagar +
-                ", OrdC_Cantcoprada=" + OrdC_Cantcoprada +
+                ", OrdC_Cantcoprada=" + OrdC_Cantcomprada +
                 '}';
     }
 }

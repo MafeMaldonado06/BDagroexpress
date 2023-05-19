@@ -9,63 +9,75 @@ import java.util.Set;
 @Table(name = "usuario")
 public class Usuario {
     @Id
-    @Column(name = "Documento", unique = true, nullable = false)
-    private String Usu_Id;
-    @Column(name = "Nombres", nullable = false, length = 50)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int Usu_Id;
+    @Column(unique = true, nullable = false)
+    private String Usu_Documento;
+    @Column(nullable = false, length = 50)
     private String Usu_Nombre;
-    @Column(name = "Apellidos", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String Usu_Apellidos;
-    @Column(name = "Correo", nullable = false, length = 150)
+    @Column(nullable = false, length = 150)
     private String Usu_Correo;
-    @Column(name = "Celular", length = 20)
+    @Column(length = 20)
     private String Usu_Celular;
-    @Column(name = "Telefono", length = 20)
+    @Column
+    private String Usu_Img;
+    @Column(length = 20)
     private String Usu_Telefono;
-    @Column(name = "Departamento", nullable = false ,length = 50)
+    @Column(nullable = false ,length = 50)
     private String Usu_Departamento;
-    @Column(name = "Ciudad", nullable = false , length = 50)
+    @Column(nullable = false , length = 50)
     private String Usu_Ciudad;
-    @Column(name = "Direccion", nullable = false , length = 50)
+    @Column(nullable = false , length = 50)
     private String Usu_Direccion;
-    @Column(name = "Password", nullable = false, length = 10)
-    private String Usu_Contraseña;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @Column(nullable = false, length = 10)
+    private String Usu_Contrasena;
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Rol_Id", nullable = false)
     @JsonIgnore
     private Rol Usu_Rol;
 
-    @OneToMany(mappedBy = "orden_idTrasportador", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entregas;
 
-    @OneToOne(mappedBy = "OrdC_IdComp", fetch = FetchType.LAZY)
-    private Ord_Compra Ord_Comprador;
+    @OneToMany(mappedBy = "OrdC_IdComp", fetch = FetchType.LAZY)
+    private Set<Ord_Compra> Ord_Comprador;
 
     @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
-    public Usuario(String usu_Id, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contraseña, Rol usu_Rol) {
-        Usu_Id = usu_Id;
-        Usu_Nombre = usu_Nombre;
-        Usu_Apellidos = usu_Apellidos;
-        Usu_Correo = usu_Correo;
-        Usu_Celular = usu_Celular;
-        Usu_Telefono = usu_Telefono;
-        Usu_Departamento = usu_Departamento;
-        Usu_Ciudad = usu_Ciudad;
-        Usu_Direccion = usu_Direccion;
-        Usu_Contraseña = usu_Contraseña;
-        Usu_Rol = usu_Rol;
+    public Usuario(String usu_Documento , String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contrasena) {
+        this.Usu_Documento = usu_Documento;
+        this.Usu_Nombre = usu_Nombre;
+        this.Usu_Apellidos = usu_Apellidos;
+        this.Usu_Correo = usu_Correo;
+        this.Usu_Celular = usu_Celular;
+        this.Usu_Img = usu_Img;
+        this.Usu_Telefono = usu_Telefono;
+        this.Usu_Departamento = usu_Departamento;
+        this.Usu_Ciudad = usu_Ciudad;
+        this.Usu_Direccion = usu_Direccion;
+        this.Usu_Contrasena = usu_Contrasena;
     }
 
     public Usuario() {
     }
 
-    public String getUsu_Id() {
+    public int getUsu_Id() {
         return Usu_Id;
     }
 
-    public void setUsu_Id(String usu_Id) {
+    public void setUsu_Id(int usu_Id) {
         Usu_Id = usu_Id;
+    }
+
+    public String getUsu_Documento() {
+        return Usu_Documento;
+    }
+
+    public void setUsu_Documento(String usu_Documento) {
+        Usu_Documento = usu_Documento;
     }
 
     public String getUsu_Nombre() {
@@ -100,6 +112,14 @@ public class Usuario {
         Usu_Celular = usu_Celular;
     }
 
+    public String getUsu_Img() {
+        return Usu_Img;
+    }
+
+    public void setUsu_Img(String usu_Img) {
+        Usu_Img = usu_Img;
+    }
+
     public String getUsu_Telefono() {
         return Usu_Telefono;
     }
@@ -132,12 +152,12 @@ public class Usuario {
         Usu_Direccion = usu_Direccion;
     }
 
-    public String getUsu_Contraseña() {
-        return Usu_Contraseña;
+    public String getUsu_Contrasena() {
+        return Usu_Contrasena;
     }
 
-    public void setUsu_Contraseña(String usu_Contraseña) {
-        Usu_Contraseña = usu_Contraseña;
+    public void setUsu_Contrasena(String usu_Contraseña) {
+        Usu_Contrasena = usu_Contraseña;
     }
 
     public Rol getUsu_Rol() {
@@ -156,11 +176,11 @@ public class Usuario {
         this.ord_entregas = ord_entregas;
     }
 
-    public Ord_Compra getOrd_compras() {
+    public Set<Ord_Compra> getOrd_compras() {
         return Ord_Comprador;
     }
 
-    public void setOrd_compras(Ord_Compra ord_compras) {
+    public void setOrd_compras(Set<Ord_Compra> ord_compras) {
         this.Ord_Comprador = ord_compras;
     }
 
@@ -176,15 +196,17 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "Usu_Id=" + Usu_Id +
+                ", Usu_Documento='" + Usu_Documento + '\'' +
                 ", Usu_Nombre='" + Usu_Nombre + '\'' +
                 ", Usu_Apellidos='" + Usu_Apellidos + '\'' +
                 ", Usu_Correo='" + Usu_Correo + '\'' +
                 ", Usu_Celular='" + Usu_Celular + '\'' +
+                ", Usu_Img='" + Usu_Img + '\'' +
                 ", Usu_Telefono='" + Usu_Telefono + '\'' +
                 ", Usu_Departamento='" + Usu_Departamento + '\'' +
                 ", Usu_Ciudad='" + Usu_Ciudad + '\'' +
                 ", Usu_Direccion='" + Usu_Direccion + '\'' +
-                ", Usu_Contraseña='" + Usu_Contraseña + '\'' +
+                ", Usu_Contraseña='" + Usu_Contrasena + '\'' +
                 ", Usu_Rol=" + Usu_Rol +
                 '}';
     }
