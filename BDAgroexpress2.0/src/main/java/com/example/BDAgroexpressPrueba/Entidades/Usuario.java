@@ -32,7 +32,7 @@ public class Usuario {
     @Column(nullable = false)
     private String Usu_Contrasena;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(referencedColumnName = "Rol_Id", nullable = false)
+    @JoinColumn(referencedColumnName = "Rol_Id", nullable = false,unique = false)
     @JsonIgnore
     private Rol Usu_Rol;
 
