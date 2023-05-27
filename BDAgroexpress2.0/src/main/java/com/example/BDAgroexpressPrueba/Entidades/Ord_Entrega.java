@@ -18,7 +18,7 @@ public class Ord_Entrega {
     private  Ord_Compra OrdE_Compra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
     @JsonIgnore
     private Usuario OrdE_IdTrasportador;
 

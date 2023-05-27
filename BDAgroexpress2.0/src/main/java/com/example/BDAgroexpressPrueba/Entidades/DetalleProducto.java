@@ -16,7 +16,7 @@ public class DetalleProducto {
     private int Det_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "Usu_Id", nullable = false)
+    @JoinColumn(referencedColumnName = "Usu_Documento", nullable = false)
     @JsonIgnore
     private Usuario Det_IdUsuario;
 

@@ -11,7 +11,7 @@ public class Ord_Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int OrdC_Id;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Usu_Id",nullable = false)
+    @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
     private Usuario OrdC_IdComp;
     @Column(unique = true, length = 20)
     private String OrdC_IdVenta;

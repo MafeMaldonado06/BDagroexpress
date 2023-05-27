@@ -24,15 +24,13 @@ public class Controlador_Usuario {
 
     @PostMapping("/AgregarUsuario/{rol}")
     public String AgregarUsuario(@PathVariable("rol") int rol,@RequestBody Usuario user){
-        System.out.println(user);
-        System.out.println(rol);
 
         String message = "No se pudo realizar el registro";
 
-        /*if(servicio.AgregarUsuario(rol, usuario)){
-            servicio.AgregarUsuario(rol,usuario);
+        if(servicio.AgregarUsuario(rol, user)){
+            servicio.AgregarUsuario(rol,user);
             message = "Se agregó de manera exitosa";
-        }*/
+        }
         return message;
     }
 }

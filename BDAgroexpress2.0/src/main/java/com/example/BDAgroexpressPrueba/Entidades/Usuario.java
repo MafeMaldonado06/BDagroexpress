@@ -9,8 +9,6 @@ import java.util.Set;
 @Table(name = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Usu_Id;
     @Column(unique = true, nullable = false)
     private String Usu_Documento;
     @Column(nullable = false, length = 50)
@@ -31,9 +29,9 @@ public class Usuario {
     private String Usu_Ciudad;
     @Column(nullable = false , length = 50)
     private String Usu_Direccion;
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false)
     private String Usu_Contrasena;
-    @OneToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Rol_Id", nullable = false)
     @JsonIgnore
     private Rol Usu_Rol;
@@ -62,10 +60,6 @@ public class Usuario {
     }
 
     public Usuario() {
-    }
-
-    public Integer getUsu_Id() {
-        return Usu_Id;
     }
 
     public String getUsu_Documento() {
@@ -126,10 +120,6 @@ public class Usuario {
 
     public Set<DetalleProducto> getDetalleProductos() {
         return detalleProductos;
-    }
-
-    public void setUsu_Id(Integer usu_Id) {
-        Usu_Id = usu_Id;
     }
 
     public void setUsu_Documento(String usu_Documento) {
@@ -195,7 +185,6 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "Usu_Id=" + Usu_Id +
                 ", Usu_Documento='" + Usu_Documento + '\'' +
                 ", Usu_Nombre='" + Usu_Nombre + '\'' +
                 ", Usu_Apellidos='" + Usu_Apellidos + '\'' +
