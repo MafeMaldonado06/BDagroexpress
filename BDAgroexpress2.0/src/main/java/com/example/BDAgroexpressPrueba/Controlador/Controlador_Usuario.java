@@ -1,7 +1,9 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
+import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,11 @@ public class Controlador_Usuario {
     @GetMapping("/ListarUsuarios")
     public ArrayList<Usuario> listarUsuarios(){
         return servicio.ListarUsuarios();
+    }
+
+    @GetMapping("/Ingresar/{documento}/{contraseña}")
+    public Rol IngresoUsuario(@PathVariable("documento") String documento, @PathVariable("contraseña") String contraseña){
+        return servicio.ValidacionIngresoUsuario(documento, contraseña);
     }
 
     @PostMapping("/AgregarUsuario/{rol}")

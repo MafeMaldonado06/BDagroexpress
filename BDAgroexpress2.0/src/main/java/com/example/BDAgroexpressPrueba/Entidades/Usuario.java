@@ -3,11 +3,12 @@ package com.example.BDAgroexpressPrueba.Entidades;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @Id
     @Column(unique = true, nullable = false)
     private String Usu_Documento;
@@ -185,7 +186,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                ", Usu_Documento='" + Usu_Documento + '\'' +
+                "Usu_Documento='" + Usu_Documento + '\'' +
                 ", Usu_Nombre='" + Usu_Nombre + '\'' +
                 ", Usu_Apellidos='" + Usu_Apellidos + '\'' +
                 ", Usu_Correo='" + Usu_Correo + '\'' +

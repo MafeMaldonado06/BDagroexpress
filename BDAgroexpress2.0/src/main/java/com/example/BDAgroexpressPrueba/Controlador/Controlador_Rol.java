@@ -1,8 +1,5 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
-import com.example.BDAgroexpressPrueba.Entidades.Prueba;
-import com.example.BDAgroexpressPrueba.Entidades.Rol;
-import com.example.BDAgroexpressPrueba.Servicios.Servicio_Rol;
 import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Rol;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +18,5 @@ public class Controlador_Rol {
     @GetMapping("/ListarRoles")
     public ArrayList<Rol> ListarRoles(){
         return servicio.ListarRoles();
-    }
-
-    @PostMapping("/Prueba")
-    public String prueba(@RequestBody Prueba prueba){
-        System.out.println(prueba);
-        return "Hola";
     }
 }

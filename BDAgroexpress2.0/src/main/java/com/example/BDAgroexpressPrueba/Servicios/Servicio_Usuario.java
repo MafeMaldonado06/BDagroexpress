@@ -7,6 +7,7 @@ import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class Servicio_Usuario {
@@ -21,6 +22,25 @@ public class Servicio_Usuario {
 
     public ArrayList<Usuario> ListarUsuarios(){
         return (ArrayList<Usuario>) RepositorioUsuario.findAll();
+    }
+
+    public Rol ValidacionIngresoUsuario(String documento, String contraseña){
+        Rol rol = null;
+
+        System.out.println("Password: " + contraseña);
+        if(RepositorioUsuario.findById(documento).isPresent()){
+            Usuario user =  RepositorioUsuario.findById(documento).get();
+            System.out.println(user.getUsu_Contrasena());
+            System.out.println(user);
+            if(user.getUsu_Contrasena().equals(contraseña)){
+                rol = user.getUsu_Rol();
+                System.out.println(rol);
+            }else{
+                System.out.println("El documento o la contraseña son incorrectos");
+            }
+        }
+
+        return rol;
     }
 
     public Boolean AgregarUsuario(int rol,Usuario usuario){
