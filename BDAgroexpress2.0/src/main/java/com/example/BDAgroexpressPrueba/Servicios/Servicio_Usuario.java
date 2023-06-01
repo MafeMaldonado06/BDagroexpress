@@ -4,6 +4,8 @@ import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Interfaz.Rol_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
+import jakarta.persistence.Id;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,22 +26,18 @@ public class Servicio_Usuario {
         return (ArrayList<Usuario>) RepositorioUsuario.findAll();
     }
 
-    public Rol ValidacionIngresoUsuario(String documento, String contraseña){
+    public Rol ValidacionIngresoUsuario(String documento, String contraseña, HttpSession sesion){
         Rol rol = null;
 
         System.out.println("Password: " + contraseña);
         if(RepositorioUsuario.findById(documento).isPresent()){
             Usuario user =  RepositorioUsuario.findById(documento).get();
-            System.out.println(user.getUsu_Contrasena());
-            System.out.println(user);
             if(user.getUsu_Contrasena().equals(contraseña)){
                 rol = user.getUsu_Rol();
                 System.out.println(rol);
-            }else{
-                System.out.println("El documento o la contraseña son incorrectos");
+                sesion.setAttribute("Usuario", user);
             }
         }
-
         return rol;
     }
 
@@ -53,8 +51,6 @@ public class Servicio_Usuario {
             usuario.setUsu_Rol(roles);
             RepositorioUsuario.save(usuario);
         }
-
         return status;
-
     }
 }

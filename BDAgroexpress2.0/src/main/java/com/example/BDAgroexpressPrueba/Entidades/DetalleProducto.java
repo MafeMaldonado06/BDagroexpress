@@ -12,9 +12,6 @@ public class DetalleProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Det_Referencia;
 
-    @Column(nullable = false)
-    private int Det_id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName = "Usu_Documento", nullable = false)
     @JsonIgnore
@@ -34,9 +31,8 @@ public class DetalleProducto {
     @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
     private Set<Ord_Compra> ord_compras;
 
-    public DetalleProducto(int det_Referencia, int det_id, Usuario det_IdUsuario, ListaProductos det_producto, int det_precio, int det_cantidad) {
+    public DetalleProducto(int det_Referencia, Usuario det_IdUsuario, ListaProductos det_producto, int det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
-        Det_id = det_id;
         Det_IdUsuario = det_IdUsuario;
         Det_producto = det_producto;
         Det_precio = det_precio;
@@ -52,14 +48,6 @@ public class DetalleProducto {
 
     public void setDet_Referencia(int det_Referencia) {
         Det_Referencia = det_Referencia;
-    }
-
-    public int getDet_id() {
-        return Det_id;
-    }
-
-    public void setDet_id(int det_id) {
-        Det_id = det_id;
     }
 
     public Usuario getDet_IdUsuario() {
@@ -106,7 +94,6 @@ public class DetalleProducto {
     public String toString() {
         return "DetalleProducto{" +
                 "Det_Referencia=" + Det_Referencia +
-                ", Det_id=" + Det_id +
                 ", Det_IdUsuario=" + Det_IdUsuario +
                 ", Det_producto=" + Det_producto +
                 ", Det_precio=" + Det_precio +

@@ -25,8 +25,8 @@ public class Controlador_Usuario {
     }
 
     @GetMapping("/Ingresar/{documento}/{contraseña}")
-    public Rol IngresoUsuario(@PathVariable("documento") String documento, @PathVariable("contraseña") String contraseña){
-        return servicio.ValidacionIngresoUsuario(documento, contraseña);
+    public Rol IngresoUsuario(@PathVariable("documento") String documento, @PathVariable("contraseña") String contraseña,HttpSession sesion){
+        return servicio.ValidacionIngresoUsuario(documento, contraseña,sesion);
     }
 
     @PostMapping("/AgregarUsuario/{rol}")

@@ -11,14 +11,14 @@ public class Ord_Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int OrdC_Id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    /*@ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
-    private Usuario OrdC_IdComp;
+    private Usuario OrdC_IdComp;*/
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Det_Referencia" ,nullable = false)
+    @JoinColumn(referencedColumnName = "Det_Referencia")
     @JsonIgnore
-    private DetalleProducto OrdC_IdProducto;
+    private DetalleProducto OrdC_Producto;
 
     @Column(nullable = false)
     private int OrdC_Cantcomprada;
@@ -29,22 +29,24 @@ public class Ord_Compra {
     @OneToOne(mappedBy = "Fac_OrdC_Id",fetch = FetchType.LAZY)
     private Factura Facturas;
 
-    public Ord_Compra(Usuario ordC_IdComp, DetalleProducto ordC_IdProducto, int ordC_Cantcomprada) {
-        OrdC_IdComp = ordC_IdComp;
-        OrdC_IdProducto = ordC_IdProducto;
+    public Ord_Compra(DetalleProducto ordC_IdProducto, int ordC_Cantcomprada) {
+        OrdC_Producto = ordC_IdProducto;
         OrdC_Cantcomprada = ordC_Cantcomprada;
+    }
+
+    public Ord_Compra() {
     }
 
     public int getOrdC_Id() {
         return OrdC_Id;
     }
 
-    public Usuario getOrdC_IdComp() {
+    /*public Usuario getOrdC_IdComp() {
         return OrdC_IdComp;
-    }
+    }*/
 
-    public DetalleProducto getOrdC_IdProducto() {
-        return OrdC_IdProducto;
+    public DetalleProducto getOrdC_Producto() {
+        return OrdC_Producto;
     }
 
     public int getOrdC_Cantcomprada() {
@@ -63,12 +65,12 @@ public class Ord_Compra {
         OrdC_Id = ordC_Id;
     }
 
-    public void setOrdC_IdComp(Usuario ordC_IdComp) {
+    /*public void setOrdC_IdComp(Usuario ordC_IdComp) {
         OrdC_IdComp = ordC_IdComp;
-    }
+    }*/
 
-    public void setOrdC_IdProducto(DetalleProducto ordC_IdProducto) {
-        OrdC_IdProducto = ordC_IdProducto;
+    public void setOrdC_Producto(DetalleProducto ordC_IdProducto) {
+        OrdC_Producto = ordC_IdProducto;
     }
 
     public void setOrdC_Cantcomprada(int ordC_Cantcomprada) {
@@ -87,8 +89,7 @@ public class Ord_Compra {
     public String toString() {
         return "Ord_Compra{" +
                 "OrdC_Id=" + OrdC_Id +
-                ", OrdC_IdComp=" + OrdC_IdComp +
-                ", OrdC_IdProducto=" + OrdC_IdProducto +
+                ", OrdC_IdProducto=" + OrdC_Producto +
                 ", OrdC_Cantcomprada=" + OrdC_Cantcomprada +
                 '}';
     }
