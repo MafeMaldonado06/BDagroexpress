@@ -18,6 +18,9 @@ public class DetalleProducto {
     private Usuario Det_IdUsuario;
 
     @Column
+    private  String Det_Img;
+
+    @Column
     private String Det_Nombre_product;
 
     @Column
@@ -32,9 +35,10 @@ public class DetalleProducto {
     @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
     private Set<Ord_Compra> ord_compras;
 
-    public DetalleProducto(int det_Referencia, Usuario det_IdUsuario, String det_Nombre_product, String det_Categoria, int det_precio, int det_cantidad) {
+    public DetalleProducto(int det_Referencia, Usuario det_IdUsuario,String det_Img, String det_Nombre_product, String det_Categoria, int det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
         Det_IdUsuario = det_IdUsuario;
+        Det_Img= det_Img;
         Det_Nombre_product = det_Nombre_product;
         Det_Categoria = det_Categoria;
         Det_precio = det_precio;
@@ -58,7 +62,7 @@ public class DetalleProducto {
         return Det_Nombre_product;
     }
 
-    public void setDet_Nombre_poduct(String det_Nombre_poduct) {
+    public void setDet_Nombre_product(String det_Nombre_poduct) {
         Det_Nombre_product = det_Nombre_poduct;
     }
 
@@ -78,6 +82,13 @@ public class DetalleProducto {
         Det_IdUsuario = det_IdUsuario;
     }
 
+    public String getDet_Img() {
+        return Det_Img;
+    }
+
+    public void setDet_Img(String det_Img) {
+        Det_Img = det_Img;
+    }
 
     public int getDet_precio() {
         return Det_precio;
@@ -108,14 +119,14 @@ public class DetalleProducto {
         return "DetalleProducto{" +
                 "Det_Referencia=" + Det_Referencia +
                 ", Det_IdUsuario=" + Det_IdUsuario +
-                ", Det_Nombre_poduct='" + Det_Nombre_product + '\'' +
+                ",Det_Img=" + Det_Img +
+                ", Det_Nombre_product='" + Det_Nombre_product + '\'' +
                 ", Det_Categoria='" + Det_Categoria + '\'' +
                 ", Det_precio=" + Det_precio +
                 ", Det_cantidad=" + Det_cantidad +
                 ", ord_compras=" + ord_compras +
                 '}';
     }
-
 
 }
 
