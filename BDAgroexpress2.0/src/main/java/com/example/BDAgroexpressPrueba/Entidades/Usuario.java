@@ -24,10 +24,14 @@ public class Usuario implements Serializable {
     private String Usu_Img;
     @Column(length = 20)
     private String Usu_Telefono;
-    @Column(nullable = false ,length = 50)
-    private String Usu_Departamento;
-    @Column(nullable = false , length = 50)
-    private String Usu_Ciudad;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(referencedColumnName = "Dep_Id",nullable = false)
+    @JsonIgnore
+    private Departamento Usu_Departamento;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(referencedColumnName = "Mun_Id",nullable = false)
+    @JsonIgnore
+    private Municipio Usu_Ciudad;
     @Column(nullable = false , length = 50)
     private String Usu_Direccion;
     @Column(nullable = false)
@@ -43,7 +47,7 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY)
     private Set<DetalleProducto> detalleProductos;
 
-    public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Departamento, String usu_Ciudad, String usu_Direccion, String usu_Contrasena) {
+    public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Direccion, String usu_Contrasena) {
         Usu_Documento = usu_Documento;
         Usu_Nombre = usu_Nombre;
         Usu_Apellidos = usu_Apellidos;
@@ -51,8 +55,6 @@ public class Usuario implements Serializable {
         Usu_Celular = usu_Celular;
         Usu_Img = usu_Img;
         Usu_Telefono = usu_Telefono;
-        Usu_Departamento = usu_Departamento;
-        Usu_Ciudad = usu_Ciudad;
         Usu_Direccion = usu_Direccion;
         Usu_Contrasena = usu_Contrasena;
     }
@@ -88,11 +90,11 @@ public class Usuario implements Serializable {
         return Usu_Telefono;
     }
 
-    public String getUsu_Departamento() {
+    public Departamento getUsu_Departamento() {
         return Usu_Departamento;
     }
 
-    public String getUsu_Ciudad() {
+    public Municipio getUsu_Ciudad() {
         return Usu_Ciudad;
     }
 
@@ -145,11 +147,11 @@ public class Usuario implements Serializable {
         Usu_Telefono = usu_Telefono;
     }
 
-    public void setUsu_Departamento(String usu_Departamento) {
+    public void setUsu_Departamento(Departamento usu_Departamento) {
         Usu_Departamento = usu_Departamento;
     }
 
-    public void setUsu_Ciudad(String usu_Ciudad) {
+    public void setUsu_Ciudad(Municipio usu_Ciudad) {
         Usu_Ciudad = usu_Ciudad;
     }
 

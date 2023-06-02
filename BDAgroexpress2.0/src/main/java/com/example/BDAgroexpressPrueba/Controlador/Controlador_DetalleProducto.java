@@ -28,9 +28,9 @@ public class Controlador_DetalleProducto {
 
     }
 
-    @GetMapping("/Nothing")
-    public void getNothing(){
-        servicio.getProductosPorCampesino();
+    @GetMapping("/ListarProductosCampesino")
+    public List<DetalleProducto> getNothing(){
+        return servicio.getProductosPorCampesino();
     }
 
 }
