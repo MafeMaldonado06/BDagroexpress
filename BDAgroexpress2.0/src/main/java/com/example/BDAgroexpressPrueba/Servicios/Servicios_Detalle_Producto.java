@@ -48,10 +48,15 @@ public class Servicios_Detalle_Producto {
         }
     }
 
-    public void getProductosPorCampesino(){
-        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+    public List<DetalleProducto> getProductosPorCampesino(){
+        List<DetalleProducto> productos = null;
 
-        System.out.println(repositorio.ProductosPorCampesino(usuario.getUsu_Documento()));
+        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        if(usuario.getUsu_Rol().getRol_Id() == 4){
+            productos = repositorio.ProductosPorCampesino(usuario.getUsu_Documento());
+        }
+
+        return productos;
     }
 
 }

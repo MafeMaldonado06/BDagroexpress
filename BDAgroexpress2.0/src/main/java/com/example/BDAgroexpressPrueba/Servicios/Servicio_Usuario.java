@@ -53,8 +53,9 @@ public class Servicio_Usuario {
         Boolean status = false;
 
         Rol roles = RepositorioRol.findById(rol).get();
+        String documento = usuario.getUsu_Documento();
 
-        if (RepositorioRol.findById(rol).isPresent()){
+        if (RepositorioRol.findById(rol).isPresent() && !RepositorioUsuario.findById(documento).isPresent()){
             status = true;
             usuario.setUsu_Rol(roles);
             RepositorioUsuario.save(usuario);
