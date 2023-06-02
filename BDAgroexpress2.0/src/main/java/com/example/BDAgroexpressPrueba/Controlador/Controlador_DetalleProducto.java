@@ -28,5 +28,9 @@ public class Controlador_DetalleProducto {
 
     }
 
+    @GetMapping("/Nothing")
+    public void getNothing(){
+        servicio.getProductosPorCampesino();
+    }
 
 }
