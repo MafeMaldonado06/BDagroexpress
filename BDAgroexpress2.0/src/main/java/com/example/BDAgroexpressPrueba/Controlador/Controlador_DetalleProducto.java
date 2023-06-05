@@ -17,7 +17,7 @@ public class Controlador_DetalleProducto {
         this.servicio = servicio;
     }
 
-    @GetMapping("/Listarprductos")
+    @GetMapping("/Listarproductos")
     public ArrayList<DetalleProducto> listarproductos(){
         return servicio.listarDetalleProducto();
     }
