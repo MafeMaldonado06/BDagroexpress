@@ -72,6 +72,8 @@ public class Servicio_Usuario {
             usuario.setUsu_Ciudad(municipio);
             usuario.setUsu_Rol(roles);
             RepositorioUsuario.save(usuario);
+
+            session.setAttribute("Usuario", usuario);
         }
         return status;
     }
