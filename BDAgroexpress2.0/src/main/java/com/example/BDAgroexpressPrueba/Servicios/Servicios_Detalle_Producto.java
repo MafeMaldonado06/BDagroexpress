@@ -29,34 +29,70 @@ public class Servicios_Detalle_Producto {
 
     //Campesino
 
-    public String agregarproducto(String doc, DetalleProducto producto) {
-
-        if (RepositorioUsuario.findById(doc).isPresent()) {
-            Usuario campe= RepositorioUsuario.findById(doc).get();
-
-            int rol = campe.getUsu_Rol().getRol_Id();
-
-            if (rol == 2 || rol == 4){
-                producto.setDet_IdUsuario(campe);
-                repositorio.save(producto);
-                return "El producto se agrego exitosamente";
-            }else {
-                return "usted no puede agregar prodcutos";
-            }
-        } else {
-            return "su usario no existe";
-        }
-    }
-
     public List<DetalleProducto> getProductosPorCampesino(){
         List<DetalleProducto> productos = null;
 
         Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
-        if(usuario.getUsu_Rol().getRol_Id() == 4){
+
+        if(usuario.getUsu_Rol().getRol_Id() == 4 || usuario.getUsu_Rol().getRol_Id() == 2){
             productos = repositorio.ProductosPorCampesino(usuario.getUsu_Documento());
         }
 
         return productos;
     }
+
+    public String agregarproducto(DetalleProducto producto) {
+
+        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+
+        if (usuario.getUsu_Rol().getRol_Id() == 2 || usuario.getUsu_Rol().getRol_Id() == 4) {
+                producto.setDet_IdUsuario(usuario);
+                repositorio.save(producto);
+                return "El producto se agrego exitosamente";
+        }else {
+            return "usted no puede agregar productos";
+        }
+    }
+
+    public Boolean actualizarProducto(int id,DetalleProducto producto){
+
+        Boolean status = false;
+
+        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        DetalleProducto product = repositorio.findById(id).get();
+
+        if(usuario != null){
+
+            product.setDet_Referencia(product.getDet_Referencia());
+            product.setDet_IdUsuario(usuario);
+            product.setDet_Img(producto.getDet_Img());
+            product.setDet_Nombre_product(producto.getDet_Nombre_poduct());
+            product.setDet_Categoria(producto.getDet_Categoria());
+            product.setDet_precio(producto.getDet_precio());
+            product.setDet_cantidad(producto.getDet_cantidad());
+
+            repositorio.save(product);
+
+            status = true;
+        }
+        return status;
+    }
+
+    public Boolean EliminarProducto(int id){
+
+        Boolean status = false;
+
+        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        DetalleProducto producto = repositorio.findById(id).get();
+
+        if(getProductosPorCampesino().contains(producto)){
+            repositorio.deleteById(id);
+            status = true;
+        }
+
+        return status;
+    }
+
+
 
 }

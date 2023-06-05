@@ -8,7 +8,6 @@ import java.util.Set;
 @Table(name = "detalleproducto")
 public class DetalleProducto {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Det_Referencia;

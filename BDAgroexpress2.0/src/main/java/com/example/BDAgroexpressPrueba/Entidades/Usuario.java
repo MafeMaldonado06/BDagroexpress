@@ -26,7 +26,6 @@ public class Usuario implements Serializable {
     private String Usu_Telefono;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Dep_Id",nullable = false)
-    @JsonIgnore
     private Departamento Usu_Departamento;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Mun_Id",nullable = false)
@@ -44,7 +43,8 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> ord_entregas;
 
-    @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<DetalleProducto> detalleProductos;
 
     public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Direccion, String usu_Contrasena) {

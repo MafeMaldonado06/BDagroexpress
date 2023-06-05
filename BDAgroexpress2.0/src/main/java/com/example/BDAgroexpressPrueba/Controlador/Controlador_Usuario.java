@@ -29,13 +29,13 @@ public class Controlador_Usuario {
         return servicio.ValidacionIngresoUsuario(documento, contraseña);
     }
 
-    @PostMapping("/AgregarUsuario/{rol}")
-    public String AgregarUsuario(@PathVariable("rol") int rol,@RequestBody Usuario user){
+    @PostMapping("/AgregarUsuario/{rol}/{departamento}/{ciudad}")
+    public String AgregarUsuario(@PathVariable("rol") int rol,@PathVariable("departamento") int departamento, @PathVariable("ciudad") int ciudad,@RequestBody Usuario user){
 
         String message = "No se pudo realizar el registro";
 
-        if(servicio.AgregarUsuario(rol, user)){
-            servicio.AgregarUsuario(rol,user);
+        if(servicio.AgregarUsuario(rol, user, departamento, ciudad)){
+            servicio.AgregarUsuario(rol,user, departamento, ciudad);
             message = "Se agregó de manera exitosa";
         }
         return message;

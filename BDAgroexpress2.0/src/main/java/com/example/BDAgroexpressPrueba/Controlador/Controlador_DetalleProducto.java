@@ -22,15 +22,33 @@ public class Controlador_DetalleProducto {
         return servicio.listarDetalleProducto();
     }
 
-    @PostMapping("/Agregarproducto/{doc}")
-    public String Agregarproducto(@PathVariable("doc")String documento,@RequestBody DetalleProducto campesino){
-        return  servicio.agregarproducto(documento,campesino);
-
-    }
-
     @GetMapping("/ListarProductosCampesino")
-    public List<DetalleProducto> getNothing(){
+    public List<DetalleProducto> getProductosCampesino(){
         return servicio.getProductosPorCampesino();
     }
 
+    @PostMapping("/AgregarProducto")
+    public String Agregarproducto(@RequestBody DetalleProducto producto){
+        return  servicio.agregarproducto(producto);
+    }
+
+    @PutMapping("/ActualizarProducto/{id}")
+    public String actualizarProducto(@PathVariable("id") int id, @RequestBody DetalleProducto producto){
+        if(servicio.actualizarProducto(id, producto)){
+            return "El producto ha sido actualizado";
+        }else {
+            return "El producto no se logró actualizar";
+        }
+    }
+
+    @DeleteMapping("/EliminarProducto/{id}")
+    public String eliminarProducto(@PathVariable("id") int id){
+        String message = "No se pudo eliminar el producto";
+
+        if(servicio.EliminarProducto(id)){
+            message = "Se eliminó el producto";
+        }
+
+        return message;
+    }
 }
