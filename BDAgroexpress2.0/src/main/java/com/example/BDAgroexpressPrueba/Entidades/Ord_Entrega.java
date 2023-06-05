@@ -2,8 +2,6 @@ package com.example.BDAgroexpressPrueba.Entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "ordenentrega")
@@ -15,7 +13,7 @@ public class Ord_Entrega {
 
     @ManyToOne( fetch = FetchType.LAZY, optional= false)
     @JoinColumn(referencedColumnName = "OrdC_Id", nullable = false)
-    private  Ord_Compra OrdE_Compra;
+    private DetalleCompra OrdE_Compra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
@@ -39,9 +37,9 @@ public class Ord_Entrega {
     private String OrdE_Estado;
 
 
-    public Ord_Entrega(String orden_id, Ord_Compra ord_compra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
+    public Ord_Entrega(String orden_id, DetalleCompra detalle_compra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
         this.OrdE_Id = orden_id;
-        this.OrdE_Compra = ord_compra;
+        this.OrdE_Compra = detalle_compra;
         this.OrdE_IdTrasportador = orden_idTrasportador;
         this.OrdE_Cantidad = orden_Cantidad;
         this.OrdE_Fecha = orden_Fecha;
@@ -59,11 +57,11 @@ public class Ord_Entrega {
         OrdE_Id = ordE_id;
     }
 
-    public Ord_Compra getOrdE_Compra() {
+    public DetalleCompra getOrdE_Compra() {
         return OrdE_Compra;
     }
 
-    public void setOrdE_Compra(Ord_Compra ordE_Compra) {
+    public void setOrdE_Compra(DetalleCompra ordE_Compra) {
         OrdE_Compra = ordE_Compra;
     }
 

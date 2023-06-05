@@ -32,7 +32,7 @@ public class DetalleProducto {
     private int Det_cantidad;
 
     @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
-    private Set<Ord_Compra> ord_compras;
+    private Set<DetalleCompra> detalle_compras;
 
     public DetalleProducto(int det_Referencia, Usuario det_IdUsuario,String det_Img, String det_Nombre_product, String det_Categoria, int det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
@@ -105,12 +105,12 @@ public class DetalleProducto {
         Det_cantidad = det_cantidad;
     }
 
-    public Set<Ord_Compra> getOrd_compras() {
-        return ord_compras;
+    public Set<DetalleCompra> getOrd_compras() {
+        return detalle_compras;
     }
 
-    public void setOrd_compras(Set<Ord_Compra> ord_compras) {
-        this.ord_compras = ord_compras;
+    public void setOrd_compras(Set<DetalleCompra> detalle_compras) {
+        this.detalle_compras = detalle_compras;
     }
 
     @Override
@@ -123,7 +123,7 @@ public class DetalleProducto {
                 ", Det_Categoria='" + Det_Categoria + '\'' +
                 ", Det_precio=" + Det_precio +
                 ", Det_cantidad=" + Det_cantidad +
-                ", ord_compras=" + ord_compras +
+                ", ord_compras=" + detalle_compras +
                 '}';
     }
 
