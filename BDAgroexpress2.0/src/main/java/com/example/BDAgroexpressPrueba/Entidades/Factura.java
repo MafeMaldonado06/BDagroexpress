@@ -10,27 +10,28 @@ public class Factura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Fac_Id;
-    @Column(nullable = false)
-    private int Fac_Cantidad;
+
     @Column(nullable = false)
     private Date Fac_FechaVenta;
     @Column(nullable = false)
     private Double Fac_Total;
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "OrdC_Id",nullable = false)
-    private Ord_Compra Fac_OrdC_Id;
+    private DetalleCompra Fac_OrdC_Id;
 
     @PrePersist
     public void prePersist(){
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(int fac_Id, int fac_Cantidad, Date fac_FechaVenta, Double fac_Total, Ord_Compra fac_OrdC_Id) {
+    public Factura(int fac_Id,Date fac_FechaVenta, Double fac_Total, DetalleCompra fac_OrdC_Id) {
         Fac_Id = fac_Id;
-        Fac_Cantidad = fac_Cantidad;
         Fac_FechaVenta = fac_FechaVenta;
         Fac_Total = fac_Total;
         Fac_OrdC_Id = fac_OrdC_Id;
+    }
+
+    public Factura() {
     }
 
     public int getFac_Id() {
@@ -39,14 +40,6 @@ public class Factura {
 
     public void setFac_Id(int fac_Id) {
         Fac_Id = fac_Id;
-    }
-
-    public int getFac_Cantidad() {
-        return Fac_Cantidad;
-    }
-
-    public void setFac_Cantidad(int fac_Cantidad) {
-        Fac_Cantidad = fac_Cantidad;
     }
 
     public Date getFac_FechaVenta() {
@@ -65,11 +58,11 @@ public class Factura {
         Fac_Total = fac_Total;
     }
 
-    public Ord_Compra getFac_OrdC_Id() {
+    public DetalleCompra getFac_OrdC_Id() {
         return Fac_OrdC_Id;
     }
 
-    public void setFac_OrdC_Id(Ord_Compra fac_OrdC_Id) {
+    public void setFac_OrdC_Id(DetalleCompra fac_OrdC_Id) {
         Fac_OrdC_Id = fac_OrdC_Id;
     }
 
@@ -77,7 +70,6 @@ public class Factura {
     public String toString() {
         return "Factura{" +
                 "Fac_Id='" + Fac_Id + '\'' +
-                ", Fac_Cantidad=" + Fac_Cantidad +
                 ", Fac_FechaVenta=" + Fac_FechaVenta +
                 ", Fac_Total=" + Fac_Total +
                 ", Fac_OrdC_Id='" + Fac_OrdC_Id + '\'' +

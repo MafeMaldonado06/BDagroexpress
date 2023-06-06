@@ -66,4 +66,5 @@ public class Controlador_DetalleProducto {
     public List<DetalleProducto> getProductosLegumbres(){
         return servicio.listarProductosCategoriaLegumbres();
     }
+
 }
