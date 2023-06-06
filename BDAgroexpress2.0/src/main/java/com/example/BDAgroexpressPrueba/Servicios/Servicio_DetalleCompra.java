@@ -54,7 +54,6 @@ public class Servicio_DetalleCompra {
         return status;
     }
 
-    //almacena los productos
 
     public String agregarcarrito(String doc) {
         if (RepositorioUsuario.findById(doc).isPresent()) {
@@ -75,9 +74,11 @@ public class Servicio_DetalleCompra {
             System.out.println("Productos obtenidos correctamente");
         } else {
             System.out.println("Usuario no encontrado");
-        };
+        }
         return doc;
     }
+
+
 
 
 
