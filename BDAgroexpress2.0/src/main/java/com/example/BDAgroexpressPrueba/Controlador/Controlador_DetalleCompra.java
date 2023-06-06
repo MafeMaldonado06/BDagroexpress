@@ -2,6 +2,7 @@ package com.example.BDAgroexpressPrueba.Controlador;
 
 import com.example.BDAgroexpressPrueba.Entidades.DetalleProducto;
 import com.example.BDAgroexpressPrueba.Entidades.DetalleCompra;
+import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,14 @@ public class Controlador_DetalleCompra {
         return servicioOrdenCompra.agregarProducto(producto, cantidad);
     }
 
-    @PostMapping("/agregarcarrito/{id}/{cantidad}")
-    public String carrito(@PathVariable("Id")int id,@PathVariable("cantidad")int cantidad){
-        return servicioOrdenCompra.agregarcarrito(id, cantidad);
+    /*@PostMapping("/agregarcarrito")
+    public String carrito(@RequestBody Usuario usuario){
+        return servicioOrdenCompra.agregarcarrito(usuario);
+    }*/
+
+    @PostMapping("/carrito/{doc}")
+    public String agregarcarrito(@PathVariable("doc") String documento) {
+        return servicioOrdenCompra.agregarcarrito(documento);
     }
+
 }
