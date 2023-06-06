@@ -45,4 +45,15 @@ public class Controlador_DetalleCompra {
         return servicioOrdenCompra.agregarcarrito(documento);
     }
 
+
+    @PostMapping("/Eliminardelcarrito/{doc}/{product}")
+    public String agregarcarrito(@PathVariable("doc") String documento,@PathVariable("product")String producto) {
+        return servicioOrdenCompra.eliminarDelCarrito(documento,producto);
+    }
+
+    @PostMapping("/listarcarrito/{doc}")
+    public void listarcarrito(@PathVariable("doc")String documento){
+        servicioOrdenCompra.listarProductosCarrito(documento);
+    }
+
 }
