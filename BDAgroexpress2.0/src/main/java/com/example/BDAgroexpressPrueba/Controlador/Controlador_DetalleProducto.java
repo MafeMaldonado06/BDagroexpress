@@ -22,9 +22,9 @@ public class Controlador_DetalleProducto {
         return servicio.listarDetalleProducto();
     }
 
-    @GetMapping("/ListarProductosCampesino")
-    public List<DetalleProducto> getProductosCampesino(){
-        return servicio.getProductosPorCampesino();
+    @PostMapping("/ListarProductosCampesino/{documento}")
+    public List<DetalleProducto> getProductosCampesino(@PathVariable("documento") String documento){
+        return servicio.getProductosPorCampesino(documento);
     }
 
     @PostMapping("/AgregarProducto")
@@ -41,11 +41,11 @@ public class Controlador_DetalleProducto {
         }
     }
 
-    @DeleteMapping("/EliminarProducto/{id}")
-    public String eliminarProducto(@PathVariable("id") int id){
+    @DeleteMapping("/EliminarProducto/{id}/{doc}")
+    public String eliminarProducto(@PathVariable("id") int id,@PathVariable("doc") String Documento){
         String message = "No se pudo eliminar el producto";
 
-        if(servicio.EliminarProducto(id)){
+        if(servicio.EliminarProducto(id, Documento)){
             message = "Se eliminó el producto";
         }
 

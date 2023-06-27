@@ -24,6 +24,8 @@ public class Usuario implements Serializable {
     private String Usu_Img;
     @Column(length = 20)
     private String Usu_Telefono;
+
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Dep_Id",nullable = false)
     private Departamento Usu_Departamento;
@@ -47,6 +49,11 @@ public class Usuario implements Serializable {
     @JsonIgnore
     private Set<DetalleProducto> detalleProductos;
 
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private Set<DetalleCompra> detalleCompras;
+
+
+
     public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Direccion, String usu_Contrasena) {
         Usu_Documento = usu_Documento;
         Usu_Nombre = usu_Nombre;
@@ -60,6 +67,14 @@ public class Usuario implements Serializable {
     }
 
     public Usuario() {
+    }
+
+    public Set<DetalleCompra> getDetalleCompras() {
+        return detalleCompras;
+    }
+
+    public void setDetalleCompras(Set<DetalleCompra> detalleCompras) {
+        this.detalleCompras = detalleCompras;
     }
 
     public String getUsu_Documento() {

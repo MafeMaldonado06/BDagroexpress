@@ -1,5 +1,6 @@
 package com.example.BDAgroexpressPrueba.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -15,8 +16,9 @@ public class Factura {
     private Date Fac_FechaVenta;
     @Column(nullable = false)
     private Double Fac_Total;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "OrdC_Id",nullable = false)
+    @OneToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(referencedColumnName = "OrdC_Id",nullable = true)
+    @JsonIgnore
     private DetalleCompra Fac_OrdC_Id;
 
     @PrePersist
@@ -54,11 +56,12 @@ public class Factura {
         return Fac_Total;
     }
 
+    @JsonIgnore
     public void setFac_Total(Double fac_Total) {
         Fac_Total = fac_Total;
     }
 
-    public DetalleCompra getFac_OrdC_Id() {
+    public DetalleCompra getFac_OrdC_Id(int ordCId) {
         return Fac_OrdC_Id;
     }
 

@@ -11,17 +11,18 @@ public class DetalleCompra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int OrdC_Id;
 
-    /*@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
-    private Usuario OrdC_IdComp;*/
+    @Column
+    private int precio_producto;
+
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Det_Referencia")
     @JsonIgnore
     private DetalleProducto OrdC_Producto;
 
-    @Column(nullable = false)
-    private int OrdC_Cantcomprada;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "usu_documento", referencedColumnName = "Usu_Documento")
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "OrdE_Compra", fetch = FetchType.LAZY)
     private Set<Ord_Entrega> Entregas;
@@ -29,29 +30,46 @@ public class DetalleCompra {
     @OneToOne(mappedBy = "Fac_OrdC_Id",fetch = FetchType.LAZY)
     private Factura Facturas;
 
-    public DetalleCompra(DetalleProducto ordC_IdProducto, int ordC_Cantcomprada) {
+    public DetalleCompra(DetalleProducto ordC_IdProducto,int precio_producto) {
         OrdC_Producto = ordC_IdProducto;
-        OrdC_Cantcomprada = ordC_Cantcomprada;
+        this.precio_producto = precio_producto;
     }
+
 
     public DetalleCompra() {
     }
+
+
+    //getter y setter
+
+
+    public int getPrecio_producto() {
+        return precio_producto;
+    }
+
+    public void setPrecio_producto(int precio_producto) {
+        this.precio_producto = precio_producto;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 
     public int getOrdC_Id() {
         return OrdC_Id;
     }
 
-    /*public Usuario getOrdC_IdComp() {
-        return OrdC_IdComp;
-    }*/
 
     public DetalleProducto getOrdC_Producto() {
         return OrdC_Producto;
     }
 
-    public int getOrdC_Cantcomprada() {
-        return OrdC_Cantcomprada;
-    }
+
 
     public Set<Ord_Entrega> getEntregas() {
         return Entregas;
@@ -65,17 +83,11 @@ public class DetalleCompra {
         OrdC_Id = ordC_Id;
     }
 
-    /*public void setOrdC_IdComp(Usuario ordC_IdComp) {
-        OrdC_IdComp = ordC_IdComp;
-    }*/
 
-    public void setOrdC_Producto(DetalleProducto ordC_IdProducto) {
-        OrdC_Producto = ordC_IdProducto;
+    public void setOrdC_Producto(DetalleProducto ordC_Producto) {
+        OrdC_Producto = ordC_Producto;
     }
 
-    public void setOrdC_Cantcomprada(int ordC_Cantcomprada) {
-        OrdC_Cantcomprada = ordC_Cantcomprada;
-    }
 
     public void setEntregas(Set<Ord_Entrega> entregas) {
         Entregas = entregas;
@@ -90,7 +102,7 @@ public class DetalleCompra {
         return "Ord_Compra{" +
                 "OrdC_Id=" + OrdC_Id +
                 ", OrdC_IdProducto=" + OrdC_Producto +
-                ", OrdC_Cantcomprada=" + OrdC_Cantcomprada +
+                ",precio_producto="+ precio_producto +
                 '}';
     }
 }

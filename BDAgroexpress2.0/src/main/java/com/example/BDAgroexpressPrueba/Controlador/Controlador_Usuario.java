@@ -24,6 +24,11 @@ public class Controlador_Usuario {
         return servicio.ListarUsuarios();
     }
 
+    @GetMapping("/DatosSesion/{documento}")
+    public Usuario DatosSesion(@PathVariable("documento") String documento){
+        return servicio.getDatosSesion(documento);
+    }
+
     @GetMapping("/Ingresar/{documento}/{contraseña}")
     public Rol IngresoUsuario(@PathVariable("documento") String documento, @PathVariable("contraseña") String contraseña){
         return servicio.ValidacionIngresoUsuario(documento, contraseña);
@@ -34,7 +39,7 @@ public class Controlador_Usuario {
 
         String message = "No se pudo realizar el registro";
 
-        if(servicio.AgregarUsuario(rol, user, departamento, ciudad)){
+        if(servicio. AgregarUsuario(rol, user, departamento, ciudad)){
             servicio.AgregarUsuario(rol,user, departamento, ciudad);
             message = "Se agregó de manera exitosa";
         }
