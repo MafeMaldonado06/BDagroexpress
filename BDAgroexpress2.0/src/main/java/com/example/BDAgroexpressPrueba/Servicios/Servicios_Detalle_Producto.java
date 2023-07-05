@@ -29,11 +29,10 @@ public class Servicios_Detalle_Producto {
     }
 
     //Campesino
-
-    public List<DetalleProducto> getProductosPorCampesino(){
+    public List<DetalleProducto> getProductosPorCampesino(String documento){
         List<DetalleProducto> productos = null;
 
-        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
 
         if(usuario.getUsu_Rol().getRol_Id() == 4 || usuario.getUsu_Rol().getRol_Id() == 2){
             productos = repositorio.ProductosPorCampesino(usuario.getUsu_Documento());
@@ -79,14 +78,14 @@ public class Servicios_Detalle_Producto {
         return status;
     }
 
-    public Boolean EliminarProducto(int id){
+    public Boolean EliminarProducto(int id, String documemto){
 
         Boolean status = false;
 
         Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
         DetalleProducto producto = repositorio.findById(id).get();
 
-        if(getProductosPorCampesino().contains(producto)){
+        if(getProductosPorCampesino(documemto).contains(producto)){
             repositorio.deleteById(id);
             status = true;
         }

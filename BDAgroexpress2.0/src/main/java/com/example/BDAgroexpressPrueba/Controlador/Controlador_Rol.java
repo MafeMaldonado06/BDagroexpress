@@ -25,5 +25,12 @@ public class Controlador_Rol {
     }
 
 
+    @GetMapping("/listardepar")
+    public List<Map<String, Object>> getDepartameto(){
+        return servicio.getDepartameto();
+    }
+
+    @GetMapping("/listarmuni")
+    public List<Map<String, Object>> getMunicipios(){return servicio.getMunicipios();}
 
 }

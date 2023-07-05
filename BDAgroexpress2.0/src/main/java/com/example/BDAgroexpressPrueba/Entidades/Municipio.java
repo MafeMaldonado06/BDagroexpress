@@ -19,8 +19,9 @@ public class Municipio {
     @Column(nullable = false)
     private int Mun_estado;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(referencedColumnName = "Dep_Id", nullable = false)
+    //Cambio true
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
+    @JoinColumn(referencedColumnName = "Dep_Id", nullable = true)
     @JsonIgnore
     private Departamento Mun_Departamento;
 

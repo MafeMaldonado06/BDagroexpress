@@ -44,14 +44,22 @@ public class Servicio_Usuario {
         return (ArrayList<Usuario>) RepositorioUsuario.findAll();
     }
 
+    public Usuario getDatosSesion(String documento){
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
+        return usuario;
+    }
+
     public Rol ValidacionIngresoUsuario(String documento, String contraseña){
         Rol rol = null;
 
         if(RepositorioUsuario.findById(documento).isPresent()){
             Usuario user =  RepositorioUsuario.findById(documento).get();
-            if(user.getUsu_Contrasena().equals(contraseña)){
+            System.out.println(user);
+            if(user.getUsu_Contrasena().equalsIgnoreCase(contraseña)){
                 rol = user.getUsu_Rol();
+                System.out.println(rol);
                 session.setAttribute("Usuario", user);
+                System.out.println(getSession().getAttribute("Usuario"));
             }
         }
         return rol;
