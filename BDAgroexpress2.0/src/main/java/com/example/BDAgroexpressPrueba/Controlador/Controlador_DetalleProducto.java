@@ -52,5 +52,19 @@ public class Controlador_DetalleProducto {
         return message;
     }
 
+    @GetMapping("/Frutas")
+    public List<DetalleProducto> getProductosFrutas(){
+        return servicio.listarProductosCategoriaFrutas();
+    }
+
+    @GetMapping("/Verduras")
+    public List<DetalleProducto> getProductosVerduras(){
+        return servicio.listarProductosCategoriaVerduras();
+    }
+
+    @GetMapping("/Legumbres")
+    public List<DetalleProducto> getProductosLegumbres(){
+        return servicio.listarProductosCategoriaLegumbres();
+    }
 
 }

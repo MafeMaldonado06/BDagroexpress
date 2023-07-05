@@ -1,8 +1,10 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
 import com.example.BDAgroexpressPrueba.Entidades.Rol;
+import com.example.BDAgroexpressPrueba.Entidades.SessionRequest;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,14 +26,14 @@ public class Controlador_Usuario {
         return servicio.ListarUsuarios();
     }
 
-    @GetMapping("/DatosSesion/{documento}")
-    public Usuario DatosSesion(@PathVariable("documento") String documento){
-        return servicio.getDatosSesion(documento);
+    @GetMapping("/DatosSesion")
+    public Usuario DatosSesion(){
+        return (Usuario) servicio.getSession().getAttribute("Usuario");
     }
 
-    @GetMapping("/Ingresar/{documento}/{contraseña}")
-    public Rol IngresoUsuario(@PathVariable("documento") String documento, @PathVariable("contraseña") String contraseña){
-        return servicio.ValidacionIngresoUsuario(documento, contraseña);
+    @GetMapping("/Ingresar")
+    public Rol IngresoUsuario(@RequestBody SessionRequest datos) {
+        return servicio.ValidacionIngresoUsuario(datos);
     }
 
     @PostMapping("/AgregarUsuario/{rol}/{departamento}/{ciudad}")
@@ -39,11 +41,19 @@ public class Controlador_Usuario {
 
         String message = "No se pudo realizar el registro";
 
-        if(servicio. AgregarUsuario(rol, user, departamento, ciudad)){
+        if(servicio.AgregarUsuario(rol, user, departamento, ciudad)){
             servicio.AgregarUsuario(rol,user, departamento, ciudad);
             message = "Se agregó de manera exitosa";
         }
         return message;
+    }
+    @PutMapping("/ActualizarUsuario/{rol}/{departamento}/{municipio}")
+    public String actualizarUsuario(@RequestBody Usuario usuario,@PathVariable("rol") int rol,@PathVariable("municipio") int municipio,@PathVariable("departamento") int departamento){
+        if(servicio.ActualizarUsuario(usuario, rol, municipio, departamento)){
+            return "Se actualizó correctamente el producto";
+        }else {
+            return "No se logró actualizar el producto";
+        }
     }
 
     @GetMapping("/ListarCampesinos")

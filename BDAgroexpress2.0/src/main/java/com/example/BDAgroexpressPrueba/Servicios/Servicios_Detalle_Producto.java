@@ -93,6 +93,16 @@ public class Servicios_Detalle_Producto {
         return status;
     }
 
+    public List<DetalleProducto> listarProductosCategoriaFrutas(){
+        return repositorio.ProductosFrutas();
+    }
 
+    public List<DetalleProducto> listarProductosCategoriaVerduras(){
+        return repositorio.ProductosVerduras();
+    }
+
+    public List<DetalleProducto> listarProductosCategoriaLegumbres(){
+        return repositorio.ProductosLegumbres();
+    }
 
 }

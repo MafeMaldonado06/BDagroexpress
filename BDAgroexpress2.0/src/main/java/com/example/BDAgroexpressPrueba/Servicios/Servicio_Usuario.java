@@ -1,9 +1,6 @@
 package com.example.BDAgroexpressPrueba.Servicios;
 
-import com.example.BDAgroexpressPrueba.Entidades.Departamento;
-import com.example.BDAgroexpressPrueba.Entidades.Municipio;
-import com.example.BDAgroexpressPrueba.Entidades.Rol;
-import com.example.BDAgroexpressPrueba.Entidades.Usuario;
+import com.example.BDAgroexpressPrueba.Entidades.*;
 import com.example.BDAgroexpressPrueba.Interfaz.Departamento_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Municipio_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Rol_Repositorio;
@@ -38,28 +35,28 @@ public class Servicio_Usuario {
         return session;
     }
 
+    public void setSession(HttpSession session) {
+        this.session = session;
+    }
+
     //Metodos
 
     public ArrayList<Usuario> ListarUsuarios(){
         return (ArrayList<Usuario>) RepositorioUsuario.findAll();
     }
 
-    public Usuario getDatosSesion(String documento){
-        Usuario usuario = RepositorioUsuario.findById(documento).get();
-        return usuario;
+    public List<Usuario> getCampesinos(){
+        return RepositorioUsuario.findCampesinos();
     }
 
-    public Rol ValidacionIngresoUsuario(String documento, String contraseña){
+    public Rol ValidacionIngresoUsuario(SessionRequest datos){
         Rol rol = null;
 
-        if(RepositorioUsuario.findById(documento).isPresent()){
-            Usuario user =  RepositorioUsuario.findById(documento).get();
-            System.out.println(user);
-            if(user.getUsu_Contrasena().equalsIgnoreCase(contraseña)){
+        if(RepositorioUsuario.findById(datos.getDocumento()).isPresent()){
+            Usuario user =  RepositorioUsuario.findById(datos.getDocumento()).get();
+            if(user.getUsu_Contrasena().equals(datos.getContraseña())){
                 rol = user.getUsu_Rol();
-                System.out.println(rol);
                 session.setAttribute("Usuario", user);
-                System.out.println(getSession().getAttribute("Usuario"));
             }
         }
         return rol;
@@ -86,8 +83,37 @@ public class Servicio_Usuario {
         return status;
     }
 
-    public List<Usuario> getCampesinos(){
-        return RepositorioUsuario.findCampesinos();
+    public Boolean ActualizarUsuario(Usuario usuario, int rol, int municipio, int departamento){
+
+        Boolean status = false;
+
+        Usuario datosSesion = (Usuario) session.getAttribute("Usuario");
+
+        Usuario user = RepositorioUsuario.findById(datosSesion.getUsu_Documento()).get();
+        Rol role = RepositorioRol.findById(rol).get();
+        Departamento departament = departamentoRepositorio.findById(departamento).get();
+        Municipio ciudad = municipioRepositorio.findById(municipio).get();
+
+
+        if(user != null){
+            user.setUsu_Nombre(usuario.getUsu_Nombre());
+            user.setUsu_Apellidos(usuario.getUsu_Apellidos());
+            user.setUsu_Correo(usuario.getUsu_Correo());
+            user.setUsu_Celular(usuario.getUsu_Celular());
+            user.setUsu_Telefono(usuario.getUsu_Telefono());
+            user.setUsu_Departamento(departament);
+            user.setUsu_Ciudad(ciudad);
+            user.setUsu_Direccion(usuario.getUsu_Direccion());
+            user.setUsu_Contrasena(usuario.getUsu_Contrasena());
+            status = true;
+
+            RepositorioUsuario.save(user);
+
+            session.setAttribute("Usuario", user);
+        }
+
+        return status;
+
     }
 
 }
