@@ -11,9 +11,6 @@ public class Ord_Entrega {
     @Column(unique = true, length = 20)
     private String OrdE_Id;
 
-    @ManyToOne( fetch = FetchType.LAZY, optional= false)
-    @JoinColumn(referencedColumnName = "OrdC_Id", nullable = false)
-    private DetalleCompra OrdE_Compra;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
@@ -36,10 +33,13 @@ public class Ord_Entrega {
     @Column(length = 15)
     private String OrdE_Estado;
 
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "documento_usu",referencedColumnName = "Usu_Documento")
+    private Usuario usuario;
 
-    public Ord_Entrega(String orden_id, DetalleCompra detalle_compra, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
+
+    public Ord_Entrega(String orden_id, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
         this.OrdE_Id = orden_id;
-        this.OrdE_Compra = detalle_compra;
         this.OrdE_IdTrasportador = orden_idTrasportador;
         this.OrdE_Cantidad = orden_Cantidad;
         this.OrdE_Fecha = orden_Fecha;
@@ -47,6 +47,14 @@ public class Ord_Entrega {
         this.OrdE_FechaDespachoAproximada = orden_FechaDespachoAproximada;
         this.Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
         this.OrdE_Estado = estado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getOrdE_id() {
@@ -57,13 +65,6 @@ public class Ord_Entrega {
         OrdE_Id = ordE_id;
     }
 
-    public DetalleCompra getOrdE_Compra() {
-        return OrdE_Compra;
-    }
-
-    public void setOrdE_Compra(DetalleCompra ordE_Compra) {
-        OrdE_Compra = ordE_Compra;
-    }
 
     public Usuario getOrdE_IdTrasportador() {
         return OrdE_IdTrasportador;
@@ -125,7 +126,6 @@ public class Ord_Entrega {
     public String toString() {
         return "Ord_Entrega{" +
                 "OrdE_id='" + OrdE_Id + '\'' +
-                ", OrdE_Compra=" + OrdE_Compra +
                 ", OrdE_IdTrasportador=" + OrdE_IdTrasportador +
                 ", OrdE_Cantidad=" + OrdE_Cantidad +
                 ", OrdE_Fecha='" + OrdE_Fecha + '\'' +

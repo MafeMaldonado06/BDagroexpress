@@ -1,28 +1,30 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
-import com.example.BDAgroexpressPrueba.Entidades.DetalleProducto;
 import com.example.BDAgroexpressPrueba.Entidades.DetalleCompra;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
+import com.example.BDAgroexpressPrueba.Interfaz.DetalleCompra_Repositorio;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class Controlador_DetalleCompra {
 
+
+
     Servicio_DetalleCompra servicioOrdenCompra;
 
-    //Almacenar los datalles del producto
-    List<DetalleProducto> detalles= new ArrayList<DetalleProducto>();
+    DetalleCompra_Repositorio detalleCompraRepositorio;
 
 
-
-
-    public Controlador_DetalleCompra(Servicio_DetalleCompra servicioOrdenCompra) {
+    public Controlador_DetalleCompra(Servicio_DetalleCompra servicioOrdenCompra, DetalleCompra_Repositorio detalleCompraRepositorio) {
         this.servicioOrdenCompra = servicioOrdenCompra;
+        this.detalleCompraRepositorio = detalleCompraRepositorio;
     }
 
     @GetMapping("/ListarOrdenesCompra")
@@ -30,30 +32,33 @@ public class Controlador_DetalleCompra {
         return servicioOrdenCompra.getOrdenCompra();
     }
 
-    @PostMapping("/AgregarProductoCarrito/{producto}/{cantidad}")
-    public Boolean agregarProducto(@RequestBody DetalleProducto producto, @PathVariable("cantidad") int cantidad){
-        return servicioOrdenCompra.agregarProducto(producto, cantidad);
+
+    @PostMapping("/Agregarproducto/{doc}/{id}")
+    public String guardarProducto(@PathVariable("doc") String documento, @PathVariable("id")int id) {
+        return servicioOrdenCompra.Agregarcarrito(documento, id);
     }
 
-    /*@PostMapping("/agregarcarrito")
-    public String carrito(@RequestBody Usuario usuario){
-        return servicioOrdenCompra.agregarcarrito(usuario);
-    }*/
-
-    @PostMapping("/carrito/{doc}")
-    public String agregarcarrito(@PathVariable("doc") String documento) {
-        return servicioOrdenCompra.agregarcarrito(documento);
+    @DeleteMapping("/eliminarproducto/{productoId}")
+    public String eliminarproducto(@PathVariable("productoId") int productoId) {
+        servicioOrdenCompra.eliminarPorProductoId(productoId);
+        return "Detalle de compra eliminado correctamente.";
     }
 
-
-    @PostMapping("/Eliminardelcarrito/{doc}/{product}")
-    public String agregarcarrito(@PathVariable("doc") String documento,@PathVariable("product")String producto) {
-        return servicioOrdenCompra.eliminarDelCarrito(documento,producto);
+    @PostMapping("/generarafactura/{idusu}")
+    public int generarfactura(@PathVariable("idusu") int idusu){
+        servicioOrdenCompra.factura(idusu);
+        return idusu;
     }
 
-    @PostMapping("/listarcarrito/{doc}")
-    public void listarcarrito(@PathVariable("doc")String documento){
-        servicioOrdenCompra.listarProductosCarrito(documento);
+    @GetMapping("/Entregado/{doc}")
+    public List<Map<String, Object>>finentrgado(@PathVariable("doc") int doc){
+        return servicioOrdenCompra.findrntrgado(doc);
     }
+
+    @GetMapping("/Entregando/{doc}")
+    public List<Map<String, Object>>finentregando(@PathVariable("doc")int doc){
+        return servicioOrdenCompra.finentregando(doc);
+    }
+
 
 }

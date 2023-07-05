@@ -1,5 +1,6 @@
 package com.example.BDAgroexpressPrueba.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -15,23 +16,32 @@ public class Factura {
     private Date Fac_FechaVenta;
     @Column(nullable = false)
     private Double Fac_Total;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(referencedColumnName = "OrdC_Id",nullable = false)
-    private DetalleCompra Fac_OrdC_Id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "documento_usu", referencedColumnName = "Usu_Documento")
+    private Usuario usuario;
+
 
     @PrePersist
     public void prePersist(){
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(int fac_Id,Date fac_FechaVenta, Double fac_Total, DetalleCompra fac_OrdC_Id) {
+    public Factura(int fac_Id,Date fac_FechaVenta, Double fac_Total) {
         Fac_Id = fac_Id;
         Fac_FechaVenta = fac_FechaVenta;
         Fac_Total = fac_Total;
-        Fac_OrdC_Id = fac_OrdC_Id;
     }
 
     public Factura() {
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public int getFac_Id() {
@@ -54,17 +64,11 @@ public class Factura {
         return Fac_Total;
     }
 
+    @JsonIgnore
     public void setFac_Total(Double fac_Total) {
         Fac_Total = fac_Total;
     }
 
-    public DetalleCompra getFac_OrdC_Id() {
-        return Fac_OrdC_Id;
-    }
-
-    public void setFac_OrdC_Id(DetalleCompra fac_OrdC_Id) {
-        Fac_OrdC_Id = fac_OrdC_Id;
-    }
 
     @Override
     public String toString() {
@@ -72,7 +76,6 @@ public class Factura {
                 "Fac_Id='" + Fac_Id + '\'' +
                 ", Fac_FechaVenta=" + Fac_FechaVenta +
                 ", Fac_Total=" + Fac_Total +
-                ", Fac_OrdC_Id='" + Fac_OrdC_Id + '\'' +
                 '}';
     }
 }
