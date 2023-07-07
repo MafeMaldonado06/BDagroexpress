@@ -40,7 +40,7 @@ public class Controlador_DetalleCompra {
 
     @DeleteMapping("/eliminarproducto/{productoId}")
     public String eliminarproducto(@PathVariable("productoId") int productoId) {
-        servicioOrdenCompra.eliminarPorProductoId(productoId);
+        servicioOrdenCompra.elimarproductodelcarrito(productoId);
         return "Detalle de compra eliminado correctamente.";
     }
 
@@ -59,6 +59,19 @@ public class Controlador_DetalleCompra {
     public List<Map<String, Object>>finentregando(@PathVariable("doc")int doc){
         return servicioOrdenCompra.finentregando(doc);
     }
+
+    @PostMapping("/Factura/{doc}")
+    public void prueba(@PathVariable("doc") String documento) {
+        servicioOrdenCompra.generarFactura(documento);
+    }
+
+    @GetMapping("/productos/{docusu}")
+    public List<Map<String, Object>>prodcutocompra(@PathVariable("docusu")int docusu){
+        return servicioOrdenCompra.prodcutocompra(docusu);
+    }
+
+
+
 
 
 

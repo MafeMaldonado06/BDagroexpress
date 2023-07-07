@@ -3,6 +3,7 @@ package com.example.BDAgroexpressPrueba.Controlador;
 import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Entidades.SessionRequest;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
+import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpSession;
@@ -17,8 +18,11 @@ public class Controlador_Usuario {
 
     Servicio_Usuario servicio;
 
-    public Controlador_Usuario(Servicio_Usuario servicio) {
+    Servicio_DetalleCompra servicio_D;
+
+    public Controlador_Usuario(Servicio_Usuario servicio, Servicio_DetalleCompra servicio_D) {
         this.servicio = servicio;
+        this.servicio_D = servicio_D;
     }
 
     @GetMapping("/ListarUsuarios")
@@ -59,5 +63,10 @@ public class Controlador_Usuario {
     @GetMapping("/ListarCampesinos")
     public List<Usuario> getCampesinos(){
         return servicio.getCampesinos();
+    }
+
+    @PostMapping("/ActualizarEstado/{doc}/{estado}")
+    public boolean actualizarEstado(@PathVariable("doc")String doc,@PathVariable("estado")String estado){
+        return servicio_D.actualizarEstadoOrdenEntrega(doc,estado);
     }
 }

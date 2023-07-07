@@ -27,10 +27,11 @@ public class Factura {
         this.Fac_FechaVenta = new Date();
     }
 
-    public Factura(int fac_Id,Date fac_FechaVenta, Double fac_Total) {
-        Fac_Id = fac_Id;
+
+    public Factura(Date fac_FechaVenta, Double fac_Total, Usuario usuario) {
         Fac_FechaVenta = fac_FechaVenta;
         Fac_Total = fac_Total;
+        this.usuario = usuario;
     }
 
     public Factura() {
@@ -73,9 +74,10 @@ public class Factura {
     @Override
     public String toString() {
         return "Factura{" +
-                "Fac_Id='" + Fac_Id + '\'' +
+                "Fac_Id=" + Fac_Id +
                 ", Fac_FechaVenta=" + Fac_FechaVenta +
                 ", Fac_Total=" + Fac_Total +
+                ", usuario=" + usuario +
                 '}';
     }
 }

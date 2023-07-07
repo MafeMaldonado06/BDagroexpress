@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Ord_Entrega {
 
     @Id
-    @Column(unique = true, length = 20)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String OrdE_Id;
 
 
@@ -38,15 +38,19 @@ public class Ord_Entrega {
     private Usuario usuario;
 
 
-    public Ord_Entrega(String orden_id, Usuario orden_idTrasportador, int orden_Cantidad, String orden_Fecha, int orden_Total_pagar, String orden_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String estado) {
-        this.OrdE_Id = orden_id;
-        this.OrdE_IdTrasportador = orden_idTrasportador;
-        this.OrdE_Cantidad = orden_Cantidad;
-        this.OrdE_Fecha = orden_Fecha;
-        this.OrdE_TotalPagar = orden_Total_pagar;
-        this.OrdE_FechaDespachoAproximada = orden_FechaDespachoAproximada;
-        this.Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
-        this.OrdE_Estado = estado;
+    public Ord_Entrega(String ordE_Id, Usuario ordE_IdTrasportador, int ordE_Cantidad, String ordE_Fecha, int ordE_TotalPagar, String ordE_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String ordE_Estado, Usuario usuario) {
+        OrdE_Id = ordE_Id;
+        OrdE_IdTrasportador = ordE_IdTrasportador;
+        OrdE_Cantidad = ordE_Cantidad;
+        OrdE_Fecha = ordE_Fecha;
+        OrdE_TotalPagar = ordE_TotalPagar;
+        OrdE_FechaDespachoAproximada = ordE_FechaDespachoAproximada;
+        Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
+        OrdE_Estado = ordE_Estado;
+        this.usuario = usuario;
+    }
+
+    public Ord_Entrega() {
     }
 
     public Usuario getUsuario() {
@@ -125,7 +129,7 @@ public class Ord_Entrega {
     @Override
     public String toString() {
         return "Ord_Entrega{" +
-                "OrdE_id='" + OrdE_Id + '\'' +
+                "OrdE_Id='" + OrdE_Id + '\'' +
                 ", OrdE_IdTrasportador=" + OrdE_IdTrasportador +
                 ", OrdE_Cantidad=" + OrdE_Cantidad +
                 ", OrdE_Fecha='" + OrdE_Fecha + '\'' +
@@ -133,6 +137,7 @@ public class Ord_Entrega {
                 ", OrdE_FechaDespachoAproximada='" + OrdE_FechaDespachoAproximada + '\'' +
                 ", Orden_FechaEntregaAproximada='" + Orden_FechaEntregaAproximada + '\'' +
                 ", OrdE_Estado='" + OrdE_Estado + '\'' +
+                ", usuario=" + usuario +
                 '}';
     }
 }

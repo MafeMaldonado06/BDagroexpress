@@ -42,7 +42,7 @@ public class Usuario implements Serializable {
     @JsonIgnore
     private Rol Usu_Rol;
 
-    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)//
     private Set<Ord_Entrega> ord_entregas;
 
     @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.EAGER)
