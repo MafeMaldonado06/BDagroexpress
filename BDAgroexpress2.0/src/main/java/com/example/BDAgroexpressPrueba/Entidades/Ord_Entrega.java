@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Ord_Entrega {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, length = 20)
     private String OrdE_Id;
 
 

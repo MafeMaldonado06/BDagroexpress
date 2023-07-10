@@ -65,8 +65,8 @@ public class Controlador_Usuario {
         return servicio.getCampesinos();
     }
 
-    @PostMapping("/ActualizarEstado/{doc}/{estado}")
+   /* @PostMapping("/ActualizarEstado/{doc}/{estado}")
     public boolean actualizarEstado(@PathVariable("doc")String doc,@PathVariable("estado")String estado){
         return servicio_D.actualizarEstadoOrdenEntrega(doc,estado);
-    }
+    }*/
 }

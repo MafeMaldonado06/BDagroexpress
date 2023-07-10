@@ -154,7 +154,7 @@ public class Servicio_DetalleCompra {
     }
 
 
-    public boolean actualizarEstadoOrdenEntrega(String doc, String Estado) {
+    /*public boolean actualizarEstadoOrdenEntrega(String doc, String Estado) {
         Optional<Usuario> usuarioOptional = RepositorioUsuario.findById(doc);
 
         if (usuarioOptional.isPresent()) {
@@ -170,7 +170,7 @@ public class Servicio_DetalleCompra {
         }
 
         return false;
-    }
+    }*/
 }
 
 
