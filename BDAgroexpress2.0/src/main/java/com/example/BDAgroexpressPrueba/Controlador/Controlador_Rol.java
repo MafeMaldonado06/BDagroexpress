@@ -33,4 +33,12 @@ public class Controlador_Rol {
     @GetMapping("/listarmuni")
     public List<Map<String, Object>> getMunicipios(){return servicio.getMunicipios();}
 
+    @GetMapping("/listarTranpsotador")
+    public List<Map<String, Object>> Transportador(){
+        return servicio.Transportador();
+
+
+
+    }
+
 }

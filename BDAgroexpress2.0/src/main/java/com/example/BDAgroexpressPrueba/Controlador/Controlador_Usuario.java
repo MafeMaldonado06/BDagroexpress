@@ -36,7 +36,7 @@ public class Controlador_Usuario {
     }
 
     @GetMapping("/Ingresar")
-    public Rol IngresoUsuario(@RequestBody SessionRequest datos) {
+    public String IngresoUsuario(@RequestBody SessionRequest datos) {
         return servicio.ValidacionIngresoUsuario(datos);
     }
 

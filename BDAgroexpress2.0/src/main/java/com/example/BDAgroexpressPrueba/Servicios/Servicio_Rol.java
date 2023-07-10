@@ -42,4 +42,10 @@ public class Servicio_Rol {
         return municipio_repositorio.findMunicipio();
     }
 
+    public List<Map<String, Object>> Transportador(){
+        return ReporsitorioRol.Transportador();
+    }
+
+
+
 }

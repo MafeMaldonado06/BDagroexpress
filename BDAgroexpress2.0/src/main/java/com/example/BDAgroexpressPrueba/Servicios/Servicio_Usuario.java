@@ -49,17 +49,23 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findCampesinos();
     }
 
-    public Rol ValidacionIngresoUsuario(SessionRequest datos){
-        Rol rol = null;
+    public String ValidacionIngresoUsuario(SessionRequest datos){
+        String acceso = "\n" +
+                "\"Access\": false\n" +
+                "}";
 
         if(RepositorioUsuario.findById(datos.getDocumento()).isPresent()){
             Usuario user =  RepositorioUsuario.findById(datos.getDocumento()).get();
             if(user.getUsu_Contrasena().equals(datos.getContraseña())){
-                rol = user.getUsu_Rol();
+                Rol rol = user.getUsu_Rol();
+                acceso = "{\n" +
+                        "\"Access\": true\n" +
+                        "\"usu_Rol\": " + rol  + "\n" +
+                        "}";
                 session.setAttribute("Usuario", user);
             }
         }
-        return rol;
+        return acceso;
     }
 
     public Boolean AgregarUsuario(int rol,Usuario usuario, int departamento, int ciudad){
