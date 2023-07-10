@@ -12,7 +12,7 @@ public class Ord_Entrega {
     private String OrdE_Id;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
     @JsonIgnore
     private Usuario OrdE_IdTrasportador;
@@ -33,33 +33,33 @@ public class Ord_Entrega {
     @Column(length = 15)
     private String OrdE_Estado;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+   /* @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "documento_usu",referencedColumnName = "Usu_Documento")
-    private Usuario usuario;
+    private Usuario usuario;*/
 
 
     public Ord_Entrega(String ordE_Id, Usuario ordE_IdTrasportador, int ordE_Cantidad, String ordE_Fecha, int ordE_TotalPagar, String ordE_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String ordE_Estado, Usuario usuario) {
         OrdE_Id = ordE_Id;
-        OrdE_IdTrasportador = ordE_IdTrasportador;
+        //OrdE_IdTrasportador = ordE_IdTrasportador;
         OrdE_Cantidad = ordE_Cantidad;
         OrdE_Fecha = ordE_Fecha;
         OrdE_TotalPagar = ordE_TotalPagar;
         OrdE_FechaDespachoAproximada = ordE_FechaDespachoAproximada;
         Orden_FechaEntregaAproximada = orden_FechaEntregaAproximada;
         OrdE_Estado = ordE_Estado;
-        this.usuario = usuario;
+        //this.usuario = usuario;
     }
 
     public Ord_Entrega() {
     }
 
-    public Usuario getUsuario() {
+    /*public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    }*/
 
     public String getOrdE_id() {
         return OrdE_Id;
@@ -137,7 +137,7 @@ public class Ord_Entrega {
                 ", OrdE_FechaDespachoAproximada='" + OrdE_FechaDespachoAproximada + '\'' +
                 ", Orden_FechaEntregaAproximada='" + Orden_FechaEntregaAproximada + '\'' +
                 ", OrdE_Estado='" + OrdE_Estado + '\'' +
-                ", usuario=" + usuario +
+                //", usuario=" + usuario +
                 '}';
     }
 }

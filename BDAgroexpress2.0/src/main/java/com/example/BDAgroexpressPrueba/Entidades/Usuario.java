@@ -55,8 +55,8 @@ public class Usuario implements Serializable {
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private Set<Factura> facturas;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private Set<Ord_Entrega> ordenentrega;
+    /*@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private Set<Ord_Entrega> ordenentrega;*/
 
 
 
@@ -75,13 +75,13 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Set<Ord_Entrega> getOrdenentrega() {
+   /* public Set<Ord_Entrega> getOrdenentrega() {
         return ordenentrega;
     }
 
     public void setOrdenentrega(Set<Ord_Entrega> ordenentrega) {
         this.ordenentrega = ordenentrega;
-    }
+    }*/
 
     public Set<Factura> getFacturas() {
         return facturas;
