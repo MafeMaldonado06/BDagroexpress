@@ -41,9 +41,9 @@ public class Servicios_Detalle_Producto {
         return productos;
     }
 
-    public String agregarproducto(DetalleProducto producto) {
+    public String agregarproducto(DetalleProducto producto, String documento) {
 
-        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
 
         if (usuario.getUsu_Rol().getRol_Id() == 2 || usuario.getUsu_Rol().getRol_Id() == 4) {
                 producto.setDet_IdUsuario(usuario);
@@ -54,14 +54,14 @@ public class Servicios_Detalle_Producto {
         }
     }
 
-    public Boolean actualizarProducto(int id,DetalleProducto producto){
+    public Boolean actualizarProducto(int id,DetalleProducto producto, String documento){
 
         Boolean status = false;
 
-        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
         DetalleProducto product = repositorio.findById(id).get();
 
-        if(usuario != null){
+        if(usuario != null && usuario.getUsu_Rol().getRol_Id() == 2 || usuario.getUsu_Rol().getRol_Id() == 4){
 
             product.setDet_Referencia(product.getDet_Referencia());
             product.setDet_IdUsuario(usuario);
@@ -78,14 +78,14 @@ public class Servicios_Detalle_Producto {
         return status;
     }
 
-    public Boolean EliminarProducto(int id, String documemto){
+    public Boolean EliminarProducto(int id, String documento){
 
         Boolean status = false;
 
-        Usuario usuario = (Usuario) servicioUsuario.getSession().getAttribute("Usuario");
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
         DetalleProducto producto = repositorio.findById(id).get();
 
-        if(getProductosPorCampesino(documemto).contains(producto)){
+        if(getProductosPorCampesino(documento).contains(producto)){
             repositorio.deleteById(id);
             status = true;
         }
