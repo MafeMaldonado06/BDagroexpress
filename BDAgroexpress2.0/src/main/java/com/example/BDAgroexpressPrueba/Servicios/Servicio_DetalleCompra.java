@@ -18,6 +18,8 @@ import java.util.*;
 @Service
 public class Servicio_DetalleCompra {
 
+    Enviado_Repositorio enviadoRepositorio;
+
     Ord_Entrega_Repositorio ordEntregaRepositorio;
 
     Factura_Repositorio facturaRepositorio;
@@ -31,7 +33,8 @@ public class Servicio_DetalleCompra {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Servicio_DetalleCompra(Ord_Entrega_Repositorio ordEntregaRepositorio, Factura_Repositorio facturaRepositorio, Usuario_Repositorio repositorioUsuario, DetalleProducto_Repositorio detalleProductoRepositorio, DetalleCompra_Repositorio detalleCompraRepositorio, Servicio_Usuario servicioUsuario) {
+    public Servicio_DetalleCompra(Enviado_Repositorio enviadoRepositorio, Ord_Entrega_Repositorio ordEntregaRepositorio, Factura_Repositorio facturaRepositorio, Usuario_Repositorio repositorioUsuario, DetalleProducto_Repositorio detalleProductoRepositorio, DetalleCompra_Repositorio detalleCompraRepositorio, Servicio_Usuario servicioUsuario) {
+        this.enviadoRepositorio = enviadoRepositorio;
         this.ordEntregaRepositorio = ordEntregaRepositorio;
         this.facturaRepositorio = facturaRepositorio;
         RepositorioUsuario = repositorioUsuario;
@@ -40,10 +43,6 @@ public class Servicio_DetalleCompra {
         this.servicioUsuario = servicioUsuario;
     }
 
-    Factura factura = new Factura();
-
-
-
     public ArrayList<DetalleCompra> getOrdenCompra(){
         return (ArrayList<DetalleCompra>) detalleCompraRepositorio.findAll();
     }
@@ -51,6 +50,7 @@ public class Servicio_DetalleCompra {
 
     public String Agregarcarrito(String documento, int id) {
         DetalleCompra detalleCompra = new DetalleCompra();
+        Enviado enviado= new Enviado();
 
         Optional<DetalleProducto> detalleProductoOptional = detalleProductoRepositorio.findById(id);
         Optional<Usuario> doc = RepositorioUsuario.findById(documento);
@@ -64,10 +64,12 @@ public class Servicio_DetalleCompra {
             detalleCompra.setUsuario(usuario);
             detalleCompra.setPrecio_producto(detalleProducto.getDet_precio());
 
+            enviado.setId_producto(detalleProducto);
+            enviado.setPrecio_producto(detalleProducto.getDet_precio());
+
             // Guardar la orden de compra en la base de datos
             detalleCompra=detalleCompraRepositorio.save(detalleCompra);
-
-
+            enviado=enviadoRepositorio.save(enviado);
 
 
             return "se agrego al carrito";

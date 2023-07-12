@@ -34,6 +34,9 @@ public class DetalleProducto {
     @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
     private Set<DetalleCompra> detalle_compras;
 
+    @OneToMany(mappedBy = "envio_id", fetch = FetchType.LAZY)
+    private Set<Enviado> enviados;
+
     public DetalleProducto(int det_Referencia, Usuario det_IdUsuario,String det_Img, String det_Nombre_product, String det_Categoria, int det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
         Det_IdUsuario = det_IdUsuario;
@@ -111,6 +114,14 @@ public class DetalleProducto {
 
     public void setOrd_compras(Set<DetalleCompra> detalle_compras) {
         this.detalle_compras = detalle_compras;
+    }
+
+    public Set<Enviado> getEnviados() {
+        return enviados;
+    }
+
+    public void setEnviados(Set<Enviado> enviados) {
+        this.enviados = enviados;
     }
 
     @Override
