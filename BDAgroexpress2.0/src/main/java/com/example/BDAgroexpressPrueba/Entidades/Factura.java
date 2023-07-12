@@ -17,8 +17,9 @@ public class Factura {
     @Column(nullable = false)
     private Double Fac_Total;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "documento_usu", referencedColumnName = "Usu_Documento")
+    @JsonIgnore
     private Usuario usuario;
 
 

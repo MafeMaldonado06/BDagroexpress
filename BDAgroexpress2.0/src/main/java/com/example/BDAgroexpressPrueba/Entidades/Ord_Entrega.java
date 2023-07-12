@@ -9,7 +9,7 @@ public class Ord_Entrega {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int OrdE_Id;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
     @JsonIgnore
     private Usuario OrdE_IdTrasportador;
@@ -30,8 +30,9 @@ public class Ord_Entrega {
     @Column(length = 15)
     private String OrdE_Estado;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "documento_usu",referencedColumnName = "Usu_Documento")
+    @JsonIgnore
     private Usuario usuario;
 
 

@@ -1,8 +1,6 @@
 package com.example.BDAgroexpressPrueba.Servicios;
 
 import com.example.BDAgroexpressPrueba.Entidades.*;
-import com.example.BDAgroexpressPrueba.Interfaz.Departamento_Repositorio;
-import com.example.BDAgroexpressPrueba.Interfaz.Municipio_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Rol_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
 import jakarta.persistence.Id;
@@ -19,15 +17,11 @@ public class Servicio_Usuario {
     @Autowired
     Usuario_Repositorio RepositorioUsuario;
     Rol_Repositorio RepositorioRol;
-    Municipio_Repositorio municipioRepositorio;
-    Departamento_Repositorio departamentoRepositorio;
     private HttpSession session;
 
-    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, Rol_Repositorio repositorioRol, Municipio_Repositorio municipioRepositorio, Departamento_Repositorio departamentoRepositorio, HttpSession session) {
+    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, Rol_Repositorio repositorioRol, HttpSession session) {
         RepositorioUsuario = repositorioUsuario;
         RepositorioRol = repositorioRol;
-        this.municipioRepositorio = municipioRepositorio;
-        this.departamentoRepositorio = departamentoRepositorio;
         this.session = session;
     }
 
@@ -68,19 +62,15 @@ public class Servicio_Usuario {
         return acceso;
     }
 
-    public Boolean AgregarUsuario(int rol,Usuario usuario, int departamento, int ciudad){
+    public Boolean AgregarUsuario(int rol,Usuario usuario){
         Boolean status = false;
 
         Rol roles = RepositorioRol.findById(rol).get();
-        Departamento departament = departamentoRepositorio.findById(departamento).get();
-        Municipio municipio = municipioRepositorio.findById(ciudad).get();
         String documento = usuario.getUsu_Documento();
 
 
-        if (RepositorioRol.findById(rol).isPresent() && !RepositorioUsuario.findById(documento).isPresent() && municipioRepositorio.findById(ciudad).isPresent() && departamentoRepositorio.findById(departamento).isPresent()){
+        if (RepositorioRol.findById(rol).isPresent() && !RepositorioUsuario.findById(documento).isPresent()){
             status = true;
-            usuario.setUsu_Departamento(departament);
-            usuario.setUsu_Ciudad(municipio);
             usuario.setUsu_Rol(roles);
             RepositorioUsuario.save(usuario);
 
@@ -89,7 +79,7 @@ public class Servicio_Usuario {
         return status;
     }
 
-    public Boolean ActualizarUsuario(Usuario usuario, int rol, int municipio, int departamento){
+    public Boolean ActualizarUsuario(Usuario usuario, int rol){
 
         Boolean status = false;
 
@@ -97,8 +87,6 @@ public class Servicio_Usuario {
 
         Usuario user = RepositorioUsuario.findById(datosSesion.getUsu_Documento()).get();
         Rol role = RepositorioRol.findById(rol).get();
-        Departamento departament = departamentoRepositorio.findById(departamento).get();
-        Municipio ciudad = municipioRepositorio.findById(municipio).get();
 
 
         if(user != null){
@@ -107,8 +95,6 @@ public class Servicio_Usuario {
             user.setUsu_Correo(usuario.getUsu_Correo());
             user.setUsu_Celular(usuario.getUsu_Celular());
             user.setUsu_Telefono(usuario.getUsu_Telefono());
-            user.setUsu_Departamento(departament);
-            user.setUsu_Ciudad(ciudad);
             user.setUsu_Direccion(usuario.getUsu_Direccion());
             user.setUsu_Contrasena(usuario.getUsu_Contrasena());
             status = true;

@@ -1,7 +1,5 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
-import com.example.BDAgroexpressPrueba.Entidades.Departamento;
-import com.example.BDAgroexpressPrueba.Entidades.Municipio;
 import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Rol;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +23,6 @@ public class Controlador_Rol {
     }
 
 
-    @GetMapping("/listardepar")
-    public List<Map<String, Object>> getDepartameto(){
-        return servicio.getDepartameto();
-    }
-
-    @GetMapping("/listarmuni")
-    public List<Map<String, Object>> getMunicipios(){return servicio.getMunicipios();}
 
     @GetMapping("/listarTranpsotador")
     public List<Map<String, Object>> Transportador(){

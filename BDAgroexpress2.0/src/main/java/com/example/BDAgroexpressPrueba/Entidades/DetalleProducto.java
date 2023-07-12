@@ -31,10 +31,12 @@ public class DetalleProducto {
     @Column(nullable = false, length = 150)
     private int Det_cantidad;
 
-    @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "OrdC_Id", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<DetalleCompra> detalle_compras;
 
-    @OneToMany(mappedBy = "envio_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "envio_id", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Enviado> enviados;
 
     public DetalleProducto(int det_Referencia, Usuario det_IdUsuario,String det_Img, String det_Nombre_product, String det_Categoria, int det_precio, int det_cantidad) {
