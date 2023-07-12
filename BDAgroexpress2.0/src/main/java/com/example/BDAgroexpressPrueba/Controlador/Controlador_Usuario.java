@@ -40,20 +40,20 @@ public class Controlador_Usuario {
         return servicio.ValidacionIngresoUsuario(datos);
     }
 
-    @PostMapping("/AgregarUsuario/{rol}/{departamento}/{ciudad}")
-    public String AgregarUsuario(@PathVariable("rol") int rol,@PathVariable("departamento") int departamento, @PathVariable("ciudad") int ciudad,@RequestBody Usuario user){
+    @PostMapping("/AgregarUsuario/{rol}")
+    public String AgregarUsuario(@PathVariable("rol") int rol ,@RequestBody Usuario user){
 
         String message = "No se pudo realizar el registro";
 
-        if(servicio.AgregarUsuario(rol, user, departamento, ciudad)){
-            servicio.AgregarUsuario(rol,user, departamento, ciudad);
+        if(servicio.AgregarUsuario(rol, user)){
+            servicio.AgregarUsuario(rol,user);
             message = "Se agregó de manera exitosa";
         }
         return message;
     }
-    @PutMapping("/ActualizarUsuario/{rol}/{departamento}/{municipio}")
-    public String actualizarUsuario(@RequestBody Usuario usuario,@PathVariable("rol") int rol,@PathVariable("municipio") int municipio,@PathVariable("departamento") int departamento){
-        if(servicio.ActualizarUsuario(usuario, rol, municipio, departamento)){
+    @PutMapping("/ActualizarUsuario/{rol}")
+    public String actualizarUsuario(@RequestBody Usuario usuario,@PathVariable("rol") int rol){
+        if(servicio.ActualizarUsuario(usuario, rol)){
             return "Se actualizó correctamente el producto";
         }else {
             return "No se logró actualizar el producto";

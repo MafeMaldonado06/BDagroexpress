@@ -68,7 +68,7 @@ public class Servicio_DetalleCompra {
             Double totalPagar = detalleCompraRepositorio.getTotalPagar(compradorId);
 
             // Crear una nueva instancia de Ord_Entrega
-            //transportador.setUsu_CantidadEntregas(cantidad);
+            transportador.setUsu_CantidadEntregas(cantidad);
             Ord_Entrega ordenEntrega = new Ord_Entrega();
             ordenEntrega.setOrdE_Fecha(fechaActual.format(DateTimeFormatter.ISO_DATE));
             ordenEntrega.setOrdE_FechaDespachoAproximada(fechaDespachoAproximada.format(DateTimeFormatter.ISO_DATE));

@@ -24,13 +24,7 @@ public class Usuario implements Serializable {
     private String Usu_Img;
     @Column(length = 20)
     private String Usu_Telefono;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(referencedColumnName = "Dep_Id",nullable = false)
-    private Departamento Usu_Departamento;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(referencedColumnName = "Mun_Id",nullable = false)
-    @JsonIgnore
-    private Municipio Usu_Ciudad;
+
     @Column(nullable = false , length = 50)
     private String Usu_Direccion;
     @Column(nullable = false)
@@ -42,20 +36,24 @@ public class Usuario implements Serializable {
     @JsonIgnore
     private Rol Usu_Rol;
 
-    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)//
+    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Ord_Entrega> ord_entregas;
 
     @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<DetalleProducto> detalleProductos;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<DetalleCompra> detalleCompras;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Factura> facturas;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @JsonIgnore
     private Set<Ord_Entrega> ordenentrega;
 
 
@@ -127,13 +125,6 @@ public class Usuario implements Serializable {
         return Usu_Telefono;
     }
 
-    public Departamento getUsu_Departamento() {
-        return Usu_Departamento;
-    }
-
-    public Municipio getUsu_Ciudad() {
-        return Usu_Ciudad;
-    }
 
     public String getUsu_Direccion() {
         return Usu_Direccion;
@@ -188,13 +179,7 @@ public class Usuario implements Serializable {
         Usu_Telefono = usu_Telefono;
     }
 
-    public void setUsu_Departamento(Departamento usu_Departamento) {
-        Usu_Departamento = usu_Departamento;
-    }
 
-    public void setUsu_Ciudad(Municipio usu_Ciudad) {
-        Usu_Ciudad = usu_Ciudad;
-    }
 
     public void setUsu_Direccion(String usu_Direccion) {
         Usu_Direccion = usu_Direccion;
@@ -230,8 +215,6 @@ public class Usuario implements Serializable {
                 ", Usu_Celular='" + Usu_Celular + '\'' +
                 ", Usu_Img='" + Usu_Img + '\'' +
                 ", Usu_Telefono='" + Usu_Telefono + '\'' +
-                ", Usu_Departamento=" + Usu_Departamento +
-                ", Usu_Ciudad=" + Usu_Ciudad +
                 ", Usu_Direccion='" + Usu_Direccion + '\'' +
                 ", Usu_Contrasena='" + Usu_Contrasena + '\'' +
                 ", usu_CantidadEntregas=" + usu_CantidadEntregas +
