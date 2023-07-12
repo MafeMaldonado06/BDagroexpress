@@ -48,6 +48,89 @@ public class Servicio_DetalleCompra {
         return (ArrayList<DetalleCompra>) detalleCompraRepositorio.findAll();
     }
 
+    public Boolean generarOrdenEntrega(String compradorId){
+
+        Usuario transportador =  RepositorioUsuario.findTransportador();
+
+        if(transportador != null){
+            int cantidad = transportador.getUsu_CantidadEntregas() + 1;
+
+            // Obtener la fecha actual
+            LocalDate fechaActual = LocalDate.now();
+
+            // Calcular la fecha de despacho aproximada (fecha actual + 13 días)
+            LocalDate fechaDespachoAproximada = fechaActual.plusDays(5);
+
+            LocalDate fechaEntregaAproximada = fechaActual.plusDays(10);
+
+            // Consultar la cantidad total de productos y el total a pagar para el usuario
+            int cantidadTotal = detalleCompraRepositorio.getCantidadCompra(compradorId);
+
+            Double totalPagar = detalleCompraRepositorio.getTotalPagar(compradorId);
+
+            // Crear una nueva instancia de Ord_Entrega
+            //transportador.setUsu_CantidadEntregas(cantidad);
+            Ord_Entrega ordenEntrega = new Ord_Entrega();
+            ordenEntrega.setOrdE_Fecha(fechaActual.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_FechaDespachoAproximada(fechaDespachoAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrden_FechaEntregaAproximada(fechaEntregaAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_Estado("Pendiente");
+            ordenEntrega.setOrdE_Cantidad(cantidadTotal);
+            ordenEntrega.setOrdE_TotalPagar(totalPagar);
+            ordenEntrega.setUsuario(RepositorioUsuario.findById(compradorId).get());
+            ordenEntrega.setOrdE_IdTrasportador(transportador);
+
+            // Guardar la orden de entrega en la base de datos
+            ordEntregaRepositorio.save(ordenEntrega);
+
+            return true;
+        }
+        return false;
+    }
+
+    /*@Transactional
+    public boolean generarOrdenEntrega(String idUsuario, String documentoTransportador) {
+        Optional<Usuario> transportadorOptional = RepositorioUsuario.findById(documentoTransportador);
+
+        if (transportadorOptional.isPresent()) {
+            Usuario transportador = transportadorOptional.get();
+
+            // Obtener la fecha actual
+            LocalDate fechaActual = LocalDate.now();
+
+            // Calcular la fecha de despacho aproximada (fecha actual + 13 días)
+            LocalDate fechaDespachoAproximada = fechaActual.plusDays(13);
+
+            // Consultar la cantidad total de productos y el total a pagar para el usuario
+            String consultaCantidad = "SELECT COUNT(*) FROM DetalleCompra WHERE usuario.id = :idUsuario";
+            Long cantidadTotal = entityManager.createQuery(consultaCantidad, Long.class)
+                    .setParameter("idUsuario", idUsuario)
+                    .getSingleResult();
+
+            String consultaTotalPagar = "SELECT SUM(dc.precio_producto) FROM DetalleCompra dc WHERE dc.usuario.id = :idUsuario";
+            Double totalPagar = entityManager.createQuery(consultaTotalPagar, Double.class)
+                    .setParameter("idUsuario", idUsuario)
+                    .getSingleResult();
+
+            // Crear una nueva instancia de Ord_Entrega
+            Ord_Entrega ordenEntrega = new Ord_Entrega();
+            ordenEntrega.setOrdE_Fecha(fechaActual.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_FechaDespachoAproximada(fechaDespachoAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrden_FechaEntregaAproximada(fechaDespachoAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_Estado("Pendiente");
+            ordenEntrega.setOrdE_Cantidad(cantidadTotal.intValue());
+            ordenEntrega.setOrdE_TotalPagar(totalPagar.intValue());
+            ordenEntrega.setOrdE_IdTrasportador(transportador);
+
+            // Guardar la orden de entrega en la base de datos
+            ordEntregaRepositorio.save(ordenEntrega);
+
+            return true;
+        }
+
+        return false;
+    }*/
+
 
     public String Agregarcarrito(String documento, int id) {
         DetalleCompra detalleCompra = new DetalleCompra();
@@ -66,13 +149,8 @@ public class Servicio_DetalleCompra {
 
             // Guardar la orden de compra en la base de datos
             detalleCompra=detalleCompraRepositorio.save(detalleCompra);
-
-
-
-
             return "se agrego al carrito";
         }
-
         return "no se agrego al carrito";
     }
 
@@ -130,9 +208,6 @@ public class Servicio_DetalleCompra {
 
         return false;
     }
-
-
-
 
     public void elimarproductodelcarrito(int productoId) {
         DetalleCompra detalleCompra = detalleCompraRepositorio.findByProductoId(productoId);

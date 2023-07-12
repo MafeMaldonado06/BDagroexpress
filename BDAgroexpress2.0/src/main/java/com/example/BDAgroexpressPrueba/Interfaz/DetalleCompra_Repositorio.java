@@ -15,5 +15,10 @@ public interface DetalleCompra_Repositorio extends JpaRepository<DetalleCompra, 
     @Query(nativeQuery = true, value = "select * from detalle_compra where usu_documento = ?1")
     List<Map<String, Object>>prodcutocompra(int docusu);
 
+    @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM Detalle_Compra WHERE usu_documento = :idUsuario")
+    int getCantidadCompra(@Param("idUsuario") String documento);
+
+    @Query(nativeQuery = true, value = "SELECT SUM(precio_producto) FROM Detalle_Compra WHERE usu_documento = :idUsuario")
+    Double getTotalPagar(@Param("idUsuario") String documento);
 
 }

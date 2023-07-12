@@ -6,40 +6,36 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "ordenentrega")
 public class Ord_Entrega {
-
     @Id
-    @Column(unique = true, length = 20)
-    private String OrdE_Id;
-
-
-   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int OrdE_Id;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "Usu_Documento",nullable = false)
     @JsonIgnore
     private Usuario OrdE_IdTrasportador;
 
     @Column(nullable = false)
     private int OrdE_Cantidad;
-    @Column(unique = true, length = 20)
+    @Column(length = 20)
     private String OrdE_Fecha;
 
     @Column(nullable = false)
-    private int OrdE_TotalPagar;
+    private Double OrdE_TotalPagar;
 
-    @Column(unique = true, length = 20)
+    @Column(length = 20)
     private String OrdE_FechaDespachoAproximada;
 
-    @Column(unique = true, length = 20)
+    @Column(length = 20)
     private String Orden_FechaEntregaAproximada;
     @Column(length = 15)
     private String OrdE_Estado;
 
-   @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "documento_usu",referencedColumnName = "Usu_Documento")
     private Usuario usuario;
 
 
-    public Ord_Entrega(String ordE_Id, Usuario ordE_IdTrasportador, int ordE_Cantidad, String ordE_Fecha, int ordE_TotalPagar, String ordE_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String ordE_Estado, Usuario usuario) {
-        OrdE_Id = ordE_Id;
+    public Ord_Entrega( Usuario ordE_IdTrasportador, int ordE_Cantidad, String ordE_Fecha, Double ordE_TotalPagar, String ordE_FechaDespachoAproximada, String orden_FechaEntregaAproximada, String ordE_Estado, Usuario usuario) {
         //OrdE_IdTrasportador = ordE_IdTrasportador;
         OrdE_Cantidad = ordE_Cantidad;
         OrdE_Fecha = ordE_Fecha;
@@ -61,11 +57,11 @@ public class Ord_Entrega {
         this.usuario = usuario;
     }
 
-    public String getOrdE_id() {
+    public int getOrdE_id() {
         return OrdE_Id;
     }
 
-    public void setOrdE_id(String ordE_id) {
+    public void setOrdE_id(int ordE_id) {
         OrdE_Id = ordE_id;
     }
 
@@ -94,11 +90,11 @@ public class Ord_Entrega {
         OrdE_Fecha = ordE_Fecha;
     }
 
-    public int getOrdE_TotalPagar() {
+    public Double getOrdE_TotalPagar() {
         return OrdE_TotalPagar;
     }
 
-    public void setOrdE_TotalPagar(int ordE_TotalPagar) {
+    public void setOrdE_TotalPagar(Double ordE_TotalPagar) {
         OrdE_TotalPagar = ordE_TotalPagar;
     }
 

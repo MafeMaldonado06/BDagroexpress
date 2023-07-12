@@ -24,8 +24,6 @@ public class Usuario implements Serializable {
     private String Usu_Img;
     @Column(length = 20)
     private String Usu_Telefono;
-
-
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Dep_Id",nullable = false)
     private Departamento Usu_Departamento;
@@ -37,6 +35,8 @@ public class Usuario implements Serializable {
     private String Usu_Direccion;
     @Column(nullable = false)
     private String Usu_Contrasena;
+    @Column(nullable = true)
+    private int usu_CantidadEntregas;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Rol_Id", nullable = false,unique = false)
     @JsonIgnore
@@ -147,6 +147,10 @@ public class Usuario implements Serializable {
         return Usu_Rol;
     }
 
+    public int getUsu_CantidadEntregas() {
+        return usu_CantidadEntregas;
+    }
+
     public Set<Ord_Entrega> getOrd_entregas() {
         return ord_entregas;
     }
@@ -212,6 +216,10 @@ public class Usuario implements Serializable {
         this.detalleProductos = detalleProductos;
     }
 
+    public void setUsu_CantidadEntregas(int usu_CantidadEntregas) {
+        this.usu_CantidadEntregas = usu_CantidadEntregas;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -222,10 +230,11 @@ public class Usuario implements Serializable {
                 ", Usu_Celular='" + Usu_Celular + '\'' +
                 ", Usu_Img='" + Usu_Img + '\'' +
                 ", Usu_Telefono='" + Usu_Telefono + '\'' +
-                ", Usu_Departamento='" + Usu_Departamento + '\'' +
-                ", Usu_Ciudad='" + Usu_Ciudad + '\'' +
+                ", Usu_Departamento=" + Usu_Departamento +
+                ", Usu_Ciudad=" + Usu_Ciudad +
                 ", Usu_Direccion='" + Usu_Direccion + '\'' +
                 ", Usu_Contrasena='" + Usu_Contrasena + '\'' +
+                ", usu_CantidadEntregas=" + usu_CantidadEntregas +
                 ", Usu_Rol=" + Usu_Rol +
                 '}';
     }
