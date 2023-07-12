@@ -62,6 +62,7 @@ public class Controlador_DetalleCompra {
 
     @PostMapping("/Factura/{doc}")
     public void prueba(@PathVariable("doc") String documento) {
+        servicioOrdenCompra.generarOrdenEntrega(documento);
         servicioOrdenCompra.generarFactura(documento);
     }
 
