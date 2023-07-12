@@ -25,14 +25,6 @@ public class Servicio_Usuario {
         this.session = session;
     }
 
-    public HttpSession getSession() {
-        return session;
-    }
-
-    public void setSession(HttpSession session) {
-        this.session = session;
-    }
-
     //Metodos
 
     public ArrayList<Usuario> ListarUsuarios(){

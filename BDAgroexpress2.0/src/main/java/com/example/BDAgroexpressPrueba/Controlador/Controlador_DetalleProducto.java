@@ -27,14 +27,14 @@ public class Controlador_DetalleProducto {
         return servicio.getProductosPorCampesino(documento);
     }
 
-    @PostMapping("/AgregarProducto")
-    public String Agregarproducto(@RequestBody DetalleProducto producto){
-        return  servicio.agregarproducto(producto);
+    @PostMapping("/AgregarProducto/{documento}")
+    public String Agregarproducto(@RequestBody DetalleProducto producto, @PathVariable("documento") String documento){
+        return  servicio.agregarproducto(producto, documento);
     }
 
-    @PutMapping("/ActualizarProducto/{id}")
-    public String actualizarProducto(@PathVariable("id") int id, @RequestBody DetalleProducto producto){
-        if(servicio.actualizarProducto(id, producto)){
+    @PutMapping("/ActualizarProducto/{id}/{documento}")
+    public String actualizarProducto(@PathVariable("id") int id, @RequestBody DetalleProducto producto, @PathVariable("documento") String documento){
+        if(servicio.actualizarProducto(id, producto, documento)){
             return "El producto ha sido actualizado";
         }else {
             return "El producto no se logró actualizar";
