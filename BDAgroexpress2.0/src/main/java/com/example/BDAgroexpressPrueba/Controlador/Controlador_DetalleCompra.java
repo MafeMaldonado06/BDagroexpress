@@ -44,11 +44,6 @@ public class Controlador_DetalleCompra {
         return "Detalle de compra eliminado correctamente.";
     }
 
-    @PostMapping("/generarafactura/{idusu}")
-    public int generarfactura(@PathVariable("idusu") int idusu){
-        servicioOrdenCompra.factura(idusu);
-        return idusu;
-    }
 
     @GetMapping("/Entregado/{doc}")
     public List<Map<String, Object>>finentrgado(@PathVariable("doc") int doc){
@@ -65,6 +60,8 @@ public class Controlador_DetalleCompra {
         servicioOrdenCompra.generarOrdenEntrega(documento);
         servicioOrdenCompra.generarFactura(documento);
     }
+
+
 
     @GetMapping("/productos/{docusu}")
     public List<Map<String, Object>>prodcutocompra(@PathVariable("docusu")int docusu){

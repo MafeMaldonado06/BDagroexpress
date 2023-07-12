@@ -47,6 +47,46 @@ public class Servicio_DetalleCompra {
         return (ArrayList<DetalleCompra>) detalleCompraRepositorio.findAll();
     }
 
+    public Boolean generarOrdenEntrega(String compradorId){
+
+        Usuario transportador =  RepositorioUsuario.findTransportador();
+
+        if(transportador != null){
+            int cantidad = transportador.getUsu_CantidadEntregas() + 1;
+
+            // Obtener la fecha actual
+            LocalDate fechaActual = LocalDate.now();
+
+            // Calcular la fecha de despacho aproximada (fecha actual + 13 días)
+            LocalDate fechaDespachoAproximada = fechaActual.plusDays(5);
+
+            LocalDate fechaEntregaAproximada = fechaActual.plusDays(10);
+
+            // Consultar la cantidad total de productos y el total a pagar para el usuario
+            int cantidadTotal = detalleCompraRepositorio.getCantidadCompra(compradorId);
+
+            Double totalPagar = detalleCompraRepositorio.getTotalPagar(compradorId);
+
+            // Crear una nueva instancia de Ord_Entrega
+            //transportador.setUsu_CantidadEntregas(cantidad);
+            Ord_Entrega ordenEntrega = new Ord_Entrega();
+            ordenEntrega.setOrdE_Fecha(fechaActual.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_FechaDespachoAproximada(fechaDespachoAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrden_FechaEntregaAproximada(fechaEntregaAproximada.format(DateTimeFormatter.ISO_DATE));
+            ordenEntrega.setOrdE_Estado("Pendiente");
+            ordenEntrega.setOrdE_Cantidad(cantidadTotal);
+            ordenEntrega.setOrdE_TotalPagar(totalPagar);
+            ordenEntrega.setUsuario(RepositorioUsuario.findById(compradorId).get());
+            ordenEntrega.setOrdE_IdTrasportador(transportador);
+
+            // Guardar la orden de entrega en la base de datos
+            ordEntregaRepositorio.save(ordenEntrega);
+
+            return true;
+        }
+        return false;
+    }
+
 
     public String Agregarcarrito(String documento, int id) {
         DetalleCompra detalleCompra = new DetalleCompra();
@@ -78,24 +118,9 @@ public class Servicio_DetalleCompra {
         return "no se agrego al carrito";
     }
 
-    public void factura(int idusu){
-
-        Optional<Factura> facturaOptional = facturaRepositorio.findById(idusu);
-        List<DetalleCompra> detalleCompras = detalleCompraRepositorio.findAll();
-
-        List<Factura> facturas = new ArrayList<>();
-        for (DetalleCompra compra:detalleCompras ){
-            Factura fact = new Factura();
-            //id carrito
-
-            facturas.add(fact);
-        }
-        facturaRepositorio.saveAll(facturas);
-
-    }
 
 
-    //@Transactional
+    @Transactional
     public boolean generarFactura(String documento) {
         Optional<Usuario> usuarioOptional = RepositorioUsuario.findById(documento);
 
@@ -122,10 +147,9 @@ public class Servicio_DetalleCompra {
             factura = facturaRepositorio.save(factura);
 
 
-
-            /*entityManager.createQuery("DELETE FROM DetalleCompra d WHERE d.usuario = :usuario")
+           entityManager.createQuery("DELETE FROM DetalleCompra d WHERE d.usuario = :usuario")
                     .setParameter("usuario", usuario)
-                    .executeUpdate();*/
+                    .executeUpdate();
 
             return true;
         }
