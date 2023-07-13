@@ -30,11 +30,6 @@ public class Controlador_Usuario {
         return servicio.ListarUsuarios();
     }
 
-    @GetMapping("/DatosSesion")
-    public Usuario DatosSesion(){
-        return (Usuario) servicio.getSession().getAttribute("Usuario");
-    }
-
     @GetMapping("/Ingresar")
     public String IngresoUsuario(@RequestBody SessionRequest datos) {
         return servicio.ValidacionIngresoUsuario(datos);
