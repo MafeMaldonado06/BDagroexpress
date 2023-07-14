@@ -22,8 +22,8 @@ public class Servicios_Detalle_Producto {
         this.servicioUsuario = servicioUsuario;
     }
 
-    public List<Map<String, Object>> listarDetalleProducto(){
-        return detalleProductoRepositorio.getProductos();
+    public List<DetalleProducto> listarDetalleProducto(){
+        return (List<DetalleProducto>) detalleProductoRepositorio.findAll();
     }
 
     //Campesino

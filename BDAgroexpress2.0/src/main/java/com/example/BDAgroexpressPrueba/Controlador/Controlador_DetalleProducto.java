@@ -19,7 +19,7 @@ public class Controlador_DetalleProducto {
     }
 
     @GetMapping("Listarproductos")
-    public List<Map<String, Object>> listarproductos(){
+    public List<DetalleProducto> listarproductos(){
         return servicio.listarDetalleProducto();
     }
 
