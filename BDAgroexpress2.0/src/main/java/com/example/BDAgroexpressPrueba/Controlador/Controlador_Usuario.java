@@ -1,16 +1,14 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
-import com.example.BDAgroexpressPrueba.Entidades.Rol;
 import com.example.BDAgroexpressPrueba.Entidades.SessionRequest;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -30,23 +28,38 @@ public class Controlador_Usuario {
         return servicio.ListarUsuarios();
     }
 
-    @GetMapping("/DatosSesion")
-    public Usuario DatosSesion(){
-        return (Usuario) servicio.getSession().getAttribute("Usuario");
+    @GetMapping("/listarCompradores")
+    public List<Usuario> getCompradores(){
+        return servicio.getCompradores();
     }
 
-    @GetMapping("/Ingresar")
+    @GetMapping("/listarCampesinos")
+    public List<Usuario> findCampesinos(){
+        return servicio.getCampesinos();
+    }
+
+    @GetMapping("/listarTranpsotador")
+    public List<Usuario> Transportador(){
+        return servicio.Transportador();
+    }
+
+    @GetMapping("/listarAdministradores")
+    public List<Usuario> findAdministradores(){
+        return servicio.getAdministradores();
+    }
+
+    @PostMapping("/Ingresar")
     public String IngresoUsuario(@RequestBody SessionRequest datos) {
         return servicio.ValidacionIngresoUsuario(datos);
     }
 
-    @PostMapping("/AgregarUsuario/{rol}")
-    public String AgregarUsuario(@PathVariable("rol") int rol ,@RequestBody Usuario user){
+    @PostMapping("/AgregarUsuario")
+    public String AgregarUsuario(@RequestBody Usuario user){
 
         String message = "No se pudo realizar el registro";
 
-        if(servicio.AgregarUsuario(rol, user)){
-            servicio.AgregarUsuario(rol,user);
+        if(servicio.AgregarUsuario(user)){
+            servicio.AgregarUsuario(user);
             message = "Se agregó de manera exitosa";
         }
         return message;
