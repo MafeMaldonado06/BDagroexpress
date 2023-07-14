@@ -1,0 +1,575 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+a{
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+background-color: #888;
+border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background-color: #555;
+}
+
+header{
+    background: #000;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    height: 7.3em;
+}
+
+.header-logo{
+    width: 11%;
+}
+
+.header-tipografia{
+    width: 30%;
+}
+
+.header-enlaces{
+    margin-right: 2em;
+}
+
+.header-enlaces li{
+    width: 8em;
+    margin-inline: 1em;
+    padding-block: .2em;
+    text-align: center;
+}
+
+.header-enlaces li::before{
+    content: "";
+    bottom: 0;
+    background: #53704B;
+    width: 100%;
+}
+
+.header-enlaces li a{
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+
+.lista-header{
+    display: none;
+}
+
+.lista-header i{
+    font-size: 40px;
+}
+
+.header-enlaces li:hover{
+    border-bottom: 2px solid #53704B;
+}
+
+.bandeja-menu-navegacion{
+    position: fixed;
+    width: 30%;
+    top: 0;
+    right: -350px;
+    z-index: 40;
+    background-color: black;
+    height: 100vh;
+    display: none;
+}
+
+#menu-slide-down{
+    display: none;
+    animation-duration: .8s;
+    animation-name: slide-down;
+}
+
+@keyframes slide-down {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 6em;
+        padding: 0;
+    }
+}
+
+.cerrar-bandeja-menu-navegacion{
+    font-size: 40px;
+}
+
+.enlaces-menu-bandeja li{
+    margin-block: 6%;
+}
+
+.enlaces-menu-bandeja li a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.enlaces-menu-bandeja li a i{
+    margin-inline-end: .5em;
+}
+
+.contenedor-icono-carrito{
+    width: 4em;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contenedor-icono-carrito i{
+    font-size: 38px;
+    color: white;
+}
+
+.contenedor-img-usuario{
+    width: 4em;
+    height: auto;
+    margin: 0 2%;
+}
+
+.usuario-img{
+    width: 12em;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.usuario-img:hover{
+    cursor: pointer;
+}
+
+.usuario-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caja-opacidad-apertura-bandeja{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: -5000px;
+    background: #000;
+    opacity: 0.5;
+    z-index: 9999;
+}
+
+.bandeja{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 25%;
+    height: 100vh;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    z-index: 9999;
+}
+
+.icono-cerrar-bandeja{
+    font-size: 25px;
+}
+
+.contenedor-img-usuario-bandeja{
+    width: 70%;
+}
+
+.datos-usuario-bandeja li{
+    margin-bottom: 2%;
+}
+
+.datos-usuario-bandeja li span{
+    margin-inline: 2%;
+}
+
+.tutilo-dato-usuario-bandeja{
+    font-weight: bold;
+    color: #53704B;
+}
+
+.botones-bandeja button{
+    margin-inline: 3%;
+}
+
+.caja-buscador{
+    width: 45%;
+}
+
+.buscador{
+    width: 100%;
+    height: 2.5em;
+    border: 2px solid rgb(227, 213, 213);
+}
+
+.buscador input{
+    outline: none;
+    padding-left: 5%;
+}
+
+.icon-search:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.caja-fondo{
+    background-image: url(../Img/pexels-thanhhoa-tran-1447092.jpg);
+    background-size: cover;
+    height: 850px;
+    position: relative;
+}
+
+.superposicion{
+    width: 100%;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.caja-fondo h1{
+    display: none;
+}
+
+.superposicion:hover{
+    opacity: 0.6;
+}
+
+.superposicion-a{
+    text-decoration: none;
+    border: 2px solid white;
+    width: 15%;
+    text-align: center;
+    padding: .5% 0;
+    border-radius: 5px;
+}
+
+.caja-fondo:hover .superposicion-h1, .superposicion-p, .superposicion-a{
+    display: block;
+    color: white;
+}
+
+
+.contenido{
+    margin: 2.5% 10% 2.5% 12%;
+}
+
+.subtitulo{
+    width: 50%;
+}
+
+.carousel{
+    width: 65%;
+}
+
+.carousel-item{
+    display: flex;
+    justify-items: center;
+}
+
+.contenedor-proposito{
+    width: 25%;
+}
+
+.proposito-icon{
+    font-size: 53px;
+    color: #000;
+    border-radius: 50%;
+    width: 2em;
+    padding: 7%;
+}
+
+.proposito-icon:hover{
+    background-color: #53704B;
+    transform: scale(1.2);
+    transition: transform 0.9s;
+    margin-bottom: 6%;
+}
+
+.proposito-icon:hover i{
+    color: white;
+}
+
+footer{
+    flex-shrink: 0;
+    position: static;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+.mensaje-form-footer{
+    text-align: left;
+    padding-top: 0;
+    height: 130px;
+    box-sizing: border-box;
+    vertical-align: text-top;
+    word-wrap: break-word;
+    overflow-x: auto;
+}
+
+.redes-footer div{
+    margin-inline: 3%;
+    border-radius: 50%;
+    width: 3.5%;
+    text-align: center;
+}
+
+.redes-footer div i{
+    font-size: 40px;
+    color: white;
+}
+
+.redes-footer div:hover{
+    background-color: #53704B;
+    
+}
+
+.redes-footer div:hover i{
+    color: #000;
+}
+
+.eslogan-footer i{
+    font-weight: bold;
+    color: #53704B;
+}
+
+.boton-flotante-subir{
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    text-align: center;
+    width: 1.6em;
+    background-color: #53704B;
+    font-size: 31px;
+    border-radius: 50%;
+    padding: 0 .5%;
+    z-index: 33;
+}
+
+/*Animacion botones ver más*/
+.boton-verMas-cartaProducto{
+    width: 50%;
+    margin: 5% 0 5% 0;
+    padding: 0.3rem 5% 0.3rem 5%;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton-verMas-cartaProducto span{
+    position: relative;
+    z-index: 2;
+}
+
+.boton-verMas-cartaProducto::after{
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+    background: #53704B;
+    z-index: 1;
+    transition: .5s ease-in-out;
+    transform-origin: center;
+    border-radius: 50%;
+}
+
+.boton-verMas-cartaProducto:hover::after{
+    transform: scale(200);
+}
+
+.boton-verMas-cartaProducto:hover{
+    background: #455b3e;
+}
+
+@media (min-width: 1200px) and (max-width: 1399px){
+    .header-logo{
+        width: 18%;
+    }
+
+    .header-tipografia{
+        width: 35%;
+    }
+
+    .header-enlaces li{
+        margin-inline: 1.2em;
+    }
+
+    .caja-fondo{
+        height: 750px;
+    }
+
+    .contenedor-proposito{
+        width: 35%;
+    }
+
+    .bandeja{
+        width: 40%;
+        right: -580px
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+    .usuario-img{
+        background-color: #53704B;
+        width: 15em;
+    }
+
+    .bandeja{
+        width: 40%;
+    }
+
+    .header-logo{
+        width: 18%;
+    }
+
+    .header-tipografia{
+        width: 40%;
+    }
+
+    .header-enlaces li{
+        margin-inline: 1.5em;
+    }
+    
+    .caja-fondo{
+        height: 730px;
+    }
+
+    .contenedor-proposito{
+        width: 42%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+    header{
+        height: 5.5em;
+    }
+
+    .contenedor-img-usuario{
+        width: 3.5em;
+    }
+
+    .usuario-img{
+        width: 14em;
+    }
+
+    .header-logo{
+        width: 15%;
+    }
+
+    .header-tipografia{
+        width: 35%;
+    }
+
+    .header-enlaces li{
+        margin-inline: 1.5em;
+    }
+
+    .lista-header{
+        display: block;
+    }
+
+    .header-enlaces li{
+        display: none;
+    }
+
+    .bandeja{
+        width: 55%;
+        right: -550px;
+    }
+
+    .bandeja-menu-navegacion{
+        display: block;
+    }
+
+    .caja-fondo{
+        height: 530px;
+    }
+
+    .contenedor-proposito{
+        width: 50%;
+    }
+
+    .boton-flotante-subir{
+        display: none;
+    }
+
+    .caja-buscador{
+        width: 65%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px){
+    header{
+        height: 5.5em;
+    }
+
+    .contenedor-img-usuario{
+        width: 4em;
+    }
+
+    .usuario-img{
+        width: 100%;
+    }
+
+    .header-logo{
+        width: 22%;
+    }
+
+    .header-tipografia{
+        width: 50%;
+    }
+
+    .lista-header{
+        display: block;
+    }
+
+    .header-enlaces li{
+        display: none;
+    }
+
+    .bandeja-menu-navegacion{
+        display: block;
+        width: 40%;
+    }
+
+    .caja-fondo{
+        height: 430px;
+    }
+
+    .bandeja{
+        width: 55%;
+        right: -550px;
+    }
+
+    .caja-buscador{
+        width: 65%;
+    }
+
+    .contenedor-proposito{
+        width: 70%;
+    }
+
+    .boton-flotante-subir{
+        display: none;
+    }
+}

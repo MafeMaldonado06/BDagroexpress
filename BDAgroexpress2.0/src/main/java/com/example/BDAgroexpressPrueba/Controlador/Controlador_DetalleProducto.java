@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,7 +19,7 @@ public class Controlador_DetalleProducto {
     }
 
     @GetMapping("Listarproductos")
-    public ArrayList<DetalleProducto> listarproductos(){
+    public List<Map<String, Object>> listarproductos(){
         return servicio.listarDetalleProducto();
     }
 

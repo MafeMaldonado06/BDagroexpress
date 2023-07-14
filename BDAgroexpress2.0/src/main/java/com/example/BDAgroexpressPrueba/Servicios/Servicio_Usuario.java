@@ -1,38 +1,47 @@
 package com.example.BDAgroexpressPrueba.Servicios;
 
 import com.example.BDAgroexpressPrueba.Entidades.*;
-import com.example.BDAgroexpressPrueba.Interfaz.Rol_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
-import jakarta.persistence.Id;
 import jakarta.servlet.http.HttpSession;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 @Service
 public class Servicio_Usuario {
     @Autowired
     Usuario_Repositorio RepositorioUsuario;
-    Rol_Repositorio RepositorioRol;
     private HttpSession session;
 
-    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, Rol_Repositorio repositorioRol, HttpSession session) {
+    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, HttpSession session) {
         RepositorioUsuario = repositorioUsuario;
-        RepositorioRol = repositorioRol;
         this.session = session;
     }
 
     //Metodos
-
+    @Transactional
     public ArrayList<Usuario> ListarUsuarios(){
         return (ArrayList<Usuario>) RepositorioUsuario.findAll();
     }
 
+    public List<Usuario> getCompradores(){
+        return RepositorioUsuario.findCompradores();
+    }
+
     public List<Usuario> getCampesinos(){
         return RepositorioUsuario.findCampesinos();
+    }
+
+    public List<Usuario> Transportador(){
+        return RepositorioUsuario.Transportador();
+    }
+
+    public List<Usuario> getAdministradores(){
+        return RepositorioUsuario.findAdministrador();
     }
 
     public String ValidacionIngresoUsuario(SessionRequest datos){
@@ -43,7 +52,7 @@ public class Servicio_Usuario {
         if(RepositorioUsuario.findById(datos.getDocumento()).isPresent()){
             Usuario user =  RepositorioUsuario.findById(datos.getDocumento()).get();
             if(user.getUsu_Contrasena().equals(datos.getContraseña())){
-                Rol rol = user.getUsu_Rol();
+                String rol = user.getUsu_Rol();
                 acceso = "{\n" +
                         "\"Access\": true\n" +
                         "\"usu_Rol\": " + rol  + "\n" +
@@ -54,19 +63,16 @@ public class Servicio_Usuario {
         return acceso;
     }
 
-    public Boolean AgregarUsuario(int rol,Usuario usuario){
+    public Boolean AgregarUsuario(Usuario usuario){
         Boolean status = false;
 
-        Rol roles = RepositorioRol.findById(rol).get();
         String documento = usuario.getUsu_Documento();
 
+        System.out.println(documento);
 
-        if (RepositorioRol.findById(rol).isPresent() && !RepositorioUsuario.findById(documento).isPresent()){
+        if (!RepositorioUsuario.findById(documento).isPresent()){
             status = true;
-            usuario.setUsu_Rol(roles);
             RepositorioUsuario.save(usuario);
-
-            session.setAttribute("Usuario", usuario);
         }
         return status;
     }
@@ -78,8 +84,6 @@ public class Servicio_Usuario {
         Usuario datosSesion = (Usuario) session.getAttribute("Usuario");
 
         Usuario user = RepositorioUsuario.findById(datosSesion.getUsu_Documento()).get();
-        Rol role = RepositorioRol.findById(rol).get();
-
 
         if(user != null){
             user.setUsu_Nombre(usuario.getUsu_Nombre());

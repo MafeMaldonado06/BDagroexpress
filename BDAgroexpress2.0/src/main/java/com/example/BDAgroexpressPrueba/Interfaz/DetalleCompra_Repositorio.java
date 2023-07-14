@@ -4,10 +4,11 @@ import com.example.BDAgroexpressPrueba.Entidades.DetalleCompra;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
-
+@Repository
 public interface DetalleCompra_Repositorio extends JpaRepository<DetalleCompra, Integer> {
     @Query(nativeQuery = true, value = "SELECT * FROM Detalle_compra WHERE ordc_producto_det_referencia = :productoId")
     DetalleCompra findByProductoId(@Param("productoId") int productoId);

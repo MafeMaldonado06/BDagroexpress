@@ -18,7 +18,139 @@ import java.util.*;
 @Service
 public class Servicio_DetalleCompra {
 
-    Enviado_Repositorio enviadoRepositorio;
+    //Repositorios
+    DetalleCompra_Repositorio detalleCompraRepositorio;
+    DetalleProducto_Repositorio detalleProductoRepositorio;
+    Usuario_Repositorio usuarioRepositorio;
+    OrdenCompra_Repositorio ordenCompraRepositorio;
+    Ord_Entrega_Repositorio ordEntregaRepositorio;
+    Factura_Repositorio facturaRepositorio;
+
+    //Servicios
+    Servicio_OrdenCompra servicioOrdenCompra;
+
+    public Servicio_DetalleCompra(DetalleCompra_Repositorio detalleCompraRepositorio, DetalleProducto_Repositorio detalleProductoRepositorio, Usuario_Repositorio usuarioRepositorio, OrdenCompra_Repositorio ordenCompraRepositorio, Ord_Entrega_Repositorio ordEntregaRepositorio, Factura_Repositorio facturaRepositorio, Servicio_OrdenCompra servicioOrdenCompra) {
+        this.detalleCompraRepositorio = detalleCompraRepositorio;
+        this.detalleProductoRepositorio = detalleProductoRepositorio;
+        this.usuarioRepositorio = usuarioRepositorio;
+        this.ordenCompraRepositorio = ordenCompraRepositorio;
+        this.ordEntregaRepositorio = ordEntregaRepositorio;
+        this.facturaRepositorio = facturaRepositorio;
+        this.servicioOrdenCompra = servicioOrdenCompra;
+    }
+
+    public void GuardarProducto(List<DetalleCompra> producto, String documento){
+
+        LocalDate fechaCompra = LocalDate.now();
+
+        OrdenCompra ordenCompra = new OrdenCompra();
+        ordenCompra.setComprador(usuarioRepositorio.findById(documento).get());
+        ordenCompra.setOrdC_CantidadProductos(producto.size());
+        ordenCompra.setOrdC_FechaCompra(fechaCompra.format(DateTimeFormatter.ISO_DATE));
+
+        Double totalCompra = 0.0;
+
+        for (int i = 0; i < producto.size(); i++) {
+            totalCompra += producto.get(i).getDetC_Producto().getDet_precio();
+        }
+
+        ordenCompra.setOrdC_TotalCompra(totalCompra);
+
+        ordenCompraRepositorio.save(ordenCompra);
+
+        Ord_Entrega ordenEntrega = new Ord_Entrega();
+        Factura factura = new Factura();
+
+        Usuario transportador = usuarioRepositorio.findTransportador();
+
+        transportador.setUsu_CantidadEntregas(transportador.getUsu_CantidadEntregas() + 1);
+
+        //Asignaciones orden entrega
+        ordenEntrega.setOrdenCompra(ordenCompra);
+        ordenEntrega.setOrdE_IdTrasportador(transportador);
+        ordenEntrega.setOrdE_FechaDespachoAproximada(fechaCompra.plusDays(5).format(DateTimeFormatter.ISO_DATE));
+        ordenEntrega.setOrden_FechaEntregaAproximada(fechaCompra.plusDays(10).format(DateTimeFormatter.ISO_DATE));
+        ordenEntrega.setOrdE_Estado("Pendiente");
+
+        ordEntregaRepositorio.save(ordenEntrega);
+
+        System.out.println("hola");
+
+        //Asignaciones factura
+        factura.setOrdenCompra(ordenCompra);
+
+        facturaRepositorio.save(factura);
+
+
+        for (int i = 0; i < producto.size(); i++) {
+            producto.get(i).setOrdenCompra(ordenCompra);
+            producto.get(i).setDetC_PrecioUnidad(producto.get(i).getDetC_Producto().getDet_precio());
+            producto.get(i).setDetC_Producto(producto.get(i).getDetC_Producto());
+            detalleCompraRepositorio.save(producto.get(i));
+        }
+
+        System.out.println(producto);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*Enviado_Repositorio enviadoRepositorio;
 
     Ord_Entrega_Repositorio ordEntregaRepositorio;
 
@@ -195,7 +327,7 @@ public class Servicio_DetalleCompra {
         }
 
         return false;
-    }
+    }*/
 }
 
 

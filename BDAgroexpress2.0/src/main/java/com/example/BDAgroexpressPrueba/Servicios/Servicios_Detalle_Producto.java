@@ -4,28 +4,26 @@ import com.example.BDAgroexpressPrueba.Entidades.DetalleProducto;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Interfaz.DetalleProducto_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class Servicios_Detalle_Producto {
-    DetalleProducto_Repositorio repositorio;
+    DetalleProducto_Repositorio detalleProductoRepositorio;
     Usuario_Repositorio RepositorioUsuario;
     Servicio_Usuario servicioUsuario;
 
-
-    public Servicios_Detalle_Producto(DetalleProducto_Repositorio repositorio, Usuario_Repositorio repositorioUsuario, Servicio_Usuario servicioUsuario) {
-        this.repositorio = repositorio;
+    public Servicios_Detalle_Producto(DetalleProducto_Repositorio detalleProductoRepositorio, Usuario_Repositorio repositorioUsuario, Servicio_Usuario servicioUsuario) {
+        this.detalleProductoRepositorio = detalleProductoRepositorio;
         RepositorioUsuario = repositorioUsuario;
         this.servicioUsuario = servicioUsuario;
     }
 
-    public ArrayList<DetalleProducto> listarDetalleProducto(){
-        return  (ArrayList<DetalleProducto>) repositorio.findAll();
+    public List<Map<String, Object>> listarDetalleProducto(){
+        return detalleProductoRepositorio.getProductos();
     }
 
     //Campesino
@@ -34,8 +32,8 @@ public class Servicios_Detalle_Producto {
 
         Usuario usuario = RepositorioUsuario.findById(documento).get();
 
-        if(usuario.getUsu_Rol().getRol_Id() == 4 || usuario.getUsu_Rol().getRol_Id() == 2){
-            productos = repositorio.ProductosPorCampesino(usuario.getUsu_Documento());
+        if(usuario.getUsu_Rol().equals("administrador") || usuario.getUsu_Rol().equals("campesino")){
+            productos = detalleProductoRepositorio.ProductosPorCampesino(usuario.getUsu_Documento());
         }
 
         return productos;
@@ -45,9 +43,9 @@ public class Servicios_Detalle_Producto {
 
         Usuario usuario = RepositorioUsuario.findById(documento).get();
 
-        if (usuario.getUsu_Rol().getRol_Id() == 2 || usuario.getUsu_Rol().getRol_Id() == 4) {
+        if (usuario.getUsu_Rol().equals("Administrador") || usuario.getUsu_Rol().equals("Campesino")) {
                 producto.setDet_IdUsuario(usuario);
-                repositorio.save(producto);
+                detalleProductoRepositorio.save(producto);
                 return "El producto se agrego exitosamente";
         }else {
             return "usted no puede agregar productos";
@@ -59,19 +57,19 @@ public class Servicios_Detalle_Producto {
         Boolean status = false;
 
         Usuario usuario = RepositorioUsuario.findById(documento).get();
-        DetalleProducto product = repositorio.findById(id).get();
+        DetalleProducto product = detalleProductoRepositorio.findById(id).get();
 
-        if(usuario != null && usuario.getUsu_Rol().getRol_Id() == 2 || usuario.getUsu_Rol().getRol_Id() == 4){
+        if(usuario != null && usuario.getUsu_Rol().equals("administrador") || usuario.getUsu_Rol().equals("campesino")){
 
             product.setDet_Referencia(product.getDet_Referencia());
             product.setDet_IdUsuario(usuario);
             product.setDet_Img(producto.getDet_Img());
-            product.setDet_Nombre_product(producto.getDet_Nombre_poduct());
+            product.setDet_Nombre_product(producto.getDet_Nombre_product());
             product.setDet_Categoria(producto.getDet_Categoria());
             product.setDet_precio(producto.getDet_precio());
             product.setDet_cantidad(producto.getDet_cantidad());
 
-            repositorio.save(product);
+            detalleProductoRepositorio.save(product);
 
             status = true;
         }
@@ -83,10 +81,10 @@ public class Servicios_Detalle_Producto {
         Boolean status = false;
 
         Usuario usuario = RepositorioUsuario.findById(documento).get();
-        DetalleProducto producto = repositorio.findById(id).get();
+        DetalleProducto producto = detalleProductoRepositorio.findById(id).get();
 
         if(getProductosPorCampesino(documento).contains(producto)){
-            repositorio.deleteById(id);
+            detalleProductoRepositorio.deleteById(id);
             status = true;
         }
 
@@ -94,15 +92,15 @@ public class Servicios_Detalle_Producto {
     }
 
     public List<DetalleProducto> listarProductosCategoriaFrutas(){
-        return repositorio.ProductosFrutas();
+        return detalleProductoRepositorio.ProductosFrutas();
     }
 
     public List<DetalleProducto> listarProductosCategoriaVerduras(){
-        return repositorio.ProductosVerduras();
+        return detalleProductoRepositorio.ProductosVerduras();
     }
 
     public List<DetalleProducto> listarProductosCategoriaLegumbres(){
-        return repositorio.ProductosLegumbres();
+        return detalleProductoRepositorio.ProductosLegumbres();
     }
 
 }

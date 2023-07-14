@@ -15,9 +15,49 @@ import java.util.Map;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class Controlador_DetalleCompra {
 
+    //Repositorios
+
+    //Servicios
+    Servicio_DetalleCompra servicioDetalleCompra;
+
+    public Controlador_DetalleCompra(Servicio_DetalleCompra servicioDetalleCompra) {
+        this.servicioDetalleCompra = servicioDetalleCompra;
+    }
+
+    @PostMapping("/GuardarProducto/{documento}")
+    public void GuardarProducto(@RequestBody List<DetalleCompra> producto, @PathVariable("documento") String documento){
+        servicioDetalleCompra.GuardarProducto(producto, documento);
+    }
 
 
-    Servicio_DetalleCompra servicioOrdenCompra;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*Servicio_DetalleCompra servicioOrdenCompra;
 
     DetalleCompra_Repositorio detalleCompraRepositorio;
 
@@ -66,7 +106,7 @@ public class Controlador_DetalleCompra {
     @GetMapping("/productos/{docusu}")
     public List<Map<String, Object>>prodcutocompra(@PathVariable("docusu")int docusu){
         return servicioOrdenCompra.prodcutocompra(docusu);
-    }
+    }*/
 
 
 

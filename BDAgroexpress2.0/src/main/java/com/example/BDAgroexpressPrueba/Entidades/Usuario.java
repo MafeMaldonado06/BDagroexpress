@@ -1,5 +1,6 @@
 package com.example.BDAgroexpressPrueba.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -31,34 +32,19 @@ public class Usuario implements Serializable {
     private String Usu_Contrasena;
     @Column(nullable = true)
     private int usu_CantidadEntregas;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(referencedColumnName = "Rol_Id", nullable = false,unique = false)
-    @JsonIgnore
-    private Rol Usu_Rol;
-
-    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.EAGER)
+    @Column(nullable = false)
+    private String Usu_Rol;
+    @OneToMany(mappedBy = "OrdE_IdTrasportador", fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<Ord_Entrega> ord_entregas;
-
-    @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "Det_IdUsuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<DetalleProducto> detalleProductos;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "Comprador", fetch = FetchType.EAGER)
     @JsonIgnore
-    private Set<DetalleCompra> detalleCompras;
+    private Set<OrdenCompra> ordenesCompra;
 
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<Factura> facturas;
-
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-    @JsonIgnore
-    private Set<Ord_Entrega> ordenentrega;
-
-
-
-    public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Direccion, String usu_Contrasena) {
+    public Usuario(String usu_Documento, String usu_Nombre, String usu_Apellidos, String usu_Correo, String usu_Celular, String usu_Img, String usu_Telefono, String usu_Direccion, String usu_Contrasena, int usu_CantidadEntregas, String usu_Rol) {
         Usu_Documento = usu_Documento;
         Usu_Nombre = usu_Nombre;
         Usu_Apellidos = usu_Apellidos;
@@ -68,33 +54,11 @@ public class Usuario implements Serializable {
         Usu_Telefono = usu_Telefono;
         Usu_Direccion = usu_Direccion;
         Usu_Contrasena = usu_Contrasena;
+        this.usu_CantidadEntregas = usu_CantidadEntregas;
+        Usu_Rol = usu_Rol;
     }
 
     public Usuario() {
-    }
-
-    public Set<Ord_Entrega> getOrdenentrega() {
-        return ordenentrega;
-    }
-
-    public void setOrdenentrega(Set<Ord_Entrega> ordenentrega) {
-        this.ordenentrega = ordenentrega;
-    }
-
-    public Set<Factura> getFacturas() {
-        return facturas;
-    }
-
-    public void setFacturas(Set<Factura> facturas) {
-        this.facturas = facturas;
-    }
-
-    public Set<DetalleCompra> getDetalleCompras() {
-        return detalleCompras;
-    }
-
-    public void setDetalleCompras(Set<DetalleCompra> detalleCompras) {
-        this.detalleCompras = detalleCompras;
     }
 
     public String getUsu_Documento() {
@@ -134,7 +98,7 @@ public class Usuario implements Serializable {
         return Usu_Contrasena;
     }
 
-    public Rol getUsu_Rol() {
+    public String getUsu_Rol() {
         return Usu_Rol;
     }
 
@@ -189,7 +153,7 @@ public class Usuario implements Serializable {
         Usu_Contrasena = usu_Contrasena;
     }
 
-    public void setUsu_Rol(Rol usu_Rol) {
+    public void setUsu_Rol(String usu_Rol) {
         Usu_Rol = usu_Rol;
     }
 
@@ -205,6 +169,14 @@ public class Usuario implements Serializable {
         this.usu_CantidadEntregas = usu_CantidadEntregas;
     }
 
+    public Set<OrdenCompra> getOrdenesCompra() {
+        return ordenesCompra;
+    }
+
+    public void setOrdenesCompra(Set<OrdenCompra> ordenesCompra) {
+        this.ordenesCompra = ordenesCompra;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -218,7 +190,7 @@ public class Usuario implements Serializable {
                 ", Usu_Direccion='" + Usu_Direccion + '\'' +
                 ", Usu_Contrasena='" + Usu_Contrasena + '\'' +
                 ", usu_CantidadEntregas=" + usu_CantidadEntregas +
-                ", Usu_Rol=" + Usu_Rol +
+                ", Usu_Rol='" + Usu_Rol + '\'' +
                 '}';
     }
 }

@@ -9,83 +9,79 @@ public class DetalleCompra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int OrdC_Id;
+    private int DetC_Id;
 
-    @Column
-    private int precio_producto;
+    @Column(nullable = false)
+    private int DetC_CantidadComprada;
 
+    @Column(nullable = false)
+    private Double DetC_PrecioUnidad;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(referencedColumnName = "Det_Referencia")
     @JsonIgnore
-    private DetalleProducto OrdC_Producto;
+    private DetalleProducto DetC_Producto;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "usu_documento", referencedColumnName = "Usu_Documento")
-    private Usuario usuario;
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(referencedColumnName = "OrdC_Id")
+    @JsonIgnore
+    private OrdenCompra ordenCompra;
 
-
-    public DetalleCompra(int precio_producto, DetalleProducto ordC_Producto, Usuario usuario) {
-        this.precio_producto = precio_producto;
-        OrdC_Producto = ordC_Producto;
-        this.usuario = usuario;
+    public DetalleCompra(int detC_CantidadComprada) {
+        DetC_CantidadComprada = detC_CantidadComprada;
     }
 
     public DetalleCompra() {
     }
 
-
-    //getter y setter
-
-
-    public int getPrecio_producto() {
-        return precio_producto;
+    public int getDetC_Id() {
+        return DetC_Id;
     }
 
-    public void setPrecio_producto(int precio_producto) {
-        this.precio_producto = precio_producto;
+    public void setDetC_Id(int detC_Id) {
+        DetC_Id = detC_Id;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public int getDetC_CantidadComprada() {
+        return DetC_CantidadComprada;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setDetC_CantidadComprada(int detC_CantidadComprada) {
+        DetC_CantidadComprada = detC_CantidadComprada;
     }
 
-
-    public int getOrdC_Id() {
-        return OrdC_Id;
+    public Double getDetC_PrecioUnidad() {
+        return DetC_PrecioUnidad;
     }
 
-
-    public DetalleProducto getOrdC_Producto() {
-        return OrdC_Producto;
+    public void setDetC_PrecioUnidad(Double detC_PrecioUnidad) {
+        DetC_PrecioUnidad = detC_PrecioUnidad;
     }
 
-
-
-
-
-
-    public void setOrdC_Id(int ordC_Id) {
-        OrdC_Id = ordC_Id;
+    public DetalleProducto getDetC_Producto() {
+        return DetC_Producto;
     }
 
-
-    public void setOrdC_Producto(DetalleProducto ordC_Producto) {
-        OrdC_Producto = ordC_Producto;
+    public void setDetC_Producto(DetalleProducto detC_Producto) {
+        DetC_Producto = detC_Producto;
     }
 
+    public OrdenCompra getOrdenCompra() {
+        return ordenCompra;
+    }
 
+    public void setOrdenCompra(OrdenCompra ordenCompra) {
+        this.ordenCompra = ordenCompra;
+    }
 
     @Override
     public String toString() {
-        return "Ord_Compra{" +
-                "OrdC_Id=" + OrdC_Id +
-                ", OrdC_IdProducto=" + OrdC_Producto +
-                ",precio_producto="+ precio_producto +
+        return "DetalleCompra{" +
+                "DetC_Id=" + DetC_Id +
+                ", DetC_CantidadComprada=" + DetC_CantidadComprada +
+                ", DetC_PrecioUnidad=" + DetC_PrecioUnidad +
+                ", DetC_Producto=" + DetC_Producto +
+                ", ordenCompra=" + ordenCompra +
                 '}';
     }
 }
