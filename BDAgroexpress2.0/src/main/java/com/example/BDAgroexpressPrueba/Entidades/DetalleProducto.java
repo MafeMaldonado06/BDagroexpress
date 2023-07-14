@@ -111,14 +111,6 @@ public class DetalleProducto {
         this.detalle_compras = detalle_compras;
     }
 
-    public Set<DetalleCompra> getOrd_compras() {
-        return detalle_compras;
-    }
-
-    public void setOrd_compras(Set<DetalleCompra> detalle_compras) {
-        this.detalle_compras = detalle_compras;
-    }
-
     @Override
     public String toString() {
         return "DetalleProducto{" +

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,23 +45,25 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findAdministrador();
     }
 
-    public String ValidacionIngresoUsuario(SessionRequest datos){
-        String acceso = "\n" +
-                "\"Access\": false\n" +
-                "}";
+    public Usuario datosSesion(String documento){
+        return RepositorioUsuario.findById(documento).get();
+    }
+
+    public Map<String,String> ValidacionIngresoUsuario(SessionRequest datos){
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Ingreso Fallido ");
 
         if(RepositorioUsuario.findById(datos.getDocumento()).isPresent()){
             Usuario user =  RepositorioUsuario.findById(datos.getDocumento()).get();
             if(user.getUsu_Contrasena().equals(datos.getContraseña())){
                 String rol = user.getUsu_Rol();
-                acceso = "{\n" +
-                        "\"Access\": true\n" +
-                        "\"usu_Rol\": " + rol  + "\n" +
-                        "}";
-                session.setAttribute("Usuario", user);
+
+                response.put("message", "Login Exitoso");
+                response.put("Rol","" + rol);
             }
         }
-        return acceso;
+        return response;
     }
 
     public Boolean AgregarUsuario(Usuario usuario){
