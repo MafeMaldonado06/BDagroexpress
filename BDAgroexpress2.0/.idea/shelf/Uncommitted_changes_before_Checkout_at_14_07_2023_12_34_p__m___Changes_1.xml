@@ -1,0 +1,84 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1" date="1689356075927" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 14/07/2023 12:34 p. m. [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Controlador_OrdenEntrega.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Factura_Repositorio.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Factura_Repositorio.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Factura_Repositorio.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Servicio_Usuario.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenCompra.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenCompra.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Controlador_OrdenCompra.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenCompra.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenCompra.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Servicio_OrdenCompra.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Ord_Entrega_Repositorio.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Factura.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Factura.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Controlador_Factura.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Controlador_DetalleCompra.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/BdAgroexpressPruebaApplication.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/BdAgroexpressPruebaApplication.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/BdAgroexpressPruebaApplication.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Controlador_Usuario.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleProducto.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleProducto.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/DetalleProducto.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Servicio_OrdenEntrega.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Factura.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Factura.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Servicio_Factura.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/Usuario_Repositorio.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/SessionRequest.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/SessionRequest.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/SessionRequest.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleCompra.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleCompra.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p_ m__[Changes]1/DetalleCompra.class" />
+  </binary>
+</changelist>
