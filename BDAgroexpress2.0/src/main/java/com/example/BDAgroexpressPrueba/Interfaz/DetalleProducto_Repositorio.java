@@ -14,7 +14,10 @@ import java.util.Map;
 @Repository
 public interface DetalleProducto_Repositorio extends JpaRepository<DetalleProducto,Integer> {
 
-    @Query(nativeQuery = true, value = "select dp.det_referencia,dp.det_nombre_product,dp.det_precio,dp.det_categoria,dp.det_img,dp.det_cantidad,dp.det_precio,dp.det_id_usuario_usu_documento from detalleproducto as dp")
+    /*@Query(nativeQuery = true, value = "select dp.det_referencia,dp.det_nombre_product,dp.det_precio,dp.det_categoria,dp.det_img,dp.det_cantidad,dp.det_precio,u.usu_nombre, u.usu_apellidos from detalleproducto as dp inner join usuario as u on (dp.det_id_usuario_usu_documento = u.usu_documento)")
+    List<Map<String, Object>> getProductos();*/
+
+    @Query(nativeQuery = true, value = "select * from detalleproducto")
     List<Map<String, Object>> getProductos();
 
     @Query(value = "SELECT d FROM DetalleProducto d JOIN d.Det_IdUsuario u WHERE u.Usu_Documento = :documento")

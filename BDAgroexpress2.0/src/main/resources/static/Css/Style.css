@@ -183,6 +183,11 @@ header{
 
 .icono-cerrar-bandeja{
     font-size: 25px;
+    cursor: pointer;
+}
+
+.icono-cerrar-bandeja:hover{
+    cursor: pointer;
 }
 
 .contenedor-img-usuario-bandeja{

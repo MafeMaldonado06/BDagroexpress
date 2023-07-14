@@ -48,9 +48,14 @@ public class Controlador_Usuario {
         return servicio.getAdministradores();
     }
 
+    @GetMapping("/DatosSesion/{documento}")
+    public Usuario datosSesion(@PathVariable("documento") String documento){
+        return servicio.datosSesion(documento);
+    }
+
     @PostMapping("/Ingresar")
-    public String IngresoUsuario(@RequestBody SessionRequest datos) {
-        return servicio.ValidacionIngresoUsuario(datos).toString();
+    public Map<String, String> IngresoUsuario(@RequestBody SessionRequest datos) {
+        return servicio.ValidacionIngresoUsuario(datos);
     }
 
     @PostMapping("/AgregarUsuario")

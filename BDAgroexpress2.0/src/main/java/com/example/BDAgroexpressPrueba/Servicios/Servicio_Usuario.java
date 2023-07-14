@@ -45,8 +45,12 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findAdministrador();
     }
 
+    public Usuario datosSesion(String documento){
+        return RepositorioUsuario.findById(documento).get();
+    }
 
     public Map<String,String> ValidacionIngresoUsuario(SessionRequest datos){
+
         Map<String, String> response = new HashMap<>();
         response.put("message", "Ingreso Fallido ");
 
@@ -55,8 +59,8 @@ public class Servicio_Usuario {
             if(user.getUsu_Contrasena().equals(datos.getContraseña())){
                 String rol = user.getUsu_Rol();
 
-                response.put("message", "Login Exitoso ");
-                response.put("Rol:"," " + rol);
+                response.put("message", "Login Exitoso");
+                response.put("Rol","" + rol);
             }
         }
         return response;
