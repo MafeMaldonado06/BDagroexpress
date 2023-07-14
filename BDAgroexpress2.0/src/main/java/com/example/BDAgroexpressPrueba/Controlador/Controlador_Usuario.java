@@ -50,7 +50,7 @@ public class Controlador_Usuario {
 
     @PostMapping("/Ingresar")
     public String IngresoUsuario(@RequestBody SessionRequest datos) {
-        return servicio.ValidacionIngresoUsuario(datos);
+        return servicio.ValidacionIngresoUsuario(datos).toString();
     }
 
     @PostMapping("/AgregarUsuario")
