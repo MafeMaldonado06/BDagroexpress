@@ -49,6 +49,10 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findById(documento).get();
     }
 
+    public void eliminarUsuario(int usuDocumento) {
+        RepositorioUsuario.deleteByUsuDocumento(usuDocumento);
+    }
+
     public Map<String,String> ValidacionIngresoUsuario(SessionRequest datos){
 
         Map<String, String> response = new HashMap<>();
@@ -106,5 +110,6 @@ public class Servicio_Usuario {
         return status;
 
     }
+
 
 }

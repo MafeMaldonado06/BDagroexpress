@@ -9,6 +9,15 @@
     width: 30%;
 }
 
+/*Estilos de input para actualizar*/
+input {
+    border: none;
+    outline: none;
+    width: 60%;
+    padding-left: 4.5px;
+    position: relative;
+}
+
 .contenido-productos{
     min-height: 30vh;
 }

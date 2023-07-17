@@ -23,6 +23,10 @@ public class Controlador_Usuario {
         this.servicio_D = servicio_D;
     }
 
+    @DeleteMapping("eliminar/{id}")
+    public void eliminarUsuario(@PathVariable int usuDocumento) {
+        servicio.eliminarUsuario(usuDocumento);
+    }
     @GetMapping("/ListarUsuarios")
     public ArrayList<Usuario> listarUsuarios(){
         return servicio.ListarUsuarios();

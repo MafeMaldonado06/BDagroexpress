@@ -59,7 +59,7 @@ public class Servicios_Detalle_Producto {
         Usuario usuario = RepositorioUsuario.findById(documento).get();
         DetalleProducto product = detalleProductoRepositorio.findById(id).get();
 
-        if(usuario != null && usuario.getUsu_Rol().equals("administrador") || usuario.getUsu_Rol().equals("campesino")){
+        if(usuario != null && usuario.getUsu_Rol().equals("Administrador") || usuario.getUsu_Rol().equals("campesino")){
 
             product.setDet_Referencia(product.getDet_Referencia());
             product.setDet_IdUsuario(usuario);
@@ -75,6 +75,8 @@ public class Servicios_Detalle_Producto {
         }
         return status;
     }
+
+
 
     public Boolean EliminarProducto(int id, String documento){
 

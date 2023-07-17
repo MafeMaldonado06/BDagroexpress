@@ -27,4 +27,6 @@ public interface Usuario_Repositorio extends JpaRepository<Usuario,String> {
 
     @Query(nativeQuery = true, value = "select * from usuario where usu_rol like 'Administrador'")
     List<Usuario> findAdministrador();
+
+    void deleteByUsuDocumento(int usuDocumento);
 }
