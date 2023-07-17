@@ -24,9 +24,9 @@ public class Controlador_DetalleCompra {
         this.servicioDetalleCompra = servicioDetalleCompra;
     }
 
-    @PostMapping("/GuardarProducto/{documento}")
-    public void GuardarProducto(@RequestBody List<DetalleCompra> producto, @PathVariable("documento") String documento){
-        servicioDetalleCompra.GuardarProducto(producto, documento);
+    @PostMapping("/OrdenCompra/{documento}")
+    public String GuardarProducto(@RequestBody List<DetalleCompra> producto, @PathVariable("documento") String documento){
+        return servicioDetalleCompra.saveOrdenCompra(producto, documento);
     }
 
 

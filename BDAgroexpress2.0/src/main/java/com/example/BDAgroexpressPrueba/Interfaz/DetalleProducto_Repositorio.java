@@ -31,4 +31,7 @@ public interface DetalleProducto_Repositorio extends JpaRepository<DetalleProduc
 
     @Query(value = "Select d From DetalleProducto d Where d.Det_Categoria = 'Legumbres'")
     List<DetalleProducto> ProductosLegumbres();
+
+    @Query(value = "Select d From DetalleProducto d Where d.Det_Referencia = :referencia")
+    DetalleProducto getProducto(@Param("referencia") int referencia);
 }

@@ -68,4 +68,9 @@ public class Controlador_DetalleProducto {
         return servicio.listarProductosCategoriaLegumbres();
     }
 
+    @GetMapping("/Producto/{referencia}")
+    public DetalleProducto getProducto(@PathVariable("referencia") int referencia){
+        return servicio.getProducto(referencia);
+    }
+
 }

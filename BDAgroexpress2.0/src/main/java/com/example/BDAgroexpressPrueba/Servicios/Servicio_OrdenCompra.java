@@ -6,7 +6,9 @@ import com.example.BDAgroexpressPrueba.Interfaz.OrdenCompra_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class Servicio_OrdenCompra {
@@ -24,5 +26,19 @@ public class Servicio_OrdenCompra {
 
     public List<OrdenCompra> getOrdenesCompra(){
         return (List<OrdenCompra>) ordenCompraRepositorio.findAll();
+    }
+
+    public List<Map<String, Object>> getOrdenesEntregaComprador(String documento){
+        List<Map<String, Object>> ordenesCompra = new ArrayList<>();
+
+        if(usuarioRepositorio.findById(documento).get().getUsu_Rol().equals("Comprador")){
+            ordenesCompra = ordenCompraRepositorio.getOrdenesCompraComprador(documento);
+        }
+
+        return ordenesCompra;
+    }
+
+    public List<Map<String, Object>> getProductosPedido(int ordenCompra){
+        return ordenCompraRepositorio.getProductosPedido(ordenCompra);
     }
 }
