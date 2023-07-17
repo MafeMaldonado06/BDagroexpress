@@ -100,7 +100,7 @@ $(document).ready(function(){
     })
 
     //Detalle mi pedido - historial mis pedidos comprador
-    let insertar = document.querySelector("#mis-pedidos")
+    /* let insertar = document.querySelector("#mis-pedidos")
 
     insertar.innerHTML = ""
 
@@ -112,7 +112,7 @@ $(document).ready(function(){
         for (let indexB = 0; indexB < 5; indexB++){
             productos.innerHTML += '<div class="detalle-productos-producto"><div>0001</div><div>Pera</div><div>11102365</div><div>50</div><div>35.000</div><div>1.750.000</div></div>'
         } 
-    }
+    } */
 
 
 })

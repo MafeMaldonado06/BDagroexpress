@@ -207,6 +207,10 @@
     font-weight: 600;
 }
 
+.segunda-mitad-producto-carrito{
+    width: 100%;
+}
+
 .contador-cantidad{
     width: 10em;
 }
@@ -253,10 +257,6 @@
 }
 
 .mas-producto:hover {
-    cursor: pointer;
-}
-
-.eliminar-producto-carrito:hover {
     cursor: pointer;
 }
 

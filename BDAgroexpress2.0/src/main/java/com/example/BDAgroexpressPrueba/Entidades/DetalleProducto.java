@@ -1,6 +1,7 @@
 package com.example.BDAgroexpressPrueba.Entidades;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import java.util.Set;
 
@@ -32,6 +33,10 @@ public class DetalleProducto {
     @OneToMany(mappedBy = "DetC_Producto", fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<DetalleCompra> detalle_compras;
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "producto", optional = false)
+    @JsonIgnore
+    private Carrito carrito;
 
     public DetalleProducto(int det_Referencia, Usuario det_IdUsuario, String det_Img, String det_Nombre_product, String det_Categoria, Double det_precio, int det_cantidad) {
         Det_Referencia = det_Referencia;
@@ -111,14 +116,26 @@ public class DetalleProducto {
         this.detalle_compras = detalle_compras;
     }
 
+    public Carrito getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
+    }
+
     @Override
     public String toString() {
         return "DetalleProducto{" +
                 "Det_Referencia=" + Det_Referencia +
                 ", Det_IdUsuario=" + Det_IdUsuario +
+                ", Det_Img='" + Det_Img + '\'' +
+                ", Det_Nombre_product='" + Det_Nombre_product + '\'' +
+                ", Det_Categoria='" + Det_Categoria + '\'' +
+                ", Det_precio=" + Det_precio +
+                ", Det_cantidad=" + Det_cantidad +
                 '}';
     }
-
 }
 
 

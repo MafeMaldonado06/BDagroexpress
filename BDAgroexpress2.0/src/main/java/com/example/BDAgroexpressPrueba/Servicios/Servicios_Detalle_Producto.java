@@ -103,4 +103,8 @@ public class Servicios_Detalle_Producto {
         return detalleProductoRepositorio.ProductosLegumbres();
     }
 
+    public DetalleProducto getProducto(int referencia){
+        return detalleProductoRepositorio.getProducto(referencia);
+    }
+
 }

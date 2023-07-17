@@ -39,61 +39,64 @@ public class Servicio_DetalleCompra {
         this.servicioOrdenCompra = servicioOrdenCompra;
     }
 
-    public void GuardarProducto(List<DetalleCompra> producto, String documento){
+    public String saveOrdenCompra(List<DetalleCompra> producto, String documento){
 
-        LocalDate fechaCompra = LocalDate.now();
+        String message = "No tiene autorizacion para realizar compras";
 
-        OrdenCompra ordenCompra = new OrdenCompra();
-        ordenCompra.setComprador(usuarioRepositorio.findById(documento).get());
-        ordenCompra.setOrdC_CantidadProductos(producto.size());
-        ordenCompra.setOrdC_FechaCompra(fechaCompra.format(DateTimeFormatter.ISO_DATE));
+        if (usuarioRepositorio.findById(documento).get().getUsu_Rol().equals("Comprador")){
+            Usuario transportador = usuarioRepositorio.findTransportador();
+            if (transportador != null){
+                LocalDate fechaCompra = LocalDate.now();
 
-        Double totalCompra = 0.0;
+                OrdenCompra ordenCompra = new OrdenCompra();
+                ordenCompra.setComprador(usuarioRepositorio.findById(documento).get());
+                ordenCompra.setOrdC_CantidadProductos(producto.size());
+                ordenCompra.setOrdC_FechaCompra(fechaCompra.format(DateTimeFormatter.ISO_DATE));
 
-        for (int i = 0; i < producto.size(); i++) {
-            totalCompra += producto.get(i).getDetC_Producto().getDet_precio();
+                Double totalCompra = 0.0;
+
+                for (int i = 0; i < producto.size(); i++) {
+                    totalCompra += producto.get(i).getDetC_Producto().getDet_precio();
+                }
+
+                ordenCompra.setOrdC_TotalCompra(totalCompra);
+
+                ordenCompraRepositorio.save(ordenCompra);
+
+                Ord_Entrega ordenEntrega = new Ord_Entrega();
+                Factura factura = new Factura();
+
+                transportador.setUsu_CantidadEntregas(transportador.getUsu_CantidadEntregas() + 1);
+
+                //Asignaciones orden entrega
+                ordenEntrega.setOrdenCompra(ordenCompra);
+                ordenEntrega.setOrdE_IdTrasportador(transportador);
+                ordenEntrega.setOrdE_FechaDespachoAproximada(fechaCompra.plusDays(5).format(DateTimeFormatter.ISO_DATE));
+                ordenEntrega.setOrden_FechaEntregaAproximada(fechaCompra.plusDays(10).format(DateTimeFormatter.ISO_DATE));
+                ordenEntrega.setOrdE_Estado("Pendiente");
+
+                ordEntregaRepositorio.save(ordenEntrega);
+
+                System.out.println("hola");
+
+                //Asignaciones factura
+                factura.setOrdenCompra(ordenCompra);
+
+                facturaRepositorio.save(factura);
+
+
+                for (int i = 0; i < producto.size(); i++) {
+                    producto.get(i).setOrdenCompra(ordenCompra);
+                    producto.get(i).setDetC_PrecioUnidad(producto.get(i).getDetC_Producto().getDet_precio());
+                    producto.get(i).setDetC_Producto(producto.get(i).getDetC_Producto());
+                    detalleCompraRepositorio.save(producto.get(i));
+                }
+
+                message = "Compra realizada de forma exitosa";
+            }
         }
-
-        ordenCompra.setOrdC_TotalCompra(totalCompra);
-
-        ordenCompraRepositorio.save(ordenCompra);
-
-        Ord_Entrega ordenEntrega = new Ord_Entrega();
-        Factura factura = new Factura();
-
-        Usuario transportador = usuarioRepositorio.findTransportador();
-
-        transportador.setUsu_CantidadEntregas(transportador.getUsu_CantidadEntregas() + 1);
-
-        //Asignaciones orden entrega
-        ordenEntrega.setOrdenCompra(ordenCompra);
-        ordenEntrega.setOrdE_IdTrasportador(transportador);
-        ordenEntrega.setOrdE_FechaDespachoAproximada(fechaCompra.plusDays(5).format(DateTimeFormatter.ISO_DATE));
-        ordenEntrega.setOrden_FechaEntregaAproximada(fechaCompra.plusDays(10).format(DateTimeFormatter.ISO_DATE));
-        ordenEntrega.setOrdE_Estado("Pendiente");
-
-        ordEntregaRepositorio.save(ordenEntrega);
-
-        System.out.println("hola");
-
-        //Asignaciones factura
-        factura.setOrdenCompra(ordenCompra);
-
-        facturaRepositorio.save(factura);
-
-
-        for (int i = 0; i < producto.size(); i++) {
-            producto.get(i).setOrdenCompra(ordenCompra);
-            producto.get(i).setDetC_PrecioUnidad(producto.get(i).getDetC_Producto().getDet_precio());
-            producto.get(i).setDetC_Producto(producto.get(i).getDetC_Producto());
-            detalleCompraRepositorio.save(producto.get(i));
-        }
-
-        System.out.println(producto);
-
+        return message;
     }
-
-
 
 
 
