@@ -49,9 +49,6 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findById(documento).get();
     }
 
-    public void eliminarUsuario(int usuDocumento) {
-        RepositorioUsuario.deleteByUsuDocumento(usuDocumento);
-    }
 
     public Map<String,String> ValidacionIngresoUsuario(SessionRequest datos){
 
@@ -109,6 +106,18 @@ public class Servicio_Usuario {
 
         return status;
 
+    }
+
+    public String eliminarUsuario(String documento) {
+        Usuario usuario = RepositorioUsuario.findById(documento).get();
+        String mensage ="";
+        if (RepositorioUsuario.findById(documento).isPresent()){
+            RepositorioUsuario.delete(usuario);
+            mensage = "Se elimino el usuaario";
+        }else {
+            mensage = "no se elimino el usuario";
+        }
+        return mensage;
     }
 
 

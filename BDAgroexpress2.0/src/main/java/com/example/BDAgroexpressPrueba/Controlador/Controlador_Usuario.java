@@ -23,10 +23,7 @@ public class Controlador_Usuario {
         this.servicio_D = servicio_D;
     }
 
-    @DeleteMapping("eliminar/{id}")
-    public void eliminarUsuario(@PathVariable int usuDocumento) {
-        servicio.eliminarUsuario(usuDocumento);
-    }
+
     @GetMapping("/ListarUsuarios")
     public ArrayList<Usuario> listarUsuarios(){
         return servicio.ListarUsuarios();
@@ -91,4 +88,12 @@ public class Controlador_Usuario {
     public boolean actualizarEstado(@PathVariable("doc")String doc,@PathVariable("estado")String estado){
         return servicio_D.actualizarEstadoOrdenEntrega(doc,estado);
     }*/
+
+    @DeleteMapping("/eliminarUsuario/{documento}")
+    public String eliminarUsuario(@PathVariable String documento) {
+        servicio.eliminarUsuario(documento);
+
+        return "listo";
+    }
+
 }
