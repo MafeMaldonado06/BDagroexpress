@@ -5,145 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Carrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Carrito.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Js/Comprador.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Js/Comprador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/BdAgroexpressPruebaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/BdAgroexpressPruebaApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Carrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Carrito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Carrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Carrito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/DetalleProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Ord_Entrega.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Ord_Entrega.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/OrdenCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/OrdenCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/SessionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/SessionRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Entidades/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Carrito_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Carrito_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleCompra_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleCompra_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleProducto_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleProducto_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Factura_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Factura_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/OrdenCompra_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/OrdenCompra_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenCompra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Administrador_Style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Campesino_Style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Comprador.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Formulario_Ingreso.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Css/Transportador.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Administrador_Productos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Administrador_Usuarios.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Campesino_Despachos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Campesino_Productos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Carrito.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Categorias_Frutas.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Categorias_Legumbres.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Categorias_Verduras.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Inicio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Comprador_Mis-Pedidos.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Formulario_Ingreso.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Formulario_Registro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Inicio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Transportador_Pedidos-Entregar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Js/Administrador.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Js/Campesino.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Js/Comprador.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Js/Ingresar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Js/JQuery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/1.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/10.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/3.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/4.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/5.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/7.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/8.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Administrador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/BANANO.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/BotonSalir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/CEBOLLA.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Comprador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Durazno.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/EMAIL.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/FACEBOOK.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/FLECHA.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/FondoOpcion2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Frutas.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Imagen-Frutas-acordeón.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Imagen-Verduras-acordeón.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Imagenes-Legumbres-acordeón.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Img_Prueba_boton.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/KIWI.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Legumbres.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Limpiar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Opciones de pago.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/TOMATE.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Tipografia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Transportador.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Ver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Verduras.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/Verduras.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/WHATSAPP.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/agricultorr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/arequipe.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/babano.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/boton_agregar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/camion-de-reparto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/campesino.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/campesino2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/canasta.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carritoCompra.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carrusel1.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carrusel1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carrusel3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carrusel4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/carrusel5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/cerrar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/cerrar_rojo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/descuento.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/editar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/fondo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/fondo_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/fondoverde.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/instagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/kumis.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/leche.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/mercado.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/moneda.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/opciones.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/paquete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/pexels-bruno-salvadori-2330169.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/pexels-saraí-carrasco-17060513.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/pexels-thanhhoa-tran-1447092.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/registrar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/user-interface.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/usuario (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/img/usuarioComprador.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +24,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Holman" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
