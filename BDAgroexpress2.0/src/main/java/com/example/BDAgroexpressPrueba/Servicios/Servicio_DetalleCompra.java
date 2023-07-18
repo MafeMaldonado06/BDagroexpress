@@ -43,7 +43,7 @@ public class Servicio_DetalleCompra {
 
         String message = "No tiene autorizacion para realizar compras";
 
-        if (usuarioRepositorio.findById(documento).get().getUsu_Rol().equals("Comprador")){
+        if (usuarioRepositorio.findById(documento).get().getUsu_Rol().equals("Comprador") && producto.size() != 0){
             Usuario transportador = usuarioRepositorio.findTransportador();
             if (transportador != null){
                 LocalDate fechaCompra = LocalDate.now();
@@ -77,7 +77,6 @@ public class Servicio_DetalleCompra {
 
                 ordEntregaRepositorio.save(ordenEntrega);
 
-                System.out.println("hola");
 
                 //Asignaciones factura
                 factura.setOrdenCompra(ordenCompra);

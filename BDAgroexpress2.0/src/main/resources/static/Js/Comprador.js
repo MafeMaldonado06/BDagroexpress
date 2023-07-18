@@ -4,10 +4,6 @@ $(document).ready(function(){
 
     var currentUrl = window.location.href;
 
-    //Cart
-    cart = []
-
-    console.log(cart)
 
     function addCart(referencia, cantidad){
 
@@ -415,9 +411,9 @@ $(document).ready(function(){
 
                     e.forEach(element => {
                         console.log(element.id)
-                        cajaProductos.innerHTML += '<div class="producto-carrito d-flex justify-content-evenly my-2 rounded-2 bg-body"><div class="d-flex w-100"><div class="imagen-producto-carrito d-flex align-items-center"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><hr class="vr mx-3"><div class="my-3"><div><div class="d-flex flex-column"><span>Ref : ' + element.producto.det_Referencia + '</span><span class="nombre-producto-carrito">' + element.producto.det_Nombre_product + '</span></div></div></div></div><div class="segunda-mitad-producto-carrito d-flex w-100 px-3 position-relative"><div class="py-3"><div class="contador-cantidad"><div class="d-flex text-center rounded-4 overflow-hidden"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary d-flex justify-content-center align-items-center"><input type="tel" class="w-100 py-1 border-0" minlength="1" maxlength="5" placeholder = "1" value="' + element.cantidad + '" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div><div class="d-flex justify-content-center align-items-center mt-2"><button class="eliminar-producto-carrito border-0 bg-body" id="' + element.id + '">Eliminar</button></div></div></div><div class="d-flex justify-content-center align-items-center w-50"><span class="precio-unidad-producto mx-1 text-center">' + element.producto.det_precio + '</span><span class="unidad-medida-producto d-flex align-items-end">Und</span></div></div></div>'
+                        cajaProductos.innerHTML += '<div class="producto-carrito d-flex justify-content-evenly my-2 rounded-2 bg-body" id="' + element.id + '"><div class="d-flex w-100"><div class="imagen-producto-carrito d-flex align-items-center"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><hr class="vr mx-3"><div class="my-3"><div><div class="d-flex flex-column"><span>Ref : ' + element.producto.det_Referencia + '</span><span class="nombre-producto-carrito">' + element.producto.det_Nombre_product + '</span></div></div></div></div><div class="segunda-mitad-producto-carrito d-flex w-100 px-3 position-relative"><div class="py-3"><div class="contador-cantidad"><div class="d-flex text-center rounded-4 overflow-hidden"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary d-flex justify-content-center align-items-center"><input type="tel" class="w-100 py-1 border-0" minlength="1" maxlength="5" placeholder = "1" value="' + element.cantidad + '" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div><div class="d-flex justify-content-center align-items-center mt-2"><button class="eliminar-producto-carrito border-0 bg-body" id="' + element.id + '">Eliminar</button></div></div></div><div class="d-flex justify-content-center align-items-center w-50"><span class="precio-unidad-producto mx-1 text-center">' + element.producto.det_precio + '</span><span class="unidad-medida-producto d-flex align-items-end">Und</span></div></div></div>'
 
-                        subtotal += element.producto.det_precio
+                        subtotal += (element.producto.det_precio * element.cantidad)
 
                     });
 
@@ -439,6 +435,11 @@ $(document).ready(function(){
                                 newValue = parseInt(inputValue) - 1
                             }
                             input.value = newValue
+
+                            var caja = button.parentElement.parentElement.parentElement.parentElement.parentElement
+                            var value = caja.getAttribute("id")
+                            
+                            updateProducto(newValue, parseInt(value))
                             
                         })
                     }
@@ -456,6 +457,11 @@ $(document).ready(function(){
                                 newValue = parseInt(inputValue) + 1
                             }
                             input.value = newValue
+
+                            var caja = button.parentElement.parentElement.parentElement.parentElement.parentElement
+                            var value = caja.getAttribute("id")
+                            
+                            updateProducto(newValue, parseInt(value))
                 
                         })
                     }
@@ -480,6 +486,7 @@ $(document).ready(function(){
         listarProductos()
 
         function subtotalEnvio(subtotal){
+        
             let cajaSubtotal = document.getElementsByClassName("subtotal")
             let cajaEnvio = document.getElementsByClassName("envio")
 
@@ -507,6 +514,70 @@ $(document).ready(function(){
             location.reload()
         }
 
+        function updateProducto(cantidad, referencia){
+            let producto = {
+                id : referencia,
+                cantidad : cantidad
+            }
+
+            let datosEnvio = JSON.stringify(producto)
+
+            $.ajax({
+                url : "http://localhost:8080/Update",
+                type : "PUT",
+                data : datosEnvio,
+                dataType : "JSON",
+                contentType : "application/JSON"
+            })
+
+            location.reload()
+        }
+
+        $("#confirmar-pedido").on("click", () =>{
+
+            let cart = []
+
+            $.ajax({
+                url : "http://localhost:8080/GetCarrito",
+                type : "GET",
+                dataType : "JSON",
+                success : (e) =>{
+                    if(e.length > 0){
+                        e.forEach(producto => {
+                            let product = {
+                                detC_CantidadComprada : producto.cantidad,
+                                detC_Producto : producto.producto
+                            }
+
+                            cart.push(product)
+                        });
+                    }
+
+                    let primus = window.sessionStorage.getItem("id_usuario")
+                    console.log(cart)
+                    let cartEnvio = JSON.stringify(cart)
+                    console.log(cartEnvio)
+
+                    $.ajax({
+                        url : "http://localhost:8080/OrdenCompra/" + primus,
+                        type : "POST",
+                        data : cartEnvio,
+                        contentType : "application/JSON",
+                        success : (e) =>{
+                            alert(e)
+                        }
+                    })
+                }
+            })
+
+            $.ajax({
+                url : "http://localhost:8080/ClearCart",
+                type : "DELETE",
+                dataType : "JSON"
+            })
+
+            location.reload()
+        })
     }
 
 })
