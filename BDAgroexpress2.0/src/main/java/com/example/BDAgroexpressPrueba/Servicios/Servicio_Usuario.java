@@ -59,9 +59,13 @@ public class Servicio_Usuario {
             Usuario user =  RepositorioUsuario.findById(datos.getDocumento()).get();
             if(user.getUsu_Contrasena().equals(datos.getContraseña())){
                 String rol = user.getUsu_Rol();
+                String nombre = user.getUsu_Nombre();
+                String documento = user.getUsu_Documento();
 
                 response.put("message", "Login Exitoso");
                 response.put("Rol","" + rol);
+                response.put("Nombre","" + nombre);
+                response.put("Documeto",""+ documento);
             }
         }
         return response;

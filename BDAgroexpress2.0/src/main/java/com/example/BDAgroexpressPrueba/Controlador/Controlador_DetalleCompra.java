@@ -85,15 +85,7 @@ public class Controlador_DetalleCompra {
     }
 
 
-    @GetMapping("/Entregado/{doc}")
-    public List<Map<String, Object>>finentrgado(@PathVariable("doc") int doc){
-        return servicioOrdenCompra.findrntrgado(doc);
-    }
 
-    @GetMapping("/Entregando/{doc}")
-    public List<Map<String, Object>>finentregando(@PathVariable("doc")int doc){
-        return servicioOrdenCompra.finentregando(doc);
-    }
 
     @PostMapping("/Factura/{doc}")
     public void prueba(@PathVariable("doc") String documento) {

@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="mio">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_1.xml" afterDir="false" />
+    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="jz eliminar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/Usuario_Repositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/agroexepres&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689356256907</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="jz eliminar">
+      <created>1689592934189</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689592934189</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +115,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Holman" />
-    <option name="LAST_COMMIT_MESSAGE" value="Holman" />
+    <MESSAGE value="jz eliminar" />
+    <option name="LAST_COMMIT_MESSAGE" value="jz eliminar" />
   </component>
 </project>
