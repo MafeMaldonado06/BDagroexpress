@@ -4,6 +4,7 @@ import com.example.BDAgroexpressPrueba.Entidades.Carrito;
 import com.example.BDAgroexpressPrueba.Entidades.DetalleProducto;
 import com.example.BDAgroexpressPrueba.Interfaz.Carrito_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.DetalleProducto_Repositorio;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
@@ -43,5 +44,18 @@ public class Servicio_Carrito {
 
     public void deleteProducto(int referencia){
         carritoRepositorio.deleteById(referencia);
+    }
+
+    public void updateProducto(Carrito producto){
+        Carrito cart = carritoRepositorio.findById(producto.getId()).get();
+
+        if(cart != null){
+            cart.setCantidad(producto.getCantidad());
+            carritoRepositorio.save(cart);
+        }
+    }
+
+    public void vaciarCarrito(){
+        carritoRepositorio.deleteAll();
     }
 }

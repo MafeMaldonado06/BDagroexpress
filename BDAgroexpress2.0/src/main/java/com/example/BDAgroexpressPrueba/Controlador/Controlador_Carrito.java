@@ -32,4 +32,13 @@ public class Controlador_Carrito {
     public void deleteProducto(@PathVariable("referencia") int referencia){
         servicioCarrito.deleteProducto(referencia);
     }
+    @PutMapping("/Update")
+    public void updateProducto(@RequestBody Carrito producto){
+        servicioCarrito.updateProducto(producto);
+    }
+
+    @DeleteMapping("/ClearCart")
+    public void clearCart(){
+        servicioCarrito.vaciarCarrito();
+    }
 }
