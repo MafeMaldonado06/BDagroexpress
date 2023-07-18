@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Css-->
+    <link rel="stylesheet" href="../Css/Style.css">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!--Transition.style-->
+    <link rel="stylesheet" href="https://unpkg.com/transition-style">
+
+    <!--Iconos Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!--Ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!--Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/094647b7d5.js" crossorigin="anonymous"></script>
+
+    <title>Inicio - AgroExpress</title>
+</head>
+<body class="d-flex flex-column">
+    <header class="d-flex align-items-center">
+        <div class="ms-5 align-content-center w-auto">
+            <img class="header-logo" src="../Img/logo.png" alt="">
+            <img class="header-tipografia" src="../Img/Tipografia.png" alt="">
+        </div>
+
+        <div class="header-enlaces col-lg-6 col-md-2 d-flex justify-content-end pe-5">
+            <div class="d-flex justify-content-center align-items-center w-100 text-center list-unstyled">
+                <li>
+                    <a href="#nuestroproposito">
+                        Nuestro proposito
+                    </a>
+                </li>
+                <li>
+                    <a href="#aboutus">
+                        ¿Quienes somos?
+                    </a>
+                </li>
+                <li>
+                    <a href="Formulario_Ingreso.html">
+                        Iniciar sesion
+                    </a>
+                </li>
+                <li>
+                    <a href="Formulario_Registro.html">
+                        Registrarse
+                    </a>
+                </li>
+                <div class="lista-header">
+                    <button class="btn bg-black" id="boton-hamburguesa">
+                        <i class="bi bi-list text-light"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bandeja-menu-navegacion" id="bandeja-menu-navegacion">
+        <div class="cerrar-bandeja-menu-navegacion d-flex justify-content-end">
+            <i class="bi bi-x text-light" id="cerrar-bandeja-menu"></i>
+        </div>
+        <ul class="enlaces-menu-bandeja text-light list-unstyled mx-4">
+            <li>
+                <a href="#nuestroproposito">
+                    Nuestro proposito
+                </a>
+            </li>
+            <li>
+                <a href="#aboutus">
+                    ¿Quienes somos?
+                </a>
+            </li>
+            <li>
+                <a href="Formulario_Ingreso.html">
+                    Iniciar sesion
+                </a>
+            </li>
+            <li>
+                <a href="Formulario_Registro.html">
+                    Registrarse
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="caja-fondo d-flex mb-lg-4" transition-style="in:box:center">
+        <div class="superposicion d-flex flex-column justify-content-center align-items-center">
+            <h1 class="superposicion-h1 opacity-100">¡Bienvenid@!</h1>
+            <p class="superposicion-p">Esperamos tengas una excelente experiencia y pronto tenerte en nuestra familia</p>
+            <a class="superposicion-a" href="../Frames/Formulario_Ingreso.html">Iniciar sesion</a>
+        </div>
+    </div>
+
+    <div class="mt-5 mt-md-2 position-relative" id="aboutus">
+        <div class="contenido">
+            <div class="d-flex flex-sm-column flex-xl-row">
+                <div class="col-xl-5 col-md-12 d-flex flex-column  align-items-sm-center align-items-lg-start justify-content-center pt-4">
+                    <div class="subtitulo">
+                        <h2>
+                            ¿Quienes somos?
+                        </h2>
+                
+                        <hr class="border-2 border-black">
+                    </div>
+
+                    <p class="text-wrap  text-sm-center text-md-start col">
+                        Agrexpress es una empresa creada originalmente con el fin de proporcionarle a los campesinos de cundinamarca una salida en la cual pudieran ser ellos mismos los negociantes de sus productos sin la necesidad de tener intermediarios en la venta.
+                        <br><br>
+                        Estamos convencidos como empresa de que somos la ejor opcion si eres un campesino con productos de calidad,ganas de emprender y ser independiente, registrate y empieza a crecer tu negocio no lo pienses dos veces
+                    </p>
+                </div>
+
+                <div class="col-xl-7 col-sm-12 my-md-3 d-flex align-items-center justify-content-center">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide col-sm-11" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="../Img/pexels-thanhhoa-tran-1447092.jpg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../Img/pexels-thanhhoa-tran-1447092.jpg" class="d-block w-100" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="../Img/pexels-thanhhoa-tran-1447092.jpg" class="d-block w-100" alt="...">
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenido my-5" id="nuestroproposito">
+            <div class="d-flex justify-content-center">
+                <div class="subtitulo text-center">
+                    <h2>
+                        Nuestro proposito
+                    </h2>
+        
+                    <hr class="border-2 border-black">
+                </div>
+            </div>
+
+            <div class="d-flex flex-sm-column flex-lg-row align-items-sm-center justify-content-around flex-wrap my-3">
+                <div class="contenedor-proposito d-flex flex-column align-items-center">
+                    <div class="d-flex justify-content-center w-50">
+                        <div class="proposito-icon text-center bg-success">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center w-auto my-4">
+                        <h6>Ayudar a crecer su economia</h6>
+
+                        <p class="text-center text-wrap">
+                            Para nosotros su economia es importarnte, es por ellos que queremos que gane con nosotros
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contenedor-proposito d-flex flex-column align-items-center">
+                    <div class="d-flex justify-content-center w-50">
+                        <div class="proposito-icon text-center bg-success">
+                            <i class="bi bi-ear"></i>
+                        </div>
+                    </div>
+
+                    <div class="text-center my-4">
+                        <h6>
+                            Escuchar
+                        </h6>
+
+                        <p class="text-wrap">
+                            Usted hace parte importante de la empresa, es por ello que queremos escuchar sus ideas y opiniones
+                        </p>
+                    </div>
+                    
+                </div>
+
+                <div class="contenedor-proposito d-flex flex-column align-items-center">
+                    <div class="d-flex justify-content-center w-50">
+                        <div class="proposito-icon text-center bg-success">
+                            <i class="bi bi-map"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center my-4">
+                        <h6>
+                            Eliminar limites
+                        </h6>
+
+                        <p class="text-wrap">
+                            Queremos que su negocio crezca y para ello es necesario eliminar limites
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black pb-3">
+        <div class="d-flex flex-sm-column flex-xl-row">
+            <div class="col-md-12 col-xl-6 d-flex justify-content-center py-4">
+                <div class="w-75 d-flex justify-content-center">
+                    <div class="w-75">
+                        <h2>Contactanos:</h2>
+                        <form action="">
+                            <label for="correo">Correo electronico </label>
+                            <input type="text" class="form-control" placeholder="Ingresa tu correo electronico">
+                            <div class="d-flex flex-column">
+                                <label for="texto">Mensaje</label>
+                                <textarea type="text" class="mensaje-form-footer form-control px-2 py-2 rounded-2 border-0" placeholder="Cuentanos en que podemos ayudarte"></textarea>
+                            </div>
+
+                            <button class="btn btn-success w-25 my-3">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex flex-column justify-content-center align-items-center col-md-12 col-xl">
+                <div class="w-25">
+                    <img src="../Img/logo.png" class="d-block w-100" alt="">
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="redes-footer d-flex justify-content-center align-items-center mb-4">
+            <hr class="col border-light">
+            <div>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+            </div>
+            <div>
+                <a href=""><i class="bi bi-instagram"></i></a>
+            </div>
+            <div>
+                <a href=""><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <hr class="col border-light">
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <h3 class="eslogan-footer">
+                <i>Agroexpress, tu mejor opción</i>
+            </h3>
+        </div>
+    </footer>
+
+    <script src="../Js/JQuery.js"></script>
+
+</body>
+</html>
