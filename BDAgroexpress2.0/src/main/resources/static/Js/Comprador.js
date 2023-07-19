@@ -580,6 +580,9 @@ $(document).ready(function(){
         })
     }else if(currentUrl.includes("Comprador_Inicio")){
         function UltimosPedidos(){
+
+            let productos = document.getElementById("tablaPedidos")
+
             $.ajax({
                 url: "https://bdagroexpress-production.up.railway.app/OrdenCompra",
                 type: 'GET',
