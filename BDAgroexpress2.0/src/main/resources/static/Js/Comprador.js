@@ -633,6 +633,42 @@ $(document).ready(function(){
         }
 
         UltimosPedidos()
+
+        function cargarTarjetas() {
+            const tarjetas1 = document.getElementById('tarjetasContainer');
+            tarjetas1.innerHTML = ""; // Vaciar el contenedor de tarjetas
+        
+            $.ajax({
+                url: 'http://bdagroexpress-production.up.railway.app/Listarproductos',
+                type: 'GET',
+                dataType: "JSON",
+                success: function (respuesta) {
+                    if (respuesta.length === 0) {
+                        tarjetas1.innerHTML = '<div class="w-75 text-center"><h1>Lo sentimos</h1><span>No hay productos de esta categoría</span></div>';
+                    } else {
+                        for (let producto = 0; producto < respuesta.length; producto++) {
+                            let detReferencia = respuesta[producto].det_Referencia;
+                            tarjetas1.innerHTML += '<div class="carta-producto-comprador card">' +
+                                '<div class="card-img overflow-hidden">' +
+                                '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                                '</div>' +
+                                '<div class="card-body">' +
+                                '<ul class="list-unstyled">' +
+                                '<li><h5>' + respuesta[producto].det_Nombre_product + '</h5></li>' +
+                                '<li><span>$' + respuesta[producto].det_precio + '</span></li>' +
+                                '</ul>' +
+                                '<div class="contenedor-boton-agregar-carrito-comprador">' +
+                                '<button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito">Poner en el carrito</button>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>';
+                        }
+                    }
+                }
+            });
+        }
+
+        cargarTarjetas()
     }
 
 })
