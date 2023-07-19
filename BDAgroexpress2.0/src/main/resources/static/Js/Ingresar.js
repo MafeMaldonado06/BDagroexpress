@@ -77,7 +77,7 @@ $(document).ready(function(){
         var sesion = window.sessionStorage.getItem("id_usuario")
 
         $.ajax({
-            url : 'http://localhost:8080/DatosSesion/' + sesion,
+            url : 'https://bdagroexpress-production.up.railway.app/DatosSesion/' + sesion,
             type : 'GET',
             dataType : "JSON",
             success : (respuesta) =>{
