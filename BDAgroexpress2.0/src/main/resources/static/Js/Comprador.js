@@ -582,6 +582,7 @@ $(document).ready(function(){
         function UltimosPedidos(){
 
             let productos = document.getElementById("tablaPedidos")
+            productos.innerHTML = "";
 
             $.ajax({
                 url: "https://bdagroexpress-production.up.railway.app/OrdenCompra",
@@ -595,8 +596,7 @@ $(document).ready(function(){
                         let id = 1;
             
                         // Create the table HTML
-                        let table = '<table class="table table-hover table-striped text-center" id="tablaPedidos">' +
-                            '<tr>' +
+                        let table = '<tr>' +
                             '<th>N° Compra</th>' +
                             '<td>Toma de pedido</td>' +
                             '<th>Puedes</th>' +
