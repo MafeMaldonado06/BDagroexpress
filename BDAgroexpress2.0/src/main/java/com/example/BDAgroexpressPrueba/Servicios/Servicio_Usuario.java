@@ -1,6 +1,7 @@
 package com.example.BDAgroexpressPrueba.Servicios;
 
 import com.example.BDAgroexpressPrueba.Entidades.*;
+import com.example.BDAgroexpressPrueba.Interfaz.Android_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;
@@ -16,10 +17,14 @@ import java.util.Map;
 public class Servicio_Usuario {
     @Autowired
     Usuario_Repositorio RepositorioUsuario;
+
+    Android_Repositorio Repositorioandroid;
     private HttpSession session;
 
-    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, HttpSession session) {
+
+    public Servicio_Usuario(Usuario_Repositorio repositorioUsuario, Android_Repositorio repositorioandroid, HttpSession session) {
         RepositorioUsuario = repositorioUsuario;
+        Repositorioandroid = repositorioandroid;
         this.session = session;
     }
 
@@ -61,6 +66,9 @@ public class Servicio_Usuario {
                 String rol = user.getUsu_Rol();
                 String nombre = user.getUsu_Nombre();
                 String documento = user.getUsu_Documento();
+
+                Android android = new Android(documento);
+                Repositorioandroid.save(android);
 
                 response.put("message", "Login Exitoso");
                 response.put("Rol","" + rol);
