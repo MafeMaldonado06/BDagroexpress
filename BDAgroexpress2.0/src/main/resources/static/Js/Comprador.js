@@ -590,7 +590,7 @@ $(document).ready(function(){
                 dataType: "JSON",
                 success: function (respuesta) {
                     if (respuesta.length === 0) {
-                        productos.innerHTML = '<div class="w-75 text-center"><h1>Lo sentimos</h1><span>No hay pedidos</span></div>';
+                        productos.innerHTML = '<div class="text-center"><h1>Lo sentimos</h1><span>No hay pedidos</span></div>';
                     } else {
                         let startIndex = respuesta.length - 2; // Start from the second-last index
                         let id = 1;
