@@ -51,7 +51,7 @@
 }
 
 .caja-frutas-acordeon {
-    background-image: url(../Img/Imagen-Frutas-acordeón.jpg);
+    background-image: url(https://i.ibb.co/QDC8m18/Imagen-Frutas-acorde-n.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -61,7 +61,7 @@
 }
 
 .caja-verduras-acordeon {
-    background-image: url(../Img/Imagen-Verduras-acordeón.jpg);
+    background-image: url(https://i.ibb.co/x7K9Sbq/Imagen-Verduras-acorde-n.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -71,7 +71,7 @@
 }
 
 .caja-legumbres-acordeon {
-    background-image: url(../Img/Imagenes-Legumbres-acordeón.jpg);
+    background-image: url(https://i.ibb.co/MsJmPR2/Imagenes-Legumbres-acorde-n.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
