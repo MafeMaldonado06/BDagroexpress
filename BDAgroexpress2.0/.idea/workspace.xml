@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Entidades/Android.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Android_Repositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Julian" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689659999818</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Julian">
+      <created>1689743810404</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689743810404</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +246,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Holman" />
-    <option name="LAST_COMMIT_MESSAGE" value="Holman" />
+    <MESSAGE value="Julian" />
+    <option name="LAST_COMMIT_MESSAGE" value="Julian" />
   </component>
 </project>
