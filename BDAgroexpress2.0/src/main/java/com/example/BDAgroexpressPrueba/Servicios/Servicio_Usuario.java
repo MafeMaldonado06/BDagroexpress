@@ -76,8 +76,6 @@ public class Servicio_Usuario {
 
         String documento = usuario.getUsu_Documento();
 
-        System.out.println(documento);
-
         if (!RepositorioUsuario.findById(documento).isPresent()){
             status = true;
             RepositorioUsuario.save(usuario);

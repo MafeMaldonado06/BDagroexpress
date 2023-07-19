@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="jz eliminar">
+    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_DetalleCompra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_OrdenEntrega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Ord_Entrega_Repositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_OrdenEntrega.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +15,21 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="Holman" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Julian" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -54,13 +57,17 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/agroexepres&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\holma\OneDrive\Escritorio\AgroExpress\BDagroexpress\BDAgroexpress2.0\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="BDAgroexpress2.0" />
@@ -92,14 +99,133 @@
       <option name="project" value="LOCAL" />
       <updated>1689356256907</updated>
     </task>
-    <task id="LOCAL-00002" summary="jz eliminar">
-      <created>1689592934189</created>
+    <task id="LOCAL-00002" summary="Holman">
+      <created>1689652212911</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1689592934189</updated>
+      <updated>1689652212911</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Holman">
+      <created>1689653411382</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689653411382</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Holman">
+      <created>1689654728554</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689654728554</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Holman">
+      <created>1689656921979</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689656921979</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Holman">
+      <created>1689657047451</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689657047451</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Holman">
+      <created>1689657391196</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689657391196</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Holman">
+      <created>1689657846546</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689657846546</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Holman">
+      <created>1689658179257</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689658179257</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Holman">
+      <created>1689658295984</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689658295984</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Holman">
+      <created>1689658486707</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1689658486707</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Holman">
+      <created>1689658866759</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1689658866759</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Holman">
+      <created>1689659218140</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659218140</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Holman">
+      <created>1689659248178</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659248178</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Holman">
+      <created>1689659478558</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659478558</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Holman">
+      <created>1689659697745</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659697745</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Holman">
+      <created>1689659838939</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659838939</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Holman">
+      <created>1689659893522</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659893522</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Holman">
+      <created>1689659999817</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1689659999818</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,7 +241,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Holman" />
-    <MESSAGE value="jz eliminar" />
-    <option name="LAST_COMMIT_MESSAGE" value="jz eliminar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Holman" />
   </component>
 </project>
