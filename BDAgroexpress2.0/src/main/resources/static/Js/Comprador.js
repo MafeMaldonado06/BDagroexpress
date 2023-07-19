@@ -10,7 +10,7 @@ $(document).ready(function(){
         console.log(referencia, cantidad)
 
         $.ajax({
-            url : "http://localhost:8080/Carrito/" + referencia + "/" + cantidad,
+            url : "https://bdagroexpress-production.up.railway.app/Carrito/" + referencia + "/" + cantidad,
             type : "POST",
             dataType : "JSON",
             contentType : "application/JSON",
@@ -30,7 +30,7 @@ $(document).ready(function(){
             verduras.innerHTML = ""
 
             $.ajax({
-                url: "http://localhost:8080/Verduras",
+                url: "https://bdagroexpress-production.up.railway.app/Verduras",
                 type: "GET",
                 dataType: "JSON",
                 success: (productos) =>{
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
                 if(element.target.matches("#buscador")){
                     $.ajax({
-                        url: "http://localhost:8080/Verduras",
+                        url: "https://bdagroexpress-production.up.railway.app/Verduras",
                         type: "GET",
                         dataType: "JSON",
                         success: (productos) =>{
@@ -187,7 +187,7 @@ $(document).ready(function(){
             legumbres.innerHTML = ""
 
             $.ajax({
-                url: "http://localhost:8080/Legumbres",
+                url: "https://bdagroexpress-production.up.railway.app/Legumbres",
                 type: "GET",
                 dataType: "JSON",
                 success: (productos) =>{
@@ -266,7 +266,7 @@ $(document).ready(function(){
 
                 if(element.target.matches("#buscador")){
                     $.ajax({
-                        url: "http://localhost:8080/Legumbres",
+                        url: "https://bdagroexpress-production.up.railway.app/Legumbres",
                         type: "GET",
                         dataType: "JSON",
                         success: (productos) =>{
@@ -363,7 +363,7 @@ $(document).ready(function(){
             insertar.innerHTML = ""
 
             $.ajax({
-                url : "http://localhost:8080/Pedidos/" + documento,
+                url : "https://bdagroexpress-production.up.railway.app/Pedidos/" + documento,
                 type : "GET",
                 dataType : "JSON",
                 success : (e) =>{
@@ -381,7 +381,7 @@ $(document).ready(function(){
             let productos = document.getElementById("detalle-productos-lista" + id_pedido)
 
             $.ajax({
-                url : "http://localhost:8080/ProductosPedido/" + id_pedido,
+                url : "https://bdagroexpress-production.up.railway.app/ProductosPedido/" + id_pedido,
                 type : "GET",
                 dataType : "JSON",
                 success : (products) =>{
@@ -402,7 +402,7 @@ $(document).ready(function(){
             cajaProductos.innerHTML = ""
 
             $.ajax({
-                url : "http://localhost:8080/GetCarrito",
+                url : "https://bdagroexpress-production.up.railway.app/GetCarrito",
                 type : "GET",
                 dataType : "JSON",
                 success : (e)=>{
@@ -506,7 +506,7 @@ $(document).ready(function(){
 
         function eliminarProducto(referencia){
             $.ajax({
-                url : "http://localhost:8080/BorrarProducto/" + referencia,
+                url : "https://bdagroexpress-production.up.railway.app/BorrarProducto/" + referencia,
                 type : "DELETE",
                 dataType : "JSON"
             })
@@ -523,7 +523,7 @@ $(document).ready(function(){
             let datosEnvio = JSON.stringify(producto)
 
             $.ajax({
-                url : "http://localhost:8080/Update",
+                url : "https://bdagroexpress-production.up.railway.app/Update",
                 type : "PUT",
                 data : datosEnvio,
                 dataType : "JSON",
@@ -538,7 +538,7 @@ $(document).ready(function(){
             let cart = []
 
             $.ajax({
-                url : "http://localhost:8080/GetCarrito",
+                url : "https://bdagroexpress-production.up.railway.app/GetCarrito",
                 type : "GET",
                 dataType : "JSON",
                 success : (e) =>{
@@ -559,7 +559,7 @@ $(document).ready(function(){
                     console.log(cartEnvio)
 
                     $.ajax({
-                        url : "http://localhost:8080/OrdenCompra/" + primus,
+                        url : "https://bdagroexpress-production.up.railway.app/OrdenCompra/" + primus,
                         type : "POST",
                         data : cartEnvio,
                         contentType : "application/JSON",
@@ -571,13 +571,68 @@ $(document).ready(function(){
             })
 
             $.ajax({
-                url : "http://localhost:8080/ClearCart",
+                url : "https://bdagroexpress-production.up.railway.app/ClearCart",
                 type : "DELETE",
                 dataType : "JSON"
             })
 
             location.reload()
         })
+    }else if(currentUrl.includes("Comprador_Inicio")){
+        function UltimosPedidos(){
+            $.ajax({
+                url: "http://bdagroexpress-production.up.railway.app/OrdenCompra",
+                type: 'GET',
+                dataType: "JSON",
+                success: function (respuesta) {
+                    if (respuesta.length === 0) {
+                        productos.innerHTML = '<div class="w-75 text-center"><h1>Lo sentimos</h1><span>No hay pedidos</span></div>';
+                    } else {
+                        let startIndex = respuesta.length - 2; // Start from the second-last index
+                        let id = 1;
+            
+                        // Create the table HTML
+                        let table = '<div class="d-flex justify-content-center align-items-center py-2">' +
+                            '<div class="contenedor-tabla d-flex align-items-center justify-content-center rounded-3 overflow-hidden">' +
+                            '<table class="table table-hover table-striped text-center" id="tablaPedidos">' +
+                            '<tr>' +
+                            '<th>N° Compra</th>' +
+                            '<td>Toma de pedido</td>' +
+                            '<th>Puedes</th>' +
+                            '<th>Estado</th>' +
+                            '</tr>';
+            
+                        for (let producto = startIndex; producto < respuesta.length; producto++, id++) {
+                            let noCompra = respuesta[producto].OrdC_Id;
+                            let tomaPedido = respuesta[producto].Fac_FechaVenta;
+                            let estado = respuesta[producto].estado;//el metodo del estado no esta
+            
+                            // Add rows to the table
+                            table += '<tr>' +
+                                '<td>' + noCompra + '</td>' +
+                                '<td>' + tomaPedido + '</td>' +
+                                '<td>' +
+                                '<div class="d-flex justify-content-center">' +
+                                '<button class="boton-tabla-pedidos py-1 btn btn-success">Consultar</button>' +//no se que poner al oprimir el boton
+                                '</div>' +
+                                '</td>' +
+                                '<td>' + estado + '</td>' +
+                                '</tr>';
+                        }
+            
+                        table += '</table>' +
+                            '<span class="caja-opacidad-tus-pedidos"></span>' +
+                            '</div>' +
+                            '</div>';
+            
+                        // Set the table HTML to the 'productos' container
+                        productos.innerHTML = table;
+                    }
+                }
+            });
+        }
+
+        UltimosPedidos()
     }
 
 })
