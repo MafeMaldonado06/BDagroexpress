@@ -50,13 +50,29 @@ header{
     margin-inline: 1em;
     padding-block: .2em;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.header-enlaces li::before{
+.header-enlaces li a{
+    z-index: 2;
+    position: relative;
+}
+
+.header-enlaces li::after{
     content: "";
-    bottom: 0;
+    position: absolute;
+    bottom: -1px;
+    left: -130%;
     background: #53704B;
     width: 100%;
+    height: 3px;
+    z-index: 1;
+    transition: .5s ease-in-out;
+}
+
+.header-enlaces li:hover::after{
+    left: 0;
 }
 
 .header-enlaces li a{
@@ -71,10 +87,6 @@ header{
 
 .lista-header i{
     font-size: 40px;
-}
-
-.header-enlaces li:hover{
-    border-bottom: 2px solid #53704B;
 }
 
 .bandeja-menu-navegacion{
@@ -232,7 +244,7 @@ header{
 }
 
 .caja-fondo{
-    background-image: url(../Img/pexels-thanhhoa-tran-1447092.jpg);
+    background-image: url(https://i.ibb.co/wBLwNxL/pexels-thanhhoa-tran-1447092.jpg);
     background-size: cover;
     height: 850px;
     position: relative;
@@ -260,6 +272,35 @@ header{
     text-align: center;
     padding: .5% 0;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.superposicion-a span{
+    z-index: 3;
+    position: relative;
+}
+
+.superposicion-a::after{
+    content: "";
+    top: 0;
+    width: 180%;
+    height: 100%;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid white;
+    left: -185%;
+    position: absolute;
+    transition:  .5s ease-in-out;
+    z-index: 1;
+}
+
+.superposicion-a:hover::after{
+    left: 0;
+}
+
+.superposicion-a:hover{
+    color: #000;
+    font-weight: 500;
 }
 
 .caja-fondo:hover .superposicion-h1, .superposicion-p, .superposicion-a{
@@ -295,13 +336,38 @@ header{
     border-radius: 50%;
     width: 2em;
     padding: 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+.proposito-icon i{
+    position: relative;
+    z-index: 2;
+}
+
+.proposito-icon::after{
+    content: "";
+    border-radius: 50%;
+    width: 1px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+    background: #53704B;
+    position: absolute;
+    z-index: 1;
+    transform-origin: center;
+    transition: .5s ease-in-out;
+}
+
+.proposito-icon:hover::after{
+    transform: scale(400);
 }
 
 .proposito-icon:hover{
     background-color: #53704B;
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.9s;
-    margin-bottom: 6%;
+    box-shadow: 0 8px 8px #c6c6c6;
 }
 
 .proposito-icon:hover i{
@@ -330,7 +396,7 @@ footer{
 .redes-footer div{
     margin-inline: 3%;
     border-radius: 50%;
-    width: 3.5%;
+    width: 4em;
     text-align: center;
 }
 
