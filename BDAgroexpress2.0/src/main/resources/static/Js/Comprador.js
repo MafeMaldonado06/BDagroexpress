@@ -595,9 +595,7 @@ $(document).ready(function(){
                         let id = 1;
             
                         // Create the table HTML
-                        let table = '<div class="d-flex justify-content-center align-items-center py-2">' +
-                            '<div class="contenedor-tabla d-flex align-items-center justify-content-center rounded-3 overflow-hidden">' +
-                            '<table class="table table-hover table-striped text-center" id="tablaPedidos">' +
+                        let table = '<table class="table table-hover table-striped text-center" id="tablaPedidos">' +
                             '<tr>' +
                             '<th>N° Compra</th>' +
                             '<td>Toma de pedido</td>' +
@@ -622,11 +620,6 @@ $(document).ready(function(){
                                 '<td>' + estado + '</td>' +
                                 '</tr>';
                         }
-            
-                        table += '</table>' +
-                            '<span class="caja-opacidad-tus-pedidos"></span>' +
-                            '</div>' +
-                            '</div>';
             
                         // Set the table HTML to the 'productos' container
                         productos.innerHTML = table;
