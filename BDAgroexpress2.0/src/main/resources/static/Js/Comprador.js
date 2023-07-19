@@ -581,7 +581,7 @@ $(document).ready(function(){
     }else if(currentUrl.includes("Comprador_Inicio")){
         function UltimosPedidos(){
             $.ajax({
-                url: "http://bdagroexpress-production.up.railway.app/OrdenCompra",
+                url: "https://bdagroexpress-production.up.railway.app/OrdenCompra",
                 type: 'GET',
                 dataType: "JSON",
                 success: function (respuesta) {
