@@ -14,7 +14,7 @@ public interface OrdenCompra_Repositorio extends JpaRepository<OrdenCompra, Inte
 
     @Query(nativeQuery = true, value = "select oc.*,oe.orde_estado from orden_compra as oc \n" +
             "right join ordenentrega as oe on (oc.ordc_id = oe.orde_id) where oc.comprador_usu_documento like :documento")
-    List<Map<String, Object>> getOrdenesCompraComprador(@Param("documento") String documento);
+    List<Map<String, Object>>   getOrdenesCompraComprador(@Param("documento") String documento);
 
     @Query(nativeQuery = true, value = "select dp.*, dc.detc_cantidad_comprada,u.usu_nombre,u.usu_apellidos from detalleproducto as dp\n" +
             "inner join detalle_compra as dc on (dp.det_referencia = dc.detc_producto_det_referencia)\n" +

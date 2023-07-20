@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman" />
+    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/OrdenCompra_Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/OrdenCompra_Repositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleProducto_Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Interfaz/DetalleProducto_Repositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_Carrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicio_DetalleCompra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/BDAgroexpressPrueba/Servicios/Servicios_Detalle_Producto.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -324,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689810233039</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Holman">
+      <created>1689810464230</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1689810464230</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
