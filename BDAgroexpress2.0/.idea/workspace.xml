@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Julian">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Controlador/Controlador_Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Android_Repositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Interfaz/Android_Repositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/BDAgroexpressPrueba/Servicios/Servicio_Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

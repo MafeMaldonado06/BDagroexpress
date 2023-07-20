@@ -1,9 +1,11 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
+import com.example.BDAgroexpressPrueba.Entidades.Android;
 import com.example.BDAgroexpressPrueba.Entidades.SessionRequest;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -58,6 +60,18 @@ public class Controlador_Usuario {
     public Map<String, String> IngresoUsuario(@RequestBody SessionRequest datos) {
         return servicio.ValidacionIngresoUsuario(datos);
     }
+
+    @GetMapping("/ListarAndroid")
+    public List<Android> ListarAndroid(){
+        return servicio.Documentoandroid();
+    }
+
+    @DeleteMapping("/EliminarAndroid")
+    public ResponseEntity<String> eliminarAndroid() {
+        servicio.eliminarTodosLosAndroid();
+        return ResponseEntity.ok("Eliminación exitosa");
+    }
+
 
     @PostMapping("/AgregarUsuario")
     public String AgregarUsuario(@RequestBody Usuario user){
