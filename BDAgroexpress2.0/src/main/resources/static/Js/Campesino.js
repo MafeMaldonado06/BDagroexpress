@@ -230,15 +230,19 @@ guardarCambios()
     }
     buscarDatos()
 
+$(document).ready(function() {
     let documentoUsu=window.sessionStorage.getItem("id_usuario")
-        $.ajax({
-            url: 'http://localhost:8080/totalproductos/1',
-            type: 'GET',
-            dataType: "JSON",
-            success: function(respuesta) {
-                // Aquí actualizamos el contenido del elemento con la respuesta del AJAX
-                $(".cantidad-number").text(respuesta);
-            }
-        });
+    $.ajax({
+        url: 'http://localhost:8080/totalproductos/'+documentoUsu,
+        type: 'GET',
+        dataType: "JSON",
+        success: function(respuesta) {
+            // Aquí actualizamos el contenido del elemento con la respuesta del AJAX
+            $(".cantidad-number").text(respuesta);
+            console.log(documentoUsu)
+        }
+
+    });
+});
     
 })
