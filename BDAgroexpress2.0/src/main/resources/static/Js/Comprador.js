@@ -36,7 +36,7 @@ $(document).ready(function(){
                 success: (productos) =>{
                     if(productos.length > 0){
                         for (let producto = 0; producto < productos.length; producto++) {
-                            verduras.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="../img/CEBOLLA.JPG" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
+                            verduras.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
                         }
 
                         var plus = document.getElementsByClassName("mas-producto")
@@ -114,7 +114,7 @@ $(document).ready(function(){
                                 for (let producto = 0; producto < productos.length; producto++) {
                                     console.log(productos[producto])
                                     if(String(productos[producto].det_Nombre_product).toLowerCase().includes(element.target.value.toLowerCase())){
-                                        verduras.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="../img/CEBOLLA.JPG" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
+                                        verduras.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
                                     }
             
                                     //Funciones para cantidad de productos en items carrito botones cantidad
@@ -197,7 +197,7 @@ $(document).ready(function(){
                     if(productos.length > 0){
                         console.log("hola")
                         for (let producto = 0; producto < productos.length; producto++) {
-                            legumbres.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="../img/CEBOLLA.JPG" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
+                            legumbres.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
             
                             //Funciones para cantidad de productos en items carrito botones cantidad
                             var plus = document.getElementsByClassName("mas-producto")
@@ -277,7 +277,7 @@ $(document).ready(function(){
                                 for (let producto = 0; producto < productos.length; producto++) {
                                     console.log(productos[producto])
                                     if(String(productos[producto].det_Nombre_poduct).toLowerCase().includes(element.target.value.toLowerCase())){
-                                        legumbres.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="../img/CEBOLLA.JPG" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
+                                        legumbres.innerHTML += '<div class="carta-producto-categoria card" aria-valuetext="'+ productos[producto].det_Nombre_product +'"><div class="card-img overflow-hidden"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="card-body"><ul class="list-unstyled"><li><h5 class= "nombre-producto">'+ productos[producto].det_Nombre_product +'</h5></li><li><span>' + productos[producto].det_precio + '</span></li></ul><div class="contenedor-boton-agregar-carrito-comprador"><button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto +'" id="agregar-carrito">Agregar al carrito</button></div></div></div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ productos[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + productos[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
                                     }
             
                                     //Funciones para cantidad de productos en items carrito botones cantidad
@@ -373,6 +373,10 @@ $(document).ready(function(){
 
                         listarProductosdetalle(e[pedido].ordc_id)
                     }
+
+                    let botonesMiPedido = document.querySelectorAll("#boton-detalle-mi-pedido")
+
+                    console.log(botonesMiPedido)
                 }
             })
         }
@@ -411,7 +415,7 @@ $(document).ready(function(){
 
                     e.forEach(element => {
                         console.log(element.id)
-                        cajaProductos.innerHTML += '<div class="producto-carrito d-flex justify-content-evenly my-2 rounded-2 bg-body" id="' + element.id + '"><div class="d-flex w-100"><div class="imagen-producto-carrito d-flex align-items-center"><img src="../Img/Durazno.JPG" class="d-block w-100" alt=""></div><hr class="vr mx-3"><div class="my-3"><div><div class="d-flex flex-column"><span>Ref : ' + element.producto.det_Referencia + '</span><span class="nombre-producto-carrito">' + element.producto.det_Nombre_product + '</span></div></div></div></div><div class="segunda-mitad-producto-carrito d-flex w-100 px-3 position-relative"><div class="py-3"><div class="contador-cantidad"><div class="d-flex text-center rounded-4 overflow-hidden"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary d-flex justify-content-center align-items-center"><input type="tel" class="w-100 py-1 border-0" minlength="1" maxlength="5" placeholder = "1" value="' + element.cantidad + '" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div><div class="d-flex justify-content-center align-items-center mt-2"><button class="eliminar-producto-carrito border-0 bg-body" id="' + element.id + '">Eliminar</button></div></div></div><div class="d-flex justify-content-center align-items-center w-50"><span class="precio-unidad-producto mx-1 text-center">' + element.producto.det_precio + '</span><span class="unidad-medida-producto d-flex align-items-end">Und</span></div></div></div>'
+                        cajaProductos.innerHTML += '<div class="producto-carrito d-flex justify-content-evenly my-2 rounded-2 bg-body" id="' + element.id + '"><div class="d-flex w-100"><div class="imagen-producto-carrito d-flex align-items-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><hr class="vr mx-3"><div class="my-3"><div><div class="d-flex flex-column"><span>Ref : ' + element.producto.det_Referencia + '</span><span class="nombre-producto-carrito">' + element.producto.det_Nombre_product + '</span></div></div></div></div><div class="segunda-mitad-producto-carrito d-flex w-100 px-3 position-relative"><div class="py-3"><div class="contador-cantidad"><div class="d-flex text-center rounded-4 overflow-hidden"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary d-flex justify-content-center align-items-center"><input type="tel" class="w-100 py-1 border-0" minlength="1" maxlength="5" placeholder = "1" value="' + element.cantidad + '" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div><div class="d-flex justify-content-center align-items-center mt-2"><button class="eliminar-producto-carrito border-0 bg-body" id="' + element.id + '">Eliminar</button></div></div></div><div class="d-flex justify-content-center align-items-center w-50"><span class="precio-unidad-producto mx-1 text-center">' + element.producto.det_precio + '</span><span class="unidad-medida-producto d-flex align-items-end">Und</span></div></div></div>'
 
                         subtotal += (element.producto.det_precio * element.cantidad)
 
@@ -647,7 +651,7 @@ $(document).ready(function(){
                             let detReferencia = respuesta[producto].det_Referencia;
                             tarjetas1.innerHTML += '<div class="carta-producto-comprador card">' +
                                 '<div class="card-img overflow-hidden">' +
-                                '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                                '<img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt="">' +
                                 '</div>' +
                                 '<div class="card-body">' +
                                 '<ul class="list-unstyled">' +
@@ -655,15 +659,37 @@ $(document).ready(function(){
                                 '<li><span>$' + respuesta[producto].det_precio + '</span></li>' +
                                 '</ul>' +
                                 '<div class="contenedor-boton-agregar-carrito-comprador">' +
-                                '<button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito">Poner en el carrito</button>' +
+                                '<button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto + '">Poner en el carrito</button>' +
                                 '</div>' +
                                 '</div>' +
-                                '</div>';
+                                '</div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ respuesta[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + respuesta[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>';
                         }
+
+                        //Funciones para cantidad de productos en items carrito botones cantidad
+                        var botonesAgregarCarrito = document.getElementsByClassName("agregar-carrito")
+            
+                        for(var i = 0; i < botonesAgregarCarrito.length; i++){
+                            var button = botonesAgregarCarrito[i];
+                            button.addEventListener('click', (event) => {
+                                var buttonClicked = event.target;
+                                var referencia = buttonClicked.getAttribute("value")
+                                var parent = buttonClicked.parentElement.parentElement
+                                var input = parent.children[1].children[0].children[1].children[1].children[1].children[0]
+                                var cantidad = input.value
+
+                                addCart(referencia, cantidad)
+                                
+                            })
+                        }
+
                     }
+                    
                 }
             });
         }
+
+        cargarTarjetas()
+
         function filtrarTarjetas() {
             let filtro = $("#inputBusqueda").val();
             let tarjetas = $(".carta-producto-comprador");
@@ -676,8 +702,6 @@ $(document).ready(function(){
                 }
             });
         }
-
-        cargarTarjetas()
 
         window.addEventListener("DOMContentLoaded", filtrarTarjetas);
 
@@ -693,7 +717,7 @@ $(document).ready(function(){
                         let detReferencia = respuesta[producto].det_Referencia;
                         tarjetas1.innerHTML += '<div class="carta-producto-comprador card">' +
                             '<div class="card-img overflow-hidden">' +
-                            '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                            '<img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt="">' +
                             '</div>' +
                             '<div class="card-body">' +
                             '<ul class="list-unstyled">' +
@@ -722,9 +746,9 @@ $(document).ready(function(){
                 } else {
                     for (let producto = 0; producto < respuesta.length; producto++) {
                         let detReferencia = respuesta[producto].det_Referencia;
-                        tarjetas2.innerHTML += '<div class="carta-producto-comprador card">' +
+                        tarjetas2.innerHTML += '<div class="carta-producto-comprador-mas-vendido card">' +
                             '<div class="card-img overflow-hidden">' +
-                            '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                            '<img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt="">' +
                             '</div>' +
                             '<div class="card-body">' +
                             '<ul class="list-unstyled">' +
@@ -732,10 +756,64 @@ $(document).ready(function(){
                             '<li><span>$' + respuesta[producto].det_precio + '</span></li>' +
                             '</ul>' +
                             '<div class="contenedor-boton-agregar-carrito-comprador">' +
-                            '<button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito">Poner en el carrito</button>' +
+                            '<button class="boton-agregar-carrito-comprador" data-bs-toggle="modal" data-bs-target="#agregarCarrito' + producto + '">Poner en el carrito</button>' +
                             '</div>' +
                             '</div>' +
-                            '</div>';
+                            '</div><div class="modal fade" id="agregarCarrito'+ producto +'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="exampleModalLabel">Agregar al carrito</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div><div class="titulo-modal"><span>'+ respuesta[producto].det_Nombre_product +'</span></div><div class="d-flex flex-column align-items-center"><div class="imagen-modal d-flex justify-content-center"><img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt=""></div><div class="d-flex overflow-hidden rounded-5 my-3"><div class="col"><button class="menos-producto w-100" id="restar-producto"><i class="bi bi-dash"></i></button></div><div class="cantidad-producto col bg-body-tertiary"><input type="text" class="w-100 py-1 border-0" value="1" id="cantidad-producto"></div><div class="col"><button class="mas-producto w-100" id="sumar-producto"><i class="bi bi-plus"></i></button></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button><button type="button" class="agregar-carrito btn btn-success" value="' + respuesta[producto].det_Referencia +'">Agregar al carrito</button></div></div></div></div>'
+                    }
+
+                    //Funciones para cantidad de productos en items carrito botones cantidad
+                    var plus = document.getElementsByClassName("mas-producto")
+                    var minus = document.getElementsByClassName("menos-producto")
+
+                    for(var i = 0; i < minus.length; i++){
+                        var button = minus[i];
+                        button.addEventListener('click', (event)=>{
+
+                            var buttonClicked = event.target;
+                            var parent = buttonClicked.parentElement.parentElement;
+                            var input = parent.parentElement.children[1].children[0];
+                            var inputValue = input.value
+                            var newValue = 1;
+                            if(parseInt(inputValue) > 1){
+                                newValue = parseInt(inputValue) - 1
+                            }
+                            input.value = newValue
+                            
+                        })
+                    }
+
+                    for(var i = 0; i < plus.length; i++){
+                        var button = plus[i];
+                        button.addEventListener('click', (event)=>{
+
+                            var buttonClicked = event.target;
+                            var parent = buttonClicked.parentElement.parentElement;
+                            var input = parent.parentElement.children[1].children[0];
+                            var inputValue = input.value
+                            var newValue = 1;
+                            if(parseInt(inputValue) >= 1){
+                                newValue = parseInt(inputValue) + 1
+                            }
+                            input.value = newValue
+                            
+                        })
+                    }
+
+                    var botonesAgregarCarrito = document.getElementsByClassName("agregar-carrito")
+        
+                    for(var i = 0; i < botonesAgregarCarrito.length; i++){
+                        var button = botonesAgregarCarrito[i];
+                        button.addEventListener('click', (event) => {
+                            var buttonClicked = event.target;
+                            var referencia = buttonClicked.getAttribute("value")
+                            var parent = buttonClicked.parentElement.parentElement
+                            var input = parent.children[1].children[0].children[1].children[1].children[1].children[0]
+                            var cantidad = input.value
+
+                            addCart(referencia, cantidad)
+                            
+                        })
                     }
                 }
             }
@@ -762,7 +840,7 @@ $(document).ready(function(){
                             // Generar una carta de producto por cada elemento en la respuesta del API
                             let cartaProducto = '<div class="carta-producto-categoria-fruta card">' +
                                 '<div class="card-img overflow-hidden">' +
-                                '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                                '<img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt="">' +
                                 '</div>' +
                                 '<div class="card-body">' +
                                 '<ul class="list-unstyled">' +
@@ -787,7 +865,7 @@ $(document).ready(function(){
         let imagen = new Image();
         imagen.src = null;
 
-        cargarProductos();
+/*         cargarProductos(); */
 
         // Función para cargar los productos desde el API y aplicar el filtrado
         function cargarYFiltrarProductos(filtro) {
@@ -809,7 +887,7 @@ $(document).ready(function(){
                                 // Generar una carta de producto por cada elemento en la respuesta del API
                                 let cartaProducto = '<div class="carta-producto-categoria-fruta card">' +
                                     '<div class="card-img overflow-hidden">' +
-                                    '<img src="../Img/Durazno.JPG" class="d-block w-100" alt="">' +
+                                    '<img src="https://i.ibb.co/CnF6fW4/Durazno.jpg" class="d-block w-100" alt="">' +
                                     '</div>' +
                                     '<div class="card-body">' +
                                     '<ul class="list-unstyled">' +

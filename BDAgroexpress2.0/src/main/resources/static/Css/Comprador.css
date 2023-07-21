@@ -150,7 +150,8 @@
 
 .carta-producto-comprador {
     width: 15em;
-    margin-block: 0; padding-block: 1em; 
+    margin-block: 1em; 
+    padding-block: 1em; 
     padding-inline: 1em; 
     margin-inline: .8em; 
     transition: transform .5s ease-in-out;
@@ -177,7 +178,8 @@
 
 .contenedor-general-cartas-mas-vendido .carta-producto-comprador-mas-vendido {
     display: inline-block;
-    margin-inline: 2%; width: 15em;
+    margin-inline: 2%;
+    width: 15em;
 }
 
 /*Carrito comprador*/
@@ -270,7 +272,7 @@
 }
 
 .menu-pago-carrito {
-    max-height: 30vh;
+    max-height: 40vh;
     width: 50em;
     background-color: #f5f5f5;
 }
