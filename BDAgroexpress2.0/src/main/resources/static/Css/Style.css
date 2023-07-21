@@ -643,6 +643,9 @@ footer{
 }
 
 @media (max-width: 576px){
+    #carrusel{
+        width: 100%;
+    }
 
     header{
         height: 5em;
@@ -654,6 +657,10 @@ footer{
 
     .header-tipografia{
         width: 50%;
+    }
+
+    .header-enlaces{
+        margin-right: 0;
     }
 
     .lista-header{
