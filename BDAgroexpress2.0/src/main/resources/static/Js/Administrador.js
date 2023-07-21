@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 
     const productos = document.getElementById('productos')
-    productos.innerHTML=""
     $.ajax({
         url : 'https://bdagroexpress-production.up.railway.app/Listarproductos',
         type : 'GET',
@@ -89,7 +88,7 @@ $(document).ready(function(){
 
     //Usuarios
     const usuarios = document.getElementById('usuarios')
-
+    usuarios.innerHTML = ""
     $.ajax({
         url: 'https://bdagroexpress-production.up.railway.app/ListarUsuarios',
         type: 'GET',
@@ -165,7 +164,7 @@ $(document).ready(function(){
                 } else {
                     for (let usuario = 0; usuario < respuesta.length; usuario++) {
                         let documento = respuesta[usuario].usu_Documento;
-                        usuarios.innerHTML += '<div class="card-usuario card d-flex justify-content-center shadow"><div class="d-flex justify-content-center w-100 py-3"><div class="imagen-carta-usuario"><img src="../Img/pexels-bruno-salvadori-2330169.jpg" class="d-block w-100" alt=""></div></div><div class="card-body"><div class="d-flex flex-column align-items-center"><span>' + respuesta[usuario].usu_Nombre + '</span><span>' + respuesta[usuario].usu_Apellidos + '</span></div><div class="botones-carta-usuario d-flex justify-content-around my-3"><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Actualizar</button><button class="btn btn-dark" data-documento="' + documento + '">Eliminar</button></div></div></div></div>';
+                        usuarios.innerHTML += '<div class="card-usuario card d-flex justify-content-center shadow"><div class="d-flex justify-content-center w-100 py-3"><div class="imagen-carta-usuario"><img src="../Img/pexels-bruno-salvadori-2330169.jpg" class="d-block w-100" alt=""></div></div><div class="card-body"><div class="d-flex flex-column align-items-center"><h4>' + respuesta[usuario].usu_Nombre + '</h4><h6>' + respuesta[usuario].usu_Apellidos + '</h6></div><div class="botones-carta-usuario d-flex justify-content-around my-3"><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Actualizar</button><button class="btn btn-dark" data-documento="' + documento + '">Eliminar</button></div></div></div></div>';
                     }
                 }
             }

@@ -20,7 +20,7 @@ public interface DetalleProducto_Repositorio extends JpaRepository<DetalleProduc
     @Query(nativeQuery = true, value = "select * from detalleproducto")
     List<Map<String, Object>> getProductos();
 
-    @Query(value = "SELECT d FROM DetalleProducto d JOIN d.Det_IdUsuario u WHERE u.Usu_Documento = :documento")
+    @Query(nativeQuery = true, value = "select * from detalleproducto where det_id_usuario_usu_documento = ?1")
     List<DetalleProducto> ProductosPorCampesino(@Param("documento") String Documento);
 
     @Query(value = "Select d From DetalleProducto d Where d.Det_Categoria = 'Frutas'")
@@ -34,4 +34,8 @@ public interface DetalleProducto_Repositorio extends JpaRepository<DetalleProduc
 
     @Query(value = "Select d From DetalleProducto d Where d.Det_Referencia = :referencia")
     DetalleProducto getProducto(@Param("referencia") int referencia);
+
+    @Query(value = "SELECT COUNT(*) FROM detalleproducto WHERE det_id_usuario_usu_documento = ?1", nativeQuery = true)
+    int countProductsByUserId(int doc);
+
 }

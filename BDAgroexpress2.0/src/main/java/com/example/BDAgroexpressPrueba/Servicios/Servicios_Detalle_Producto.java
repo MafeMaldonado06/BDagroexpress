@@ -4,6 +4,7 @@ import com.example.BDAgroexpressPrueba.Entidades.DetalleProducto;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Interfaz.DetalleProducto_Repositorio;
 import com.example.BDAgroexpressPrueba.Interfaz.Usuario_Repositorio;
+import org.eclipse.sisu.reflect.Soft;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class Servicios_Detalle_Producto {
 
         Usuario usuario = RepositorioUsuario.findById(documento).get();
 
-        if(usuario.getUsu_Rol().equals("administrador") || usuario.getUsu_Rol().equals("campesino")){
+        if(usuario.getUsu_Rol().equals("Administrador") || usuario.getUsu_Rol().equals("Campesino")){
             productos = detalleProductoRepositorio.ProductosPorCampesino(usuario.getUsu_Documento());
         }
 
@@ -76,21 +77,30 @@ public class Servicios_Detalle_Producto {
         return status;
     }
 
-
-
     public Boolean EliminarProducto(int id, String documento){
 
         Boolean status = false;
 
+        System.out.println(id);
+        System.out.println(documento);
+
         Usuario usuario = RepositorioUsuario.findById(documento).get();
-        DetalleProducto producto = detalleProductoRepositorio.findById(id).get();
+        System.out.println(usuario);
+        DetalleProducto producto = detalleProductoRepositorio.getProducto(id);
+
+        System.out.println(producto);
+
+        List<DetalleProducto> productosPorCampesino = getProductosPorCampesino(documento);
+        System.out.println(productosPorCampesino);
 
         if(getProductosPorCampesino(documento).contains(producto)){
             detalleProductoRepositorio.deleteById(id);
             status = true;
         }
 
+
         return status;
+
     }
 
     public List<DetalleProducto> listarProductosCategoriaFrutas(){
@@ -109,4 +119,7 @@ public class Servicios_Detalle_Producto {
         return detalleProductoRepositorio.getProducto(referencia);
     }
 
+    public int contarProductos(int doc) {
+        return detalleProductoRepositorio.countProductsByUserId(doc);
+    }
 }

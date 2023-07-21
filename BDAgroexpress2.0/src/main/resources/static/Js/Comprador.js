@@ -640,7 +640,7 @@ $(document).ready(function(){
             tarjetas1.innerHTML = ""; // Vaciar el contenedor de tarjetas
         
             $.ajax({
-                url: 'http://bdagroexpress-production.up.railway.app/Listarproductos',
+                url: 'https://bdagroexpress-production.up.railway.app/Listarproductos',
                 type: 'GET',
                 dataType: "JSON",
                 success: function (respuesta) {
@@ -706,7 +706,7 @@ $(document).ready(function(){
         window.addEventListener("DOMContentLoaded", filtrarTarjetas);
 
         $.ajax({
-            url: 'http://bdagroexpress-production.up.railway.app/Listarproductos',
+            url: 'https://bdagroexpress-production.up.railway.app/Listarproductos',
             type: 'GET',
             dataType: "JSON",
             success: function (respuesta) {
@@ -737,7 +737,7 @@ $(document).ready(function(){
         const tarjetas2 = document.getElementById('tarjetasContainer2')
 
         $.ajax({
-            url: 'http://bdagroexpress-production.up.railway.app/Listarproductos',
+            url: 'https://bdagroexpress-production.up.railway.app/Listarproductos',
             type: 'GET',
             dataType: "JSON",
             success: function (respuesta) {
@@ -825,7 +825,7 @@ $(document).ready(function(){
             contenedorProductos.html(""); // Vaciar el contenedor de productos
         
             $.ajax({
-                url: "http://bdagroexpress-production.up.railway.app/Frutas",
+                url: "https://bdagroexpress-production.up.railway.app/Frutas",
                 type: "GET",
                 dataType: "JSON",
                 success: function (respuesta) {
@@ -873,7 +873,7 @@ $(document).ready(function(){
             contenedorProductos.html(""); // Vaciar el contenedor de productos
     
             $.ajax({
-                url: "http://bdagroexpress-production.up.railway.app/Frutas",
+                url: "https://bdagroexpress-production.up.railway.app/Frutas",
                 type: "GET",
                 dataType: "JSON",
                 success: function (respuesta) {
