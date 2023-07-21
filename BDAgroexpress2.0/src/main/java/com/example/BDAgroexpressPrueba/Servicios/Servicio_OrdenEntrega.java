@@ -22,4 +22,8 @@ public class Servicio_OrdenEntrega {
     public List<Map<String, Object>>finentregando(int doc){
         return ordEntregaRepositorio.finentregando(doc);
     }
+
+    public List<Map<String, Object>>getOrdenentrega(int doc){
+        return ordEntregaRepositorio.getOrdenentrega(doc);
+    }
 }

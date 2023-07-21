@@ -98,10 +98,10 @@ public class Controlador_Usuario {
         return servicio.getCampesinos();
     }
 
-   /* @PostMapping("/ActualizarEstado/{doc}/{estado}")
-    public boolean actualizarEstado(@PathVariable("doc")String doc,@PathVariable("estado")String estado){
-        return servicio_D.actualizarEstadoOrdenEntrega(doc,estado);
-    }*/
+   @PostMapping("/ActualizarEstado/{ordenEntregaId}/{estado}")
+    public boolean actualizarEstado(@PathVariable("ordenEntregaId")int ordenEntregaId,@PathVariable("estado")String estado){
+        return servicio_D.actualizarEstadoOrdenEntrega(ordenEntregaId,estado);
+    }
 
     @DeleteMapping("/eliminarUsuario/{documento}")
     public String eliminarUsuario(@PathVariable String documento) {

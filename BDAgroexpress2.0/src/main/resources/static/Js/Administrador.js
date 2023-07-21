@@ -4,7 +4,7 @@ $(document).ready(function(){
     const productos = document.getElementById('productos')
 
     $.ajax({
-        url : 'http://localhost:8080/Listarproductos',
+        url : 'https://bdagroexpress-production.up.railway.app/Listarproductos',
         type : 'GET',
         dataType : "JSON",
         success : function(respuesta){
@@ -25,7 +25,7 @@ $(document).ready(function(){
     $("#botonfrutas").on("click", function() {
         productos.innerHTML=""
         $.ajax({
-            url: "http://localhost:8080/Frutas",
+            url: "https://bdagroexpress-production.up.railway.app/Frutas",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -47,7 +47,7 @@ $(document).ready(function(){
     $("#botonverduras").on("click", function() {
         productos.innerHTML=""
         $.ajax({
-            url: "http://localhost:8080/Verduras",
+            url: "https://bdagroexpress-production.up.railway.app/Verduras",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -68,7 +68,7 @@ $(document).ready(function(){
     $("#botonlegumbres").on("click", function() {
         productos.innerHTML=""
         $.ajax({
-            url: "http://localhost:8080/Legumbres",
+            url: "https://bdagroexpress-production.up.railway.app/Legumbres",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -91,7 +91,7 @@ $(document).ready(function(){
     const usuarios = document.getElementById('usuarios')
 
     $.ajax({
-        url: 'http://localhost:8080/ListarUsuarios',
+        url: 'https://bdagroexpress-production.up.railway.app/ListarUsuarios',
         type: 'GET',
         dataType: "JSON",
         success: function(respuesta) {
@@ -117,7 +117,7 @@ $(document).ready(function(){
 
         // Realizar la solicitud de eliminación
         $.ajax({
-            url: "http://localhost:8080/eliminarUsuario/" + documento,
+            url: "https://bdagroexpress-production.up.railway.app/eliminarUsuario/" + documento,
             type: "DELETE",
             success: function(response) {
                 console.log("Usuario eliminado");
@@ -137,7 +137,7 @@ $(document).ready(function(){
         const usuarios = document.getElementById('usuarios')
         usuarios.innerHTML=""
         $.ajax({
-            url: 'http://localhost:8080/ListarUsuarios',
+            url: 'https://bdagroexpress-production.up.railway.app/ListarUsuarios',
             type: 'GET',
             dataType: "JSON",
             success: function(respuesta) {
@@ -157,7 +157,7 @@ $(document).ready(function(){
         const usuarios = document.getElementById('usuarios')
         usuarios.innerHTML=""
         $.ajax({
-            url: 'http://localhost:8080/listarAdministradores',
+            url: 'https://bdagroexpress-production.up.railway.app/listarAdministradores',
             type: 'GET',
             dataType: "JSON",
             success: function(respuesta) {
@@ -177,7 +177,7 @@ $(document).ready(function(){
         const usuarios = document.getElementById('usuarios')
         usuarios.innerHTML=""
         $.ajax({
-            url: 'http://localhost:8080/ListarCampesinos',
+            url: 'https://bdagroexpress-production.up.railway.app/ListarCampesinos',
             type: 'GET',
             dataType: "JSON",
             success: function(respuesta) {
@@ -197,7 +197,7 @@ $(document).ready(function(){
         const usuarios = document.getElementById('usuarios')
         usuarios.innerHTML=""
         $.ajax({
-            url: 'http://localhost:8080/listarCompradores',
+            url: 'https://bdagroexpress-production.up.railway.app/listarCompradores',
             type: 'GET',
             dataType: "JSON",
             success: function(respuesta) {
@@ -217,7 +217,7 @@ $(document).ready(function(){
         const usuarios = document.getElementById('usuarios')
         usuarios.innerHTML=""
         $.ajax({
-            url: 'http://localhost:8080/listarTranpsotador',
+            url: 'https://bdagroexpress-production.up.railway.app/listarTranpsotador',
             type: 'GET',
             dataType: "JSON",
             success: function(respuesta) {
@@ -306,7 +306,7 @@ $(document).on("click", ".actualizar-btn", function() {
     console.log(JSON.stringify(datos));
 
     $.ajax({
-        url: 'http://localhost:8080/ActualizarProducto/' + referencia + documentoUsu,
+        url: 'https://bdagroexpress-production.up.railway.app/' + referencia + documentoUsu,
         type: 'PUT',
         dataType: "JSON",
         data: datosEnvio,
