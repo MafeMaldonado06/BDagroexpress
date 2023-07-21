@@ -1,9 +1,11 @@
 package com.example.BDAgroexpressPrueba.Controlador;
 
+import com.example.BDAgroexpressPrueba.Entidades.Android;
 import com.example.BDAgroexpressPrueba.Entidades.SessionRequest;
 import com.example.BDAgroexpressPrueba.Entidades.Usuario;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_DetalleCompra;
 import com.example.BDAgroexpressPrueba.Servicios.Servicio_Usuario;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -59,6 +61,18 @@ public class Controlador_Usuario {
         return servicio.ValidacionIngresoUsuario(datos);
     }
 
+    @GetMapping("/ListarAndroid")
+    public List<Android> ListarAndroid(){
+        return servicio.Documentoandroid();
+    }
+
+    @DeleteMapping("/EliminarAndroid")
+    public ResponseEntity<String> eliminarAndroid() {
+        servicio.eliminarTodosLosAndroid();
+        return ResponseEntity.ok("Eliminación exitosa");
+    }
+
+
     @PostMapping("/AgregarUsuario")
     public String AgregarUsuario(@RequestBody Usuario user){
 
@@ -84,10 +98,10 @@ public class Controlador_Usuario {
         return servicio.getCampesinos();
     }
 
-   /* @PostMapping("/ActualizarEstado/{doc}/{estado}")
-    public boolean actualizarEstado(@PathVariable("doc")String doc,@PathVariable("estado")String estado){
-        return servicio_D.actualizarEstadoOrdenEntrega(doc,estado);
-    }*/
+   @PostMapping("/ActualizarEstado/{ordenEntregaId}/{estado}")
+    public boolean actualizarEstado(@PathVariable("ordenEntregaId")int ordenEntregaId,@PathVariable("estado")String estado){
+        return servicio_D.actualizarEstadoOrdenEntrega(ordenEntregaId,estado);
+    }
 
     @DeleteMapping("/eliminarUsuario/{documento}")
     public String eliminarUsuario(@PathVariable String documento) {

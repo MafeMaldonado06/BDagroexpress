@@ -19,6 +19,7 @@ public class Controlador_OrdenEntrega {
         this.servicioOrdenEntrega = servicioOrdenEntrega;
     }
 
+
     @GetMapping("/Entregado/{doc}")
     public List<Map<String, Object>> finentrgado(@PathVariable("doc") int doc){
         return servicioOrdenEntrega.findrntrgado(doc);
@@ -27,5 +28,10 @@ public class Controlador_OrdenEntrega {
     @GetMapping("/Entregando/{doc}")
     public List<Map<String, Object>>finentregando(@PathVariable("doc")int doc){
         return servicioOrdenEntrega.finentregando(doc);
+    }
+
+    @GetMapping("/Odenentrega/{doc}")
+    public List<Map<String, Object>>Ordenentrega(@PathVariable("doc")int doc){
+        return servicioOrdenEntrega.getOrdenentrega(doc);
     }
 }

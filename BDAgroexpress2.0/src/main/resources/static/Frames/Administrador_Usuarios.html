@@ -23,9 +23,6 @@
     <!--Iconos Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <!--Ajax-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!--Jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -34,12 +31,12 @@
 <body>
 
 <header class="d-flex align-items-center">
-    <div class="ms-5 align-content-center w-auto">
-        <img class="header-logo" src="../Img/logo.png" alt="">
-        <img class="header-tipografia" src="../Img/Tipografia.png" alt="">
+    <div class="ms-sm-5 align-content-center w-auto">
+        <img class="header-logo" src="https://i.ibb.co/51RBGB0/logo.png" alt="">
+            <img class="header-tipografia" src="https://i.ibb.co/TrgPLk4/Tipografia.png" alt="">
     </div>
 
-    <div class="header-enlaces col-lg-6 col-sm-4 col d-flex justify-content-end pe-5 me-2">
+    <div class="header-enlaces col-lg-6 col-sm-4 col d-flex justify-content-end pe-sm-5 me-2">
         <div class="d-flex justify-content-end align-items-center w-100 list-unstyled">
             <li>
                 <a href="Administrador_Productos.html">
@@ -53,12 +50,12 @@
             </li>
             <div class="contenedor-img-usuario d-flex justify-content-center align-items-center" id="img-usuario-navbar">
                 <div class="usuario-img bg-info">
-                    <img src="../Img/pexels-bruno-salvadori-2330169.jpg" alt="">
+                    <img src="https://i.ibb.co/jwsbjjx/pexels-bruno-salvadori-2330169.jpg" alt="">
                 </div>
             </div>
-            <div>
+            <div class="lista-header">
                 <button class="btn bg-black" id="boton-hamburguesa">
-                    <i class="bi bi-list text-light lista-header"></i>
+                    <i class="bi bi-list text-light"></i>
                 </button>
             </div>
         </div>
@@ -79,6 +76,7 @@
     </ul>
 </div>
 
+
 <span class="caja-opacidad-apertura-bandeja" id="caja-opacidad-apertura-bandeja">
     </span>
 
@@ -90,7 +88,7 @@
     <div class="d-flex flex-column align-items-center">
         <div class="contenedor-img-usuario-bandeja d-flex justify-content-center align-items-center">
             <div class="usuario-img bg-info">
-                <img src="../Img/pexels-bruno-salvadori-2330169.jpg" alt="">
+                <img src="https://i.ibb.co/jwsbjjx/pexels-bruno-salvadori-2330169.jpg" alt="">
             </div>
         </div>
         <h2 id="nombre-usuario"></h2>
@@ -136,47 +134,47 @@
     </div>
 </div>
 
-<div class="contenido-usuarios d-flex flex-lg-row-reverse flex-sm-column justify-content-between align-items-center py-4">
+<div class="contenido-usuarios d-flex flex-lg-row-reverse flex-column justify-content-between align-items-center py-4">
     <div class="roles-usuario d-flex justify-content-center col-xl-1 me-lg-4">
         <div class="titulo-roles-usuarios w-100 d-flex align-items-center justify-content-center">
             <div>
                 <div class="contenedor-icon-rol p-3" id="todos">
-                    <img src="../Img/Limpiar.png" class="d-block w-100" alt="">
+                    <img src="https://i.ibb.co/sWpjvb6/Limpiar.png" class="d-block w-100" alt="">
                 </div>
                 <h6>Ver todo</h6>
             </div>
             <div>
                 <div class="contenedor-icon-rol p-2" id="Administrador">
-                    <img src="../Img/Administrador.png" class="d-block w-100" alt="">
+                    <img src="https://i.ibb.co/1stfDMH/Administrador.png" class="d-block w-100" alt="">
                 </div>
                 <h6>Administrador</h6>
             </div>
             <div>
                 <div class="contenedor-icon-rol p-2" id="Campesino">
-                    <img src="../Img/Campesino.png" class="d-block w-100" alt="">
+                    <img src="https://i.ibb.co/grmWMFL/campesino.png" class="d-block w-100" alt="">
                 </div>
                 <h6>Campesino</h6>
             </div>
             <div >
                 <div class="contenedor-icon-rol p-2" id="Comprador">
-                    <img src="../Img/Comprador.png" class="d-block w-100"  alt="">
+                    <img src="https://i.ibb.co/xHNDKTH/Comprador.png" class="d-block w-100"  alt="">
                 </div>
                 <h6>Comprador</h6>
             </div>
             <div>
                 <div class="contenedor-icon-rol p-2" id="Transportador">
-                    <img src="../Img/Transportador.png" class="d-block w-100" alt="">
+                    <img src="https://i.ibb.co/xh7z4bM/Transportador.png" class="d-block w-100" alt="">
                 </div>
                 <h6>Transportador</h6>
             </div>
         </div>
     </div>
 
-    <div class="cartas-usuarios position-relative d-flex flex-sm-column flex-md-row justify-content-center flex-wrap col-lg-10 ms-lg-5 py-3 align-items-sm-center" id="usuarios">
-        <!-- <div class="card-usuario card d-flex justify-content-center shadow">
+    <div class="cartas-usuarios position-relative d-flex flex-column flex-md-row justify-content-center flex-wrap col-lg-10 ms-lg-5 py-3 align-items-center" id="usuarios">
+        <div class="card-usuario card d-flex justify-content-center shadow">
             <div class="d-flex justify-content-center w-100 py-3">
                 <div class="imagen-carta-usuario">
-                    <img src="../Img/pexels-bruno-salvadori-2330169.jpg" class="d-block w-100" alt="">
+                    <img src="https://i.ibb.co/jwsbjjx/pexels-bruno-salvadori-2330169.jpg" class="d-block w-100" alt="">
                 </div>
             </div>
 
@@ -231,7 +229,7 @@
                     <button class="btn btn-dark">Eliminar</button>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -270,18 +268,6 @@
                     <label for="imagen">Imagen</label>
                     <input type="file" placeholder="Ingrese el nuevo dato" class="form-control">
 
-                    <div class="d-flex">
-                        <div class="col">
-                            <label for="departamento">Departamento</label>
-                            <select name="departamento" id="departamento" class="form-control"></select>
-                        </div>
-
-                        <div class="col">
-                            <label for="municipio">Ciudad</label>
-                            <select name="municipio" id="municipio" class="form-control"></select>
-                        </div>
-                    </div>
-
                     <label for="direccion">Direccion</label>
                     <input type="text" placeholder="Ingrese el nuevo dato" class="form-control">
 
@@ -301,10 +287,10 @@
 </div>
 
 <footer class="bg-black pb-3">
-    <div class="d-flex flex-sm-column flex-xl-row">
+    <div class="d-flex flex-column flex-xl-row">
         <div class="col-md-12 col-xl-6 d-flex justify-content-center py-4">
             <div class="w-75 d-flex justify-content-center">
-                <div class="w-75">
+                <div class="col-12 col-md-9">
                     <h2>Contactanos:</h2>
                     <form action="">
                         <label for="correo">Correo electronico </label>
@@ -323,7 +309,7 @@
 
         <div class="d-flex flex-column justify-content-center align-items-center col-md-12 col-xl">
             <div class="w-25">
-                <img src="../Img/logo.png" class="d-block w-100" alt="">
+                <img src="https://i.ibb.co/51RBGB0/logo.png" class="d-block w-100" alt="">
             </div>
         </div>
 
@@ -350,8 +336,9 @@
     </div>
 </footer>
 
-<script src="../Js/Ingresar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="../Js/Administrador.js"></script>
+<script src="../Js/Ingresar.js"></script>
 <script src="../Js/JQuery.js"></script>
 
 </body>

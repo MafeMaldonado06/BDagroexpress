@@ -59,7 +59,6 @@ public class Servicios_Detalle_Producto {
         Usuario usuario = RepositorioUsuario.findById(documento).get();
         DetalleProducto product = detalleProductoRepositorio.getProducto(id);
 
-
         if(usuario != null && usuario.getUsu_Rol().equals("Administrador") || usuario.getUsu_Rol().equals("Campesino")){
 
             product.setDet_Referencia(product.getDet_Referencia());
