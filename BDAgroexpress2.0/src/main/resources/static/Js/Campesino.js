@@ -228,19 +228,23 @@ guardarCambios()
     }
     buscarDatos()
 
-$(document).ready(function() {
-    let documentoUsu=window.sessionStorage.getItem("id_usuario")
+
+    let documentoUsu = window.sessionStorage.getItem("id_usuario");
+
     $.ajax({
-        url: 'https://bdagroexpress-production.up.railway.app/totalproductos/'+documentoUsu,
+        url: 'https://bdagroexpress-production.up.railway.app/totalproductos/' + documentoUsu,
         type: 'GET',
-        dataType: "JSON",
+        dataType: "text", // Cambiamos el dataType a "text" en lugar de "JSON"
         success: function(respuesta) {
             // Aquí actualizamos el contenido del elemento con la respuesta del AJAX
-            $(".cantidad-number").text(respuesta);
-            console.log(documentoUsu)
+            const cantidadProductos = parseInt(respuesta); // Convertimos la respuesta a un número entero
+            $(".cantidad-number").text(cantidadProductos);
+            console.log(cantidadProductos);
+        },
+        error: function(xhr, status, error) {
+            // Manejar el error en caso de que la solicitud falle
+            console.error("Error en la solicitud AJAX:", error);
         }
-
     });
-});
     
 })
