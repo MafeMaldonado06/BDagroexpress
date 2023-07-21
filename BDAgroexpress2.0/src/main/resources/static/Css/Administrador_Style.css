@@ -58,6 +58,10 @@ input {
 }
 
 /*solo de usuarios*/
+.contenido-usuarios{
+    min-height: 100hv;
+}
+
 .titulo-roles-usuarios{
     display: flex;
     flex-direction: column;
@@ -237,8 +241,9 @@ input {
 
 @media (min-width: 576px) and (max-width: 767px){
     .titulo{
-        width: 90%;
+        width: 90%
     }
+
 
     .contenedor-icon-categoria{
         width: 25%;
@@ -301,5 +306,48 @@ input {
 
     .cartas-usuario{
         flex-direction: column;
+    }
+}
+
+@media (max-width: 575px) {
+    .titulo{
+        width: 100%;
+    }
+
+    .contenedor-icon-categoria{
+        width: 50%;
+    }
+
+    .card-producto{
+        width: 18em;
+    }
+
+    .titulo div{
+        width: 38%;
+    }
+
+    /*Usuarios*/
+    .titulo-roles-usuarios{
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 0;
+    }
+
+    .titulo-roles-usuarios div{
+        width: 4em;
+        margin-inline: .5em;
+    }
+
+    .titulo-roles-usuarios h6{
+        display: none;
+    }
+
+    .cartas-usuarios{
+        width: 90%;
+    }
+
+    .card-usuario{
+        width: 20em;
     }
 }

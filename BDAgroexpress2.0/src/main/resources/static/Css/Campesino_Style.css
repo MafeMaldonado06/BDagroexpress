@@ -10,6 +10,14 @@
     width: 25%;
 }
 
+.estadisticas-cantidad{
+    margin-top: 5%;
+}
+
+.estadisticas-ganancias{
+    margin-top: 5%;
+}
+
 .cantidad{
     border-radius: 50%;
     border: 4px solid #53704B;
@@ -20,7 +28,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
 }
 
 .cantidad-number{
@@ -146,5 +153,21 @@
     /*Solo productos*/
     .carta-producto{
         width: 19em;
+    }
+}
+
+@media (max-width: 575px) {
+    .carta-despacho{
+        width: 23em;
+    }
+
+    .estadisticas{
+        position: fixed;
+        z-index: 33;
+        background-color: white;
+        top: 0;
+        left: -550px;
+        height: 100ch;
+        width: 18em;
     }
 }

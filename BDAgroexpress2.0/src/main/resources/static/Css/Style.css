@@ -257,9 +257,6 @@ header{
     transition: opacity 1s ease;
 }
 
-.caja-fondo h1{
-    display: none;
-}
 
 .superposicion:hover{
     opacity: 0.6;
@@ -642,5 +639,72 @@ footer{
 
     .boton-flotante-subir{
         display: none;
+    }
+}
+
+@media (max-width: 576px){
+
+    header{
+        height: 5em;
+    }
+
+    .header-logo{
+        width: 22%;
+    }
+
+    .header-tipografia{
+        width: 50%;
+    }
+
+    .lista-header{
+        display: block;
+    }
+
+    .header-enlaces li{
+        display: none;
+    }
+
+    .bandeja-menu-navegacion{
+        display: block;
+        width: 65%;
+    }
+
+    .superposicion{
+        opacity: .5;
+        cursor: none;
+    }
+
+    .caja-fondo{
+        height: 350px;
+    }
+
+    .superposicion-p{
+        width: 20em;
+        text-align: center;
+    }
+
+    .superposicion-a{
+        width: 10em;
+    }
+
+    .contenedor-proposito{
+        width: 100%;
+    }
+
+    .subtitulo{
+        width: 20em;
+        text-align: center;
+    }
+
+    .boton-flotante-subir{
+        display: none;
+    }
+
+    .bandeja{
+        width: 80%;
+    }
+
+    .caja-buscador{
+        width: 20em;
     }
 }

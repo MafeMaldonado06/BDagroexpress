@@ -12,6 +12,10 @@
     overflow: hidden;
 }
 
+.contenedor-formulario{
+    width: 100em;
+}
+
 .caja-imagenFormulario{
     height: 750px;
 }
@@ -22,4 +26,18 @@
 
 .btn-red i{
     font-size: 20px;
+}
+
+@media(max-width : 576px){
+    .contenedor-formulario{
+        width: 90%;
+    }
+
+    .caja-imagen{
+        display: none;
+    }
+
+    .contenedor-formulario{
+        width: 90%;
+    }
 }
