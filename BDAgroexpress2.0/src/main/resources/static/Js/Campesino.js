@@ -16,7 +16,7 @@ $(document).ready(function(){
         if (categoriaSeleccionada == 1){
             productos.innerHTML=""
         $.ajax({
-            url: "http://bdagroexpress-production.up.railway.app/Frutas",
+            url: "https://bdagroexpress-production.up.railway.app/Frutas",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -35,7 +35,7 @@ $(document).ready(function(){
         else if (categoriaSeleccionada == 2){
             productos.innerHTML=""
         $.ajax({
-            url: "http://bdagroexpress-production.up.railway.app/Verduras",
+            url: "https://bdagroexpress-production.up.railway.app/Verduras",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -54,7 +54,7 @@ $(document).ready(function(){
         else if(categoriaSeleccionada ==3){
             productos.innerHTML=""
         $.ajax({
-            url: "http://bdagroexpress-production.up.railway.app/Legumbres",
+            url: "https://bdagroexpress-production.up.railway.app/Legumbres",
             type: "GET",
             dataType: "JSON",
             success: function(respuesta) {
@@ -90,7 +90,7 @@ $(document).ready(function(){
         console.log(datosEnvio);
 
         $.ajax({
-            url: "http://bdagroexpress-production.up.railway.app/AgregarProducto/" + documento,
+            url: "https://bdagroexpress-production.up.railway.app/AgregarProducto/" + documento,
             type: "POST",
             data: datosEnvio,
             contentType: "application/JSON",
@@ -156,7 +156,7 @@ guardarCambios()
 /* LISTAR PRODUCTOS */
 
     $.ajax({
-        url : "http://bdagroexpress-production.up.railway.app/ListarProductosCampesino/" + documento,
+        url : "https://bdagroexpress-production.up.railway.app/ListarProductosCampesino/" + documento,
         type : 'GET',
         dataType : "JSON",
         success : function(respuesta){
@@ -182,7 +182,7 @@ guardarCambios()
 
     // Realizar la solicitud AJAX para obtener los datos de las órdenes
     $.ajax({
-        url: "http://bdagroexpress-production.up.railway.app/OrdenCompra",
+        url: "https://bdagroexpress-production.up.railway.app/OrdenCompra",
         type: "GET",
         dataType: "JSON",
         success: function(respuesta) {
@@ -233,7 +233,7 @@ guardarCambios()
 $(document).ready(function() {
     let documentoUsu=window.sessionStorage.getItem("id_usuario")
     $.ajax({
-        url: 'http://localhost:8080/totalproductos/'+documentoUsu,
+        url: 'https://localhost:8080/totalproductos/'+documentoUsu,
         type: 'GET',
         dataType: "JSON",
         success: function(respuesta) {
