@@ -73,4 +73,9 @@ public class Controlador_DetalleProducto {
         return servicio.getProducto(referencia);
     }
 
+    @GetMapping("/totalproductos/{doc}")
+    public int contarProductos(@PathVariable("doc") int doc) {
+        return servicio.contarProductos(doc);
+    }
+
 }

@@ -1,4 +1,4 @@
-b$(document).ready(function(){
+$(document).ready(function(){
     
     window.sessionStorage.getItem("id_usuario", documento)
 
