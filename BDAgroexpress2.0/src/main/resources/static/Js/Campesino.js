@@ -1,6 +1,4 @@
 $(document).ready(function(){
-    
-    window.sessionStorage.getItem("id_usuario", documento)
 
     const productos = document.getElementById('productos')
 
@@ -233,7 +231,7 @@ guardarCambios()
 $(document).ready(function() {
     let documentoUsu=window.sessionStorage.getItem("id_usuario")
     $.ajax({
-        url: 'https://localhost:8080/totalproductos/'+documentoUsu,
+        url: 'https://bdagroexpress-production.up.railway.app/totalproductos/'+documentoUsu,
         type: 'GET',
         dataType: "JSON",
         success: function(respuesta) {
