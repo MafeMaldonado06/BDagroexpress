@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="jz">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Js/Transportador.js" afterDir="false" />
+    <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_07_2023_12_34_p__m___Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Despachos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Despachos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Transportador_Pedidos-Entregar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Transportador_Pedidos-Entregar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Comprador.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Comprador.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Productos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Usuarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Usuarios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Carrito.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Carrito.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Frutas.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Frutas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Legumbres.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Legumbres.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Verduras.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Categorias_Verduras.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Inicio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Mis-Pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Comprador_Mis-Pedidos.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +36,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Julian" />
+    <option name="BRANCH" value="Holman" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -63,7 +72,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/ADMIN/Desktop/JPA/BDagroexpress/BDAgroexpress2.0/src/main/resources/static/Js",
+    "last_opened_file_path": "C:/Users/ANGIE LORENA/Desktop/AgroExpress/BDagroexpress/BDAgroexpress2.0",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -71,27 +80,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ADMIN\Desktop\JPA\BDagroexpress\BDAgroexpress2.0\src\main\resources\static\Js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\holma\OneDrive\Escritorio\AgroExpress\BDagroexpress\BDAgroexpress2.0\src\main\resources" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="BDAgroexpress2.0" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="BDAgroexpress2.0" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -347,14 +338,7 @@
       <option name="project" value="LOCAL" />
       <updated>1689831619325</updated>
     </task>
-    <task id="LOCAL-00036" summary="jz">
-      <created>1689913861181</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1689913861181</updated>
-    </task>
-    <option name="localTasksCounter" value="37" />
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +355,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Holman" />
-    <MESSAGE value="jz" />
-    <option name="LAST_COMMIT_MESSAGE" value="jz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Holman" />
   </component>
 </project>

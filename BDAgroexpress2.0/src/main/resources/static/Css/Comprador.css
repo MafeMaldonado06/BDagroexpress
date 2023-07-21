@@ -191,7 +191,8 @@
 }
 
 .productos-carrito .lista-productos-carrito,.menu-pago-carrito {
-    margin-inline: 5%; }
+    margin-inline: 5%; 
+}
 
 .contenedor-productos-carrito {
     width: 50em;
@@ -430,7 +431,7 @@
 }
 
 .detalle-datos-pedido{
-    width: 69em;
+    width: 100%;
 }
 
 .detalle-header{
@@ -861,5 +862,104 @@
 
     .detalle-productos-producto div{
         width: calc(33em / 6);
+    }
+}
+
+@media (max-width: 575px){
+    .carta-producto-comprador{
+        margin-block: 1em;
+    }
+
+    /*Mis pedidos*/
+    .titulo-mi-historial{
+        margin-left: 3%;
+        font-size: 18px
+    }
+    
+    .titulo-mi-historial hr{
+        width: 10em;
+    }
+
+    .caja-titulos{
+        display: none;
+    }
+    
+    .caja-titulos div{
+        font-size: 14px;
+        font-weight: 650
+    }
+    
+    .caja-mi-pedido{
+        width: 24em;
+    }
+
+    .caja-mi-pedido div{
+        width: calc(35em / 4);
+        text-align: center
+    }
+
+    .detalle-mi-pedido{
+        width: 24em;
+    }
+
+    .detalle-header{
+        width: 24em;
+    }
+
+    .detalle-productos{
+        width: 24em;
+    }
+
+    .caja-detalle-cantidad{
+        width: 10em;
+    }
+
+    .caja-detalle-total-compra{
+        width: 10em;
+    }
+
+    .detalle-productos-producto div{
+        width: calc(33em / 6);
+    }
+
+    /*Carrito comprador*/
+    .contenedor-productos-carrito{
+        width: 98%;
+    }
+
+    .producto-carrito{
+        width: 10 0%;
+        padding-inline: .5em;
+    }
+
+    .contador-cantidad{
+        width:9em;
+        margin-right: 1em;
+    }
+
+    .menu-pago-carrito{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        z-index: 33;
+    }
+
+    .caja-resumen-compra{
+        width: 50%;
+        display: flex;
+        justify-content: flex-start
+    }
+
+    .resumen-compra{
+        width: 100%;
+    }
+
+    .btn-continuar-pago{
+        width: 50%;
+    }
+
+    .productos-carrito .lista-productos-carrito,.menu-pago-carrito {
+        margin-inline: 0; 
     }
 }
