@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7b3d8b59-1b40-44c7-b10b-299539798614" name="Changes" comment="Holman">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Administrador_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Administrador_Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Campesino_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Campesino_Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Formulario_Ingreso.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Formulario_Ingreso.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Css/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Css/Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Usuarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Administrador_Usuarios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Despachos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Despachos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Campesino_Productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Formulario_Ingreso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Formulario_Ingreso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Formulario_Registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Formulario_Registro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Frames/Inicio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Frames/Inicio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Administrador_Productos.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Frames/Administrador_Productos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/Frames/Formulario_Registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Frames/Formulario_Registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/Js/Administrador.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Js/Administrador.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Holman" />
+    <option name="BRANCH" value="Julian" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -370,6 +358,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Holman" />
-    <option name="LAST_COMMIT_MESSAGE" value="Holman" />
+    <MESSAGE value="jz" />
+    <option name="LAST_COMMIT_MESSAGE" value="jz" />
   </component>
 </project>
