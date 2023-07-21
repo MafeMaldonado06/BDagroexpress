@@ -97,6 +97,19 @@ public class Servicio_DetalleCompra {
         return message;
     }
 
+    public boolean actualizarEstadoOrdenEntrega(int ordenEntregaId, String Estado) {
+        Optional<Ord_Entrega> ordenEntregaOptional = ordEntregaRepositorio.findById(ordenEntregaId);
+
+        if (ordenEntregaOptional.isPresent()) {
+            Ord_Entrega ordenEntrega = ordenEntregaOptional.get();
+            ordenEntrega.setOrdE_Estado(Estado);
+            ordEntregaRepositorio.save(ordenEntrega);
+            return true;
+        }
+
+        return false;
+    }
+
 
 
 
@@ -313,23 +326,7 @@ public class Servicio_DetalleCompra {
         return detalleCompraRepositorio.prodcutocompra(docusu);
     }
 
-    public boolean actualizarEstadoOrdenEntrega(String doc, String Estado) {
-        Optional<Usuario> usuarioOptional = RepositorioUsuario.findById(doc);
-
-        if (usuarioOptional.isPresent()) {
-            Usuario usuario = usuarioOptional.get();
-            Set<Ord_Entrega> ordenesEntrega = usuario.getOrdenentrega();
-
-            for (Ord_Entrega ordenEntrega : ordenesEntrega) {
-                ordenEntrega.setOrdE_Estado(Estado);
-                ordEntregaRepositorio.save(ordenEntrega);
-            }
-
-            return true;
-        }
-
-        return false;
-    }*/
+    */
 }
 
 

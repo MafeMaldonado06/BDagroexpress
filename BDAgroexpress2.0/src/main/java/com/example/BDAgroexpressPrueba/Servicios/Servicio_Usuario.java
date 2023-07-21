@@ -50,6 +50,14 @@ public class Servicio_Usuario {
         return RepositorioUsuario.findAdministrador();
     }
 
+
+    public List<Android> Documentoandroid(){return Repositorioandroid.Documentoandroid();}
+
+    public void eliminarTodosLosAndroid() {
+        Repositorioandroid.deleteAll();
+    }
+
+
     public Usuario datosSesion(String documento){
         return RepositorioUsuario.findById(documento).get();
     }
@@ -129,6 +137,4 @@ public class Servicio_Usuario {
         }
         return mensage;
     }
-
-
 }
